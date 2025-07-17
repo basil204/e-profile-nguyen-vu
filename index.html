@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=393, initial-scale=1.0">
@@ -7,52 +8,60 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/skills-diagram.css">
-    <link rel="stylesheet" href="assets/works-diaggram.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/skills-diagram.css">
+    <link rel="stylesheet" href="assets/css/works-diaggram.css">
+    <link rel="stylesheet" href="assets/css/tab-prizes.css">
+    <link rel="stylesheet" href="assets/css/tab-medias.css">
+    <link rel="stylesheet" href="assets/css/tabs-shinnec-logo.css">
+    <link rel="stylesheet" href="assets/css/tabs-shinec-idea.css">
+    <link rel="stylesheet" href="assets/css/tab-shinec-sector.css">
+    <link rel="stylesheet" href="assets/css/esg.css">
+    <link rel="stylesheet" href="assets/css/ggi-box.css">
+
 </head>
+
 <body>
     <div class="profile-section">
         <div class="custom-bg"></div>
         <div class="gradient-text" style="margin-left: 0;">
-            Nguyễn<br />
-            Mạnh Vũ
+            Nguyễn<br /> Mạnh Vũ
         </div>
         <div class="subtitle" style="margin-left: 0; font-weight:100;  letter-spacing:0.1px;"><strong>Trợ lý Tổng Giám đốc</strong></div>
         <div class="company" style="font-weight:100;margin-left: 0; font-size:9px; letter-spacing:0.05px;">Công ty Cổ phần Shinec</div>
         <div style="height:15px;"></div>
         <div class="subtitle" style="margin-left: 0;font-weight:100;  letter-spacing:0.1px;"><strong>Giám đốc Marketing</strong></div>
-        <div class="company" style="margin-left: 0;font-weight:300; font-size:9px; letter-spacing:0.1px;">Công ty Cổ phần<br /> GreenGrow Industries</div>
+        <div class="company" style="margin-left: 0; font-size:9px;">Công ty Cổ phần<br /> GreenGrow Industries</div>
         <div style="height:15px;"></div>
-        <div class="subtitle"style="margin-left: 0;font-weight:100;  letter-spacing:0.1px;"><strong>Giáo viên Kinh tế</strong></div>
-        <button class="custom-btn">Liên hệ với tôi</button>
-        <div class="mong-muon-box"><div style="text-align: left; margin-bottom: 10px;"><strong style="font-size: 15px;">Xin Chào,</strong></div>
-            <div style="text-align: left;">Tôi mong muốn được làm việc trong môi trường chuyên nghệm cao, tôi kỳ vọng sẽ trở thành Trợ lý đắc lực, góp phần hỗ trợ Lãnh đạo trong việc hoạch định, triển khai và giám sát các hoạt động chiến lược của doanh nghiệp.</div>
+        <div class="subtitle" style="margin-left: 0;font-weight:100;  letter-spacing:0.1px;"><strong>Giáo viên Kinh tế</strong></div>
+        <button class="custom-btn" id="go-to-contact">Liên hệ với tôi</button>
+        <div class="mong-muon-box">
+            <div style="text-align: left;"><strong class="xinchao">Xin Chào,</strong></div>
+            <div style="text-align: left;" class="send">Là người dẫn dắt nhiều dự án chiến lược trong lĩnh vực bất động sản công nghiệp, logistics và marketing tích hợp, tôi luôn ưu tiên các giải pháp linh hoạt, thực tiễn và hướng đến giá trị bền vững cho doanh nghiệp.</div>
         </div>
     </div>
-    
-    <nav class="menu-bar" style="margin-top: -10px;">
+
+    <nav class="menu-bar">
         <button class="menu-btn active" data-tab="tab1">Thông tin cá nhân</button>
         <button class="menu-btn" data-tab="tab2">Dịch vụ</button>
         <button class="menu-btn" data-tab="tab3">Dự án của tôi</button>
         <button class="menu-btn" data-tab="tab4">Liên hệ</button>
     </nav>
     <div class="tab-content" id="tab1" style="display:block;">
-       
-            <div class="tab-education">
-                <h1 class="education-title">TRÌNH ĐỘ HỌC VẤN</h1>
-                <p class="education-school">Trường Đại học Hàng hải Việt Nam</p>
-                <p class="education-major">Chuyên ngành: Quảng trị Tài chính - Kế toán</p>
-                <div class="education-stats">
-                    <span class="education-gpa">GPA: 4.0/4.0</span>
-                    <span class="education-rank">Loại: Xuất sắc</span>
-                </div>
-                <p class="education-achievement">Thủ khoa đầu ra TP. Hải Phòng năm 2022</p>
+
+        <div class="tab-education">
+            <h1 class="education-title">TRÌNH ĐỘ HỌC VẤN</h1>
+            <p class="education-school">Trường Đại học Hàng hải Việt Nam</p>
+            <p class="education-major">Chuyên ngành: Quảng trị Tài chính - Kế toán</p>
+            <div class="education-stats">
+                <span class="education-gpa">GPA: 4.0/4.0</span>
+                <span class="education-rank">Loại: Xuất sắc</span>
             </div>
-             <div class="tab-skills">
-                <h1 class="skills-title">KỸ NĂNG</h1>
-             <div class="skills-container">
-  <svg class="skills-lines" width="100%" height="100%" viewBox="0 0 600 450" preserveAspectRatio="xMidYMid meet">
+            <p class="education-achievement">Thủ khoa đầu ra TP. Hải Phòng năm 2022</p>
+        </div>
+        <div class="tab-skills">
+            <div class="skills-container">
+                <svg class="skills-lines" width="100%" height="100%" viewBox="0 0 600 450" preserveAspectRatio="xMidYMid meet">
     <!-- Mũi tên định nghĩa -->
     <defs>
       <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5"
@@ -72,85 +81,276 @@
     <polyline points="415,405 330,405 330,190" stroke="#22C55E" stroke-width="2" fill="none" marker-start="url(#arrow)"/>
   </svg>
 
-  <div class="skills-diagram">
-    <div class="center-skill">KỸ NĂNG</div>
-    <div class="skill-item top-left">Tư duy chiến lược</div>
-    <div class="skill-item mid-left">Làm việc hệ thống/logic</div>
-    <div class="skill-item bottom-left">Giải quyết vấn đề và ra quyết định nhanh</div>
-    <div class="skill-item top-right">Giao tiếp và truyền đạt hiệu quả</div>
-    <div class="skill-item mid-right">Đổi mới và sáng tạo trong tư duy</div>
-    <div class="skill-item bottom-right">Hoạch định, tổ chức và phân bổ nguồn lực</div>
-  </div>
-</div>
-             </div>
-             <div class="tab-works">
-                <div class="blocks-container">
-                    <div class="block green-block"></div>
-                    <div class="block blue-gradient-block"></div>
-                    <div class="block light-blue-block"></div>
-                    <div class="tabs-years">
-                        <div class="year-tabs-container">
-                            <div class="year-tab active" data-year="2025">2025</div>
-                            <div class="year-tab" data-year="2023">2023</div>
-                            <div class="year-tab" data-year="2022">2022</div>
+                <div class="skills-diagram" id="skills-diagram">
+                    <div class="center-skill" id="center-skill" tabindex="0">KỸ NĂNG</div>
+                    <div class="skill-item top-left" data-skill="Tư duy chiến lược">Tư duy chiến lược</div>
+                    <div class="skill-item mid-left" data-skill="Làm việc hệ thống/logic">Làm việc hệ thống/logic</div>
+                    <div class="skill-item bottom-left" data-skill="Giải quyết vấn đề và ra quyết định nhanh">Giải quyết vấn đề và ra quyết định nhanh</div>
+                    <div class="skill-item top-right" data-skill="Giao tiếp và truyền đạt hiệu quả">Giao tiếp và truyền đạt hiệu quả</div>
+                    <div class="skill-item mid-right" data-skill="Đổi mới và sáng tạo trong tư duy">Đổi mới và sáng tạo trong tư duy</div>
+                    <div class="skill-item bottom-right" data-skill="Hoạch định, tổ chức và phân bổ nguồn lực">Hoạch định, tổ chức và phân bổ nguồn lực</div>
+                    <div class="skill-popup" id="skill-popup" style="display:none;">
+                        <span class="close-skill-popup" id="close-skill-popup" style="cursor:pointer;position:absolute;top:8px;right:16px;font-size:22px;">&times;</span>
+                        <div class="skill-popup-title" id="skill-popup-title" style="font-weight:bold;font-size:20px;margin-bottom:8px;"></div>
+                        <div class="skill-popup-content" id="skill-popup-content" style="font-size:15px;"></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="tab-works">
+            <div class="blocks-container">
+                <div class="block green-block"></div>
+                <div class="block blue-gradient-block"></div>
+                <div class="block light-blue-block"></div>
+                <div class="tabs-years swipe-years">
+                    <div class="year-tabs-container">
+                        <div class="year-tab active" data-year="2025">2025</div>
+                        <div class="year-tab" data-year="2023">2023</div>
+                        <div class="year-tab" data-year="2022">2022</div>
+                    </div>
+                    <div class="company-info-container">
+                        <!-- Dữ liệu công ty cho năm 2025 -->
+                        <div class="company-card" data-year="2025">
+                            <h3 class="company">CÔNG TY CỔ PHẦN SHINEC</h3>
+                            <p class="time-period">05/2025 - Hiện nay</p>
+                            <p class="position">Vị trí: <strong>Trợ lý Tổng giám đốc</strong></p>
                         </div>
-                        <div class="company-info-container">
-                            <!-- Dữ liệu công ty cho năm 2025 -->
-                            <div class="company-card" data-year="2025">
-                                <h3 class="company">CÔNG TY CỔ PHẦN SHINEC</h3>
-                                <p class="time-period">05/2025 - Hiện nay</p>
-                                <p class="position">Vị trí: <strong>Trợ lý Tổng giám đốc</strong></p>
-                            </div>
-                            <div class="company-card" data-year="2025">
-                                <h3 class="company">CÔNG TY CỔ PHẦN<br>GREENGROW INDUSTRIES</h3>
-                                <p class="time-period">04/2025 - Hiện nay</p>
-                                <p class="position">Vị trí: <strong>Giám đốc Marketing</strong></p>
-                            </div>
-                            
-                            <!-- Dữ liệu công ty cho năm 2023 -->
-                            <div class="company-card" data-year="2023">
-                                <h3 class="company">Công ty Cổ phần 
-Greengrow Việt</h3>
-                                <p class="time-period">02/2023 - 04/2025</p>
-                                <p class="position">Vị trí: <strong>Trợ lý Giám đốc</strong></p>
-                            </div>
-                            <div class="company-card" data-year="2023">
-                                <h3 class="company">Trường trung cấp
-bách khoa hải phòng</h3>
-                                <p class="time-period">02/2023 - Hiện nay</p>
-                                <p class="position">Vị trí: <strong>Giáo viên
+                        <div class="company-card" data-year="2025">
+                            <h3 class="company">CÔNG TY CỔ PHẦN<br>GREENGROW INDUSTRIES</h3>
+                            <p class="time-period">04/2025 - Hiện nay</p>
+                            <p class="position">Vị trí: <strong>Giám đốc Marketing</strong></p>
+                        </div>
+
+                        <!-- Dữ liệu công ty cho năm 2023 -->
+                        <div class="company-card" data-year="2023">
+                            <h3 class="company">Công ty Cổ phần Greengrow Việt</h3>
+                            <p class="time-period">02/2023 - 04/2025</p>
+                            <p class="position">Vị trí: <strong>Trợ lý Giám đốc</strong></p>
+                        </div>
+                        <div class="company-card" data-year="2023">
+                            <h3 class="company">Trường trung cấp bách khoa hải phòng</h3>
+                            <p class="time-period">02/2023 - Hiện nay</p>
+                            <p class="position">Vị trí: <strong>Giáo viên
 khoa Quản lý Kinh tế</strong></p>
-                            </div>
-                          
-                            
-                            <!-- Dữ liệu công ty cho năm 2022 -->
-                            <div class="company-card" data-year="2022">
-                                <h3 class="company">Công ty TNHH tư vấn
-và kiểm toán anh
-(chi nhánh hải thành)</h3>
-                                <p class="time-period">02/2023 - 04/2025</p>
-                                <p class="position">Vị trí: <strong>Kế toán viên
+                        </div>
+
+
+                        <!-- Dữ liệu công ty cho năm 2022 -->
+                        <div class="company-card" data-year="2022">
+                            <h3 class="company">Công ty TNHH tư vấn và kiểm toán anh (chi nhánh hải thành)</h3>
+                            <p class="time-period">02/2023 - 04/2025</p>
+                            <p class="position">Vị trí: <strong>Kế toán viên
 Trợ lý kiểm toán</strong></p>
-                            </div>
-                           
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="custom-img"></div>
+            <h1 class="works-title">KINH NGHIỆM<br/>LÀM VIỆC</h1>
+        </div>
+        <div class="tab-certificate">
+            <div class="certificate-blocks">
+                <div class="certificate-block-small"></div>
+                <div class="certificate-block-large"></div>
+                <div class="slider-container">
+                    <div class="slider">
+                        <div class="slide" onclick="goToSlide(0)">
+                            <img src="assets/img/tai-hinh-nen-dep-mien-phi.jpg" alt="Slide 1">
+                            <div class="overlay"></div>
+                            <div class="caption" style="display:none;">Chứng chỉ <br/>Kinh tế học quản trị</div>
+                        </div>
+                        <div class="slide" onclick="goToSlide(1)">
+                            <img src="assets/img/luu-ban-nhap-tu-dong-7283-11.jpg" alt="Slide 2">
+                            <div class="overlay"></div>
+                            <div class="caption" style="display:none;">Chứng chỉ<br/> Quản trị dự án<br/> theo chuẩn Quốc tế</div>
+                        </div>
+                        <div class="slide" onclick="goToSlide(2)">
+                            <img src="assets/img/tai-hinh-nen-dep-mien-phi.jpg" alt="Slide 3">
+                            <div class="caption" style="display:none;">Chứng chỉ Bồi dưỡng<br/> nghiệp vụ sư phạm cho<br/> giảng viên Đại học, Cao đẳng</div>
+                            <div class="overlay"></div>
                         </div>
                     </div>
                 </div>
-                  <div class="custom-img"></div>
-                   <h1 class="works-title">KINH NGHIỆM<br/>LÀM VIỆC</h1>
-             </div>
-             <div class="tab-certificate">
-                <div class="certificate-blocks">
-                    <div class="certificate-block-small"></div>
-                    <div class="certificate-block-large"></div>
+                <div class="slider-dots">
+                    <div class="slider-dot" onclick="goToSlide(0)"></div>
+                    <div class="slider-dot" onclick="goToSlide(1)"></div>
+                    <div class="slider-dot" onclick="goToSlide(2)"></div>
                 </div>
             </div>
+            <h1 class="certificate-title">CHỨNG CHỈ</h1>
+        </div>
+        <div class="tab-prizes" style="height: 248px; margin-top: 32px;">
+            <div class="prizes-blocks">
+                <div class="prize-block prize-block-green">
+                    Top 7 Chung kết Cuộc thi “Khởi<br/>nghiệp Kỹ năng quản lý tài chính<br/>toàn quốc”, năm 2020</div>
+                <div class="prize-block prize-block-blue">Đạt giải Ba hội thi “Khoa học Sinh<br/>viên toàn quốc Olympic Kinh tế<br/>lượng và ứng dụng” lần thứ VI<br/>năm 2021</div>
+                <div class="prize-block prize-block-lightblue">Sinh viên 5 Tốt cấp Trung Ương<br/>năm 2021</div>
+            </div>
+            <div class="custom-cup">
+
+            </div>
+            <div class="prizes-title">Giải thưởng<br/>& Thành tựu nổi bật</div>
+
+        </div>
+        <div class="tabs-medias-1">
+            <h3 class="text-media">Truyền thông nói gì về tôi?</h3>
+            <div class="tabs-medias-boxes">
+                <a class="tabs-medias-box tabs-medias-box-blue" href="https://danviet.vn/chuyen-ve-thu-khoa-tot-nghiep-dat-diem-cao-nhat-trong-lich-su-truong-dai-hoc-hang-hai-viet-nam-20221026220140072-d1052481.html" target="_blank" style="text-decoration:none;">
+                </a>
+                <a class="tabs-medias-box tabs-medias-box-green" href="https://svvn.tienphong.vn/thu-khoa-tot-nghiep-dat-diem-cao-nhat-trong-lich-su-truong-dai-hoc-hang-hai-viet-nam-post1480030.tpo" target="_blank" style="text-decoration:none;">
+                    <h4 class="medias-title-1">Chuyện về thủ khoa tốt nghiệp<br/> đạt điểm cao nhất trong lịch sử <br/>trường Đại học Hàng hải Việt Nam</h4>
+                </a>
+                <a href="https://danviet.vn/chuyen-ve-thu-khoa-tot-nghiep-dat-diem-cao-nhat-trong-lich-su-truong-dai-hoc-hang-hai-viet-nam-20221026220140072-d1052481.html" target="_blank" style="text-decoration:none;">
+                    <h4 class="medias-title-2">Báo Dân Việt - 27/10/2022</h4>
+                </a>
+                <a href="https://svvn.tienphong.vn/thu-khoa-tot-nghiep-dat-diem-cao-nhat-trong-lich-su-truong-dai-hoc-hang-hai-viet-nam-post1480030.tpo" target="_blank" style="text-decoration:none;">
+                    <h4 class="medias-title-3">Thủ khoa tốt nghiệp đạt điểm cao nhất<br/>trong lịch sử trường Đại học <br/>Hàng hải Việt Nam</h4>
+                </a>
+                <a href="https://svvn.tienphong.vn/thu-khoa-tot-nghiep-dat-diem-cao-nhat-trong-lich-su-truong-dai-hoc-hang-hai-viet-nam-post1480030.tpo" target="_blank" style="text-decoration:none;">
+                    <h4 class="medias-title-4">Báo Tiền Phong - 24/10/2022</h4>
+                </a>
+            </div>
+        </div>
+        <div class="end">
+            Liên hệ với tôi
+        </div>
     </div>
     </div>
-    <div class="tab-content" id="tab2" style="display:none;">Nội dung Dịch vụ</div>
-    <div class="tab-content" id="tab3" style="display:none;">Nội dung Dự án của tôi</div>
-    <div class="tab-content" id="tab4" style="display:none;">Nội dung Liên hệ</div>
-    
-    <script src="assets/main.js"></script>
+    <div class="tab-content" id="tab2" style="display:none;">
+        <div class="tabs-shinnec-logo">
+            <div class="tabs-shinnec-logo-box">
+                <img src="assets/img/Shinec 1.png" alt="Shinec Logo" class="shinec-logo-img">
+            </div>
+            <h4 class="tabs-shinnec-logo-title">Giới thiệu công ty</h4>
+            <p class="tabs-shinnec-logo-p">Shinec là một trong những doanh nghiệp tiên phong tại Việt Nam trong lĩnh vực phát triển khu công nghiệp sinh thái, gắn liền với tầm nhìn bền vững và kinh tế tuần hoàn.</p>
+        </div>
+        <div class="tabs-shinec-idea">
+            <div class="tabs-shinec-idea-box">
+            </div>
+        </div>
+        <div class="idea-shinec">
+            <div class="idea-shinec-circle"></div>
+            <div class="idea-shinec-circle"></div>
+            <div class="idea-shinec-circle"></div>
+            <div class="idea-shinec-circle"></div>
+            <div class="idea-shinec-circle"></div>
+            <div class="idea-shinec-circle"></div>
+        </div>
+
+        <h2 class="idea-meaning">Ý nghĩa
+            <br/>thương hiệu</h2>
+        <h2 class="idea-meaning-sustainability">Sustainability</h2>
+        <h2 class="idea-meaning-happiness">Happiness</h2>
+        <h2 class="idea-meaning-industries">Industries</h2>
+        <h2 class="idea-meaning-novation">Novation</h2>
+        <h2 class="idea-meaning-ecological">Ecological</h2>
+        <h2 class="idea-meaning-eulture">Culture</h2>
+        <h3 class="idea-meaning-S">S</h3>
+        <h3 class="idea-meaning-H">H</h3>
+        <h3 class="idea-meaning-I">I</h3>
+        <h3 class="idea-meaning-N">N</h3>
+        <h3 class="idea-meaning-E">E</h3>
+        <h3 class="idea-meaning-C">C</h3>
+        <div class="tab-shinec-sector">
+            <div class="shinec-sector-box">
+                <div class="icon-content-1"></div>
+                <div class="content-shinec-1">
+                    Đầu tư cơ sở hạ tầng KCN sinh thái, cụm công nghiệp sinh thái, khu dân cư, khu đô thị và dịch vụ
+                </div>
+            </div>
+            <div class="shinec-sector-box">
+                <div class="icon-content-2"></div>
+                <div class="content-shinec-2">
+                    Cho thuê đất, nhà xưởng, văn phòng, kho bãi trong các khu công nghiệp, cụm công nghiệp </div>
+            </div>
+            <div class="shinec-sector-box">
+                <div class="icon-content-3"></div>
+                <div class="content-shinec-3">
+                    Dịch vụ cho thuê & mua bán bất động sản </div>
+            </div>
+            <div class="shinec-sector-box">
+                <div class="icon-content-4"></div>
+                <div class="content-shinec-4">
+                    Dịch vụ hỗ trợ sản xuất và kinh doanh </div>
+            </div>
+        </div>
+        <div class="esg">
+            <div class="esg-tabs">
+                <button class="tab-button e active" onclick="showTab('e')">E</button>
+                <button class="tab-button s" onclick="showTab('s')">S</button>
+                <button class="tab-button g" onclick="showTab('g')">G</button>
+            </div>
+            <div id="tab-e" class="esg-tab-content active">
+                <div class="title">MÔI TRƯỜNG</div>
+                <h2 class="esg-percent-100">100%</h2>
+                <h2 class="esg-percent-65">65%</h2>
+                <h2 class="esg-percent-25">25%</h2>
+                <h2 class="esg-percent-810">81.4</h2>
+                <h3 class="esg-percent-note-100">Nhu cầu của nhà đầu tư được đáp ứng</h3>
+                <h3 class="esg-percent-note-65">Hệ sinh thái KCN được phục hồi</h3>
+                <h3 class="esg-percent-note-65s">Khi áp dụng mô hình KCN sinh thái</h3>
+                <h3 class="esg-percent-note-25">Lượng nước thải sau xử lý</h3>
+                <h3 class="esg-percent-note-25s">Tiết kiệm 600 triệu VND/năm</h3>
+                <h3 class="esg-percent-note-810">KWH<br/>trong 1 năm</h3>
+                <h3 class="esg-percent-note-810s">Sản lượng khai thác năng lượng mặt trời</h3>
+            </div>
+            <div id="tab-s" class="esg-tab-content">
+                <div class="title-esg-2">XÃ HỘI</div>
+                <h2 class="esg-percent-100-2">100%</h2>
+                <h2 class="esg-percent-35-2">35%</h2>
+                <h2 class="esg-percent-1000-2">1000</h2>
+                <h2 class="esg-percent-8000-2">8000</h2>
+                <h3 class="esg-percent-note-100-2">Nhân viên được đánh giá hàng tháng</h3>
+                <h3 class="esg-percent-note-35-2">Gia tăng mỗi năm</h3>
+                <h3 class="esg-percent-note-35s-2">Về số lượng lao động mới</h3>
+                <h3 class="esg-percent-note-1000s-2">Đầu sách</h3>
+                <h3 class="esg-percent-note-1000s-2s">Tiết kiệm 600 triệu VND/năm</h3>
+                <h3 class="esg-percent-note-8000-2">Lao động</h3>
+                <h3 class="esg-percent-note-8000-2s">Số lượng lao động hiện có</h3>
+            </div>
+            <div id="tab-g" class="esg-tab-content">
+                <div class="title-esg-3">QUẢN TRỊ</div>
+                <h2 class="esg-percent-100-3">100%</h2>
+                <h2 class="esg-percent-35-3">75%</h2>
+                <h2 class="esg-percent-1000-3">1000</h2>
+                <h3 class="esg-percent-note-100-3">Hệ thống quản lý đạt tiêu chuẩn quốc tế</h3>
+                <h3 class="esg-percent-note-35-3">Doanh nghiệp</h3>
+                <h3 class="esg-percent-note-35s-3">Phản hồi từ mức Tốt trở lên</h3>
+                <h3 class="esg-percent-note-1000s-3">Nhà đầu tư</h3>
+                <h3 class="esg-percent-note-1000s-3s">Đóng góp hơn 1000 tỷ đồng</h3>
+            </div>
+            <div class="esg-note-box">
+                <span class="esg-note-char">Chúng tôi sẽ phủ lên màu xanh của kinh tế bền vững trên tổ quốc thông qua những dự án công nghiệp sinh thái đúng nghĩa.</span>
+            </div>
+            <div class="esg-next-group">
+                <button class="esg-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewBox="0 0 26 25" fill="none">
+                      <ellipse cx="13.0014" cy="12.5" rx="12.5966" ry="12.5" transform="rotate(-180 13.0014 12.5)" fill="#EEF6EF"/>
+                      <path d="M15.8458 20.1613L8.53162 12.5L15.8458 4.83868" stroke="#00802B"/>
+                    </svg>
+                </button>
+                <button class="esg-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewBox="0 0 26 25" fill="none" style="transform: scaleX(-1);">
+                      <ellipse cx="13.0014" cy="12.5" rx="12.5966" ry="12.5" transform="rotate(-180 13.0014 12.5)" fill="#EEF6EF"/>
+                      <path d="M15.8458 20.1613L8.53162 12.5L15.8458 4.83868" stroke="#00802B"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="ggi-box">
+                <div class="ggi-logo"></div>
+                <!-- <div class="ggi-text">Công ty Cổ phần GreenGrow Industries</div> -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="tab3" style="display:none;">Nội dung Dự án của tôi</div>
+        <div class="tab-content" id="tab4" style="display:none;">Nội dung Liên hệ</div>
+
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/tab-ux.js"></script>
+        <script src="assets/js/skills-popup.js"></script>
 </body>
+
 </html>

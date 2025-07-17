@@ -1,0 +1,56 @@
+.tabs-shinnec-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.tabs-shinnec-logo-box {
+    width: 220px;
+    height: 78px;
+    flex-shrink: 0;
+    background: #EEF6EF;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    margin-right: 170px;
+    box-shadow: 0 2px 8px #0001;
+    font-size: 18px;
+    font-weight: 500;
+    color: #222;
+}
+
+.shinec-logo-img {
+    max-height: 50px;
+    max-width: 170px;
+    object-fit: contain;
+    display: block;
+    margin: 12px auto 5px auto;
+}
+
+.tabs-shinnec-logo-title {
+    color: #00802B;
+    font-family: "SF Pro Bold", sans-serif !important;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-top: 18px;
+    margin-bottom: 0;
+    margin-left: 22px;
+}
+
+.tabs-shinnec-logo-p {
+    color: #000;
+    text-align: justify;
+    font-family: "SF Pro Regular", sans-serif !important;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 349px;
+    margin-left: 22px;
+    margin-right: 22px;
+    margin-top: 8px;
+    margin-bottom: 0;
+}

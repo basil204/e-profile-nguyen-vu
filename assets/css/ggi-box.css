@@ -1,0 +1,27 @@
+.ggi-box {
+    border-radius: 0px 90px 90px 0px;
+    background: #F3F6FB;
+    width: 165px;
+    height: 97px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 18px;
+    gap: 12px;
+    margin-top: 150px;
+    margin-right: 205px;
+}
+
+.ggi-logo {
+    width: 130px;
+    height: 76px;
+    background: url('../img/Artboard-1-2048x1252.png') no-repeat center/contain;
+}
+
+.ggi-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A2B4C;
+    line-height: 1.3;
+}

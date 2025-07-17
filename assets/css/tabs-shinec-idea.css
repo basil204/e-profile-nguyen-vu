@@ -1,0 +1,207 @@
+.tabs-shinec-idea {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 292px;
+}
+
+.tabs-shinec-idea-box {
+    width: 348px;
+    height: 292px;
+    flex-shrink: 0;
+    background: url('../img/Mask group (4).png') center center/cover no-repeat;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px #0001;
+    margin-top: 10px;
+}
+
+.idea-shinec-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #D9F2E6;
+    box-shadow: 0 2px 8px #0001;
+    display: flex;
+    margin: 0 0.5px;
+}
+
+.idea-shinec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-right: 259px;
+    margin-top: -228px;
+}
+
+.idea-meaning {
+    color: #ffffff;
+    text-align: justify;
+    font-family: "SF Pro Bold", sans-serif !important;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-left: 44px;
+    margin-top: -250px;
+    margin-bottom: 0;
+}
+
+.idea-meaning-sustainability,
+.idea-meaning-happiness,
+.idea-meaning-industries,
+.idea-meaning-novation,
+.idea-meaning-ecological,
+.idea-meaning-eulture {
+    color: #ffffff;
+    text-align: justify;
+    font-family: "SF Pro Semibold", sans-serif !important;
+    font-size: 11px;
+    font-weight: 100;
+    line-height: normal;
+    text-transform: none;
+    margin-left: 86px;
+    margin-bottom: 0;
+}
+
+.idea-meaning-sustainability,
+.idea-meaning-happiness,
+.idea-meaning-industries {
+    margin-top: 20px;
+}
+
+.idea-meaning-novation,
+.idea-meaning-ecological,
+.idea-meaning-eulture {
+    margin-top: 21px;
+}
+
+.idea-meaning-S,
+.idea-meaning-H,
+.idea-meaning-I,
+.idea-meaning-N,
+.idea-meaning-E,
+.idea-meaning-C {
+    text-align: justify;
+    font-family: "SF Pro Semibold", sans-serif !important;
+    font-size: 11px;
+    font-weight: 100;
+    line-height: normal;
+    text-transform: none;
+    margin-bottom: 0;
+}
+
+.idea-meaning-S {
+    margin-top: -184px;
+    margin-left: 62px;
+    color: #0061C2;
+}
+
+.idea-meaning-H {
+    margin-top: 21px;
+    margin-left: 61px;
+    color: #0078D4;
+}
+
+.idea-meaning-I {
+    color: #0078D4;
+    color: #0099E0;
+    margin-top: 21px;
+    margin-left: 64px;
+}
+
+.idea-meaning-N {
+    color: #00AD4B;
+    margin-top: 21px;
+    margin-left: 62px;
+}
+
+.idea-meaning-E {
+    color: #00943E;
+    margin-top: 21px;
+    margin-left: 62px;
+}
+
+.idea-meaning-C {
+    color: #00802B;
+    margin-top: 21px;
+    margin-left: 62px;
+}
+
+.idea-meaning,
+.idea-meaning-sustainability,
+.idea-meaning-happiness,
+.idea-meaning-industries,
+.idea-meaning-novation,
+.idea-meaning-ecological,
+.idea-meaning-eulture,
+.idea-meaning-S,
+.idea-meaning-H,
+.idea-meaning-I,
+.idea-meaning-N,
+.idea-meaning-E,
+.idea-meaning-C {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: fadeInLeft 0.7s forwards;
+}
+
+.idea-meaning {
+    animation-delay: 0.05s;
+}
+
+.idea-meaning-sustainability {
+    animation-delay: 0.15s;
+}
+
+.idea-meaning-happiness {
+    animation-delay: 0.25s;
+}
+
+.idea-meaning-industries {
+    animation-delay: 0.35s;
+}
+
+.idea-meaning-novation {
+    animation-delay: 0.45s;
+}
+
+.idea-meaning-ecological {
+    animation-delay: 0.55s;
+}
+
+.idea-meaning-eulture {
+    animation-delay: 0.65s;
+}
+
+.idea-meaning-S {
+    animation-delay: 0.75s;
+}
+
+.idea-meaning-H {
+    animation-delay: 0.85s;
+}
+
+.idea-meaning-I {
+    animation-delay: 0.95s;
+}
+
+.idea-meaning-N {
+    animation-delay: 1.05s;
+}
+
+.idea-meaning-E {
+    animation-delay: 1.15s;
+}
+
+.idea-meaning-C {
+    animation-delay: 1.25s;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

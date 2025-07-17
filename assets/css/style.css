@@ -1,0 +1,475 @@
+@font-face {
+    font-family: 'SF Pro Ultralight';
+    src: url('../font/SF-Pro-Display-Ultralight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Ultralight Italic';
+    src: url('../font/SF-Pro-Display-UltralightItalic.otf') format('opentype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SF Pro Thin';
+    src: url('../font/SF-Pro-Display-Thin.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Thin Italic';
+    src: url('../font/SF-Pro-Display-ThinItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SF Pro Light';
+    src: url('../font/SF-Pro-Display-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Light Italic';
+    src: url('../font/SF-Pro-Display-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SF Pro Regular';
+    src: url('../font/SF-Pro-Display-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Regular Italic';
+    src: url('../font/SF-Pro-Display-RegularItalic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SF Pro Medium';
+    src: url('../font/SF-Pro-Display-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Medium Italic';
+    src: url('../font/SF-Pro-Display-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SF Pro Semibold';
+    src: url('../font/SF-Pro-Display-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Semibold Italic';
+    src: url('../font/SF-Pro-Display-SemiboldItalic.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SF Pro Bold';
+    src: url('../font/SF-Pro-Display-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Bold Italic';
+    src: url('../font/SF-Pro-Display-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SF Pro Heavy';
+    src: url('../font/SF-Pro-Display-Heavy.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Heavy Italic';
+    src: url('../font/SF-Pro-Display-HeavyItalic.otf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SF Pro Black';
+    src: url('../font/SF-Pro-Display-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Black Italic';
+    src: url('../font/SF-Pro-Display-BlackItalic.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    width: 393px;
+    max-width: 100vw;
+    height: 2546px;
+    margin: 0 auto;
+    background: #ffffff;
+    box-sizing: border-box;
+    border: 2px solid #1a49bb;
+    border-radius: 20px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.profile-section .gradient-text,
+.profile-section .subtitle,
+.profile-section .company {
+    align-self: flex-start;
+    margin-left: 20px;
+}
+
+.gradient-text {
+    background: linear-gradient(73deg, #000 28.21%, #1a49bb 88.37%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 40px;
+    line-height: 44px;
+    margin-top: -450px;
+    text-align: left;
+    margin-left: 0;
+    font-family: "SF Pro Bold", sans-serif !important;
+}
+
+.subtitle {
+    color: #000;
+    font-size: 15px;
+    line-height: normal;
+    margin-left: 0;
+    margin-top: 8px;
+    text-align: left;
+    font-family: "SF Pro Semibold", sans-serif !important;
+}
+
+.company {
+    color: #000;
+    font-size: 10px;
+    line-height: normal;
+    margin-left: 0;
+    margin-top: 4px;
+    text-align: left;
+    font-family: "SF Pro Regular", sans-serif !important;
+}
+
+.custom-bg {
+    width: 240px;
+    height: 486px;
+    flex-shrink: 0;
+    background: url("../img/KHM-1\ \(160\)\ 1.png") no-repeat;
+    margin: 50px auto 0 130px;
+    border-radius: 16px;
+    background-size: cover;
+    position: relative;
+    z-index: 5;
+    /* Đã bỏ hiệu ứng động */
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.custom-img {
+    width: 200px;
+    height: 386px;
+    flex-shrink: 0;
+    background: url("../img/anh2.png") no-repeat;
+    margin-top: -406px;
+    right: 2px;
+    background-size: cover;
+    position: relative;
+    z-index: 10;
+}
+
+.xinchao {
+    font-size: 15px;
+    color: #0f981f;
+    font-family: "SF Pro Bold", sans-serif !important;
+    position: relative;
+    top: -5px;
+}
+
+.send {
+    font-size: 9px;
+    font-family: "SF Pro Regular", sans-serif !important;
+}
+
+.custom-btn {
+    position: relative;
+    transform: none;
+    border-radius: 0 10px 10px 0;
+    background: linear-gradient(90deg, #0F981F 23.97%, #0AC23B 99.96%);
+    width: 141px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 30;
+    align-self: flex-start;
+    margin-left: 0px;
+    left: -20px;
+    font-family: "SF Pro Semibold", sans-serif !important;
+}
+
+.mong-muon-box {
+    position: relative;
+    width: 330px;
+    height: auto;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+    z-index: 10;
+    padding: 16px 20px;
+    font-size: 11px;
+    color: #222;
+    margin: 20px auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.profile-section .gradient-text,
+.profile-section .subtitle,
+.profile-section .company {
+    align-self: flex-start;
+    margin-left: 20px;
+}
+
+.menu-bar {
+    width: 390px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(90deg, #0c2155 0%, #1a49bb 77.4%);
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 0 18px;
+    margin: 20px auto 24px auto;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    white-space: nowrap;
+    box-sizing: border-box;
+    max-width: 390px;
+    gap: 10px;
+    /* Thêm khoảng cách giữa các tab */
+}
+
+.menu-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-btn {
+    background: #fff;
+    border: none;
+    font-size: 11px;
+    color: #1a49bb;
+    cursor: pointer;
+    padding: 8px 24px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+    font-family: "SF Pro Thin", sans-serif !important;
+    font-weight: 300;
+    flex: 0 0 auto;
+    letter-spacing: 1.2px;
+    min-width: unset;
+    width: auto;
+    /* Độ rộng tự động theo chữ */
+}
+
+.menu-btn.active {
+    background: #0AC23B;
+    color: #fff;
+}
+
+.menu-bar {
+    width: 390px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(90deg, #0c2155 0%, #1a49bb 77.4%);
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 0 18px;
+    margin: 20px auto 24px auto;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    white-space: nowrap;
+    box-sizing: border-box;
+    max-width: 390px;
+    gap: 10px;
+    /* Thêm khoảng cách giữa các tab */
+}
+
+.menu-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-btn {
+    background: #fff;
+    border: none;
+    font-size: 11px;
+    color: #1a49bb;
+    cursor: pointer;
+    padding: 8px 24px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+    font-family: "SF Pro Thin", sans-serif !important;
+    font-weight: 300;
+    flex: 0 0 auto;
+    letter-spacing: 1.2px;
+    min-width: unset;
+    width: auto;
+    /* Độ rộng tự động theo chữ */
+}
+
+.menu-btn.active {
+    background: #0AC23B;
+    color: #fff;
+}
+
+.tab-education {
+    margin-top: -10px;
+    width: calc(100%);
+    max-width: 85%;
+    height: 263px;
+    margin-left: auto;
+    margin-right: auto;
+    background: url("../img/Mask\ group.png") no-repeat center center;
+    background-size: cover;
+    position: relative;
+    padding: 15px;
+    border-radius: 9px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: block;
+}
+
+.education-title,
+.skills-title {
+    font-size: 17px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "SF Pro Semibold", sans-serif !important;
+}
+
+.education-school,
+.education-major {
+    color: #ffffff;
+}
+
+.education-school {
+    font-weight: 600;
+    font-size: 11px;
+    margin-bottom: 10px;
+    font-family: "SF Pro Semibold" !important;
+}
+
+.education-major {
+    font-family: "SF Pro Regular" !important;
+    font-size: 11px;
+    margin-bottom: 8px;
+    margin-top: -10px;
+}
+
+.education-gpa,
+.education-rank {
+    font-size: 11px;
+    color: #1a49bb;
+    font-weight: 600;
+    margin: 110px 0px 5px 0;
+    display: inline-block;
+    border: 1px solid #1a49bb;
+    padding: 4px 10px;
+    border-radius: 30px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    width: auto;
+    min-width: 60px;
+    font-family: "SF Pro Bold", sans-serif !important;
+}
+
+.education-achievement {
+    font-size: 10px;
+    color: #1a49bb;
+    font-weight: 600;
+    margin: 5px 0 0 0;
+    border: 1px solid #1a49bb;
+    padding: 6px 12px;
+    border-radius: 30px;
+    display: inline-block;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: auto;
+    min-width: 60px;
+    font-family: "SF Pro Bold", sans-serif !important;
+}

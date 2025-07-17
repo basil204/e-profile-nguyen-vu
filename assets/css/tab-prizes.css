@@ -1,0 +1,103 @@
+/* CSS cho tab-prizes và các khối giải thưởng */
+
+* {
+    font-family: inherit !important;
+    font-weight: bold !important;
+}
+
+.tab-prizes {
+    height: 248px;
+    margin-top: 32px;
+    text-align: center;
+}
+
+.prizes-title {
+    font-size: 17px;
+    margin-bottom: 15px;
+    color: #0F981F;
+    text-align: left;
+    margin-left: 22px;
+    margin-top: -250px;
+    font-family: "SF Pro bold", sans-serif !important;
+}
+
+.prizes-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+}
+
+.prize-block {
+    flex-shrink: 0;
+    border-radius: 0px 90px 90px 0px;
+    margin-bottom: 0;
+    font-family: "SF Pro Regular", sans-serif !important;
+}
+
+.prize-block-green {
+    width: 225px;
+    height: 57px;
+    background: linear-gradient(90deg, #0F981F 0%, #0AC23B 100%);
+    margin-top: 450px;
+    text-align: left;
+    font-size: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 16px;
+}
+
+.prize-block-green .prize-highlight {
+    font-weight: 600;
+}
+
+.prize-block-blue {
+    width: 225px;
+    height: 67px;
+    background: linear-gradient(90deg, #0C2256 0%, #1A49BB 100%);
+    text-align: left;
+    font-size: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 16px;
+}
+
+.prize-block-lightblue {
+    width: 222px;
+    height: 42px;
+    background: linear-gradient(90deg, #2A68FF 0%, #0AF 100%);
+    text-align: left;
+    font-size: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 16px;
+}
+
+.custom-cup {
+    width: 155px;
+    height: 226px;
+    flex-shrink: 0;
+    background: url("../img/Group\ 15.png") no-repeat;
+    margin-top: -16px;
+    right: -220px;
+    background-size: cover;
+    position: relative;
+    z-index: 10;
+}
+
+.text-media {
+    font-size: 17px;
+    color: #0f981f;
+    font-family: "SF Pro Bold", sans-serif !important;
+    position: relative;
+    top: 200px;
+    margin-left: 22px;
+}
