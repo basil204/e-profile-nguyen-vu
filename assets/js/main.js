@@ -387,13 +387,52 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Modal xem ảnh lớn (dùng chung)
+    // Modal xem ảnh lớn (dùng chung) + next/prev
     const modal = document.getElementById('project-img-modal');
-    const modalImg = modal?.querySelector('img');
+    const modalImg = modal?.querySelector('#project-img-modal-img');
     const closeBtn = document.getElementById('project-img-modal-close');
-    closeBtn?.addEventListener('click', () => modal.style.display = 'none');
-    modal?.addEventListener('click', (e) => {
-        if (e.target === modal) modal.style.display = 'none';
+    const nextBtn = document.getElementById('project-img-modal-next');
+    const prevBtn = document.getElementById('project-img-modal-prev');
+
+    let gallery = []; // danh sách URL ảnh hiện hành
+    let galleryIndex = 0;
+
+    function openModal(urls, startIndex) {
+        gallery = urls || [];
+        galleryIndex = Math.max(0, Math.min(startIndex || 0, gallery.length - 1));
+        if (!modal || !modalImg) return;
+        modalImg.src = gallery[galleryIndex] || '';
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        updateNavVisibility();
+    }
+    function closeModal() {
+        if (!modal) return;
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    function showNext(step) {
+        if (!gallery.length) return;
+        galleryIndex = (galleryIndex + step + gallery.length) % gallery.length;
+        if (modalImg) modalImg.src = gallery[galleryIndex];
+        updateNavVisibility();
+    }
+    function updateNavVisibility() {
+        const hasMany = gallery.length > 1;
+        if (nextBtn) nextBtn.style.display = hasMany ? 'flex' : 'none';
+        if (prevBtn) prevBtn.style.display = hasMany ? 'flex' : 'none';
+    }
+
+    closeBtn?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); showNext(1); });
+    prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); showNext(-1); });
+    document.addEventListener('keydown', (e) => {
+        if (modal && modal.style.display === 'flex') {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowRight') showNext(1);
+            if (e.key === 'ArrowLeft') showNext(-1);
+        }
     });
 
     // Khởi tạo *mỗi* slider độc lập
@@ -411,15 +450,14 @@ document.addEventListener('DOMContentLoaded', function () {
         prevBtn?.addEventListener('click', () => showSlide(current - 1));
         nextBtn?.addEventListener('click', () => showSlide(current + 1));
 
-        // Click ảnh để mở modal lớn
-        slides.forEach(s => {
+        // Click ảnh để mở modal lớn, gom gallery theo slider hiện tại
+        slides.forEach((s, idx) => {
             const img = s.querySelector('img');
             if (!img) return;
             img.style.cursor = 'zoom-in';
             img.addEventListener('click', () => {
-                if (!modal || !modalImg) return;
-                modalImg.src = img.src;
-                modal.style.display = 'flex';
+                const urls = slides.map(sl => (sl.querySelector('img')?.src || ''));
+                openModal(urls, idx);
             });
         });
 

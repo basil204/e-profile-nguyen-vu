@@ -1398,6 +1398,25 @@ background: var(--Neutral-0, #FFF);
   display: block;
   margin: auto;
 }
+#project-img-modal .project-modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  color: #111827;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#project-img-modal .project-modal-prev { left: 24px; }
+#project-img-modal .project-modal-next { right: 24px; }
+#project-img-modal .project-modal-nav:hover { background: #fff; }
 #project-img-modal-close {
   position: absolute;
   top: 32px;
