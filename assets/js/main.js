@@ -1,10 +1,10 @@
 // Tab functionality
-document.querySelectorAll('.menu-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
+document.querySelectorAll('.menu-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
         // Xóa active khỏi tất cả nút
-        document.querySelectorAll('.menu-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('.menu-btn').forEach(function (b) { b.classList.remove('active'); });
         // Ẩn tất cả tab
-        document.querySelectorAll('.tab-content').forEach(function(tab) { tab.style.display = 'none'; });
+        document.querySelectorAll('.tab-content').forEach(function (tab) { tab.style.display = 'none'; });
         // Active nút này
         btn.classList.add('active');
         // Hiện tab tương ứng
@@ -12,7 +12,7 @@ document.querySelectorAll('.menu-btn').forEach(function(btn) {
         var tab = document.getElementById(tabId);
         if (tab) tab.style.display = 'block';
         // Cuộn menu-btn vào giữa (sau khi xử lý tab)
-        setTimeout(function() {
+        setTimeout(function () {
             scrollMenuBtnToCenter(btn);
         }, 80);
     });
@@ -30,7 +30,7 @@ function scrollMenuBtnToCenter(btn) {
 }
 
 // Smooth scroll handling for menu
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const menuBar = document.querySelector('.menu-bar');
     const scrollY = window.scrollY;
 
@@ -45,13 +45,13 @@ window.addEventListener('scroll', function() {
 });
 
 // Script xử lý tabs năm
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Script cho tabs chính
     const menuButtons = document.querySelectorAll('.menu-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
     menuButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const tabId = this.getAttribute('data-tab');
 
             // Xóa class active từ tất cả buttons
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let isAnimating = false;
 
     yearTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
+        tab.addEventListener('click', function () {
             if (isAnimating) return;
             isAnimating = true;
             // Hiệu ứng fade out
@@ -129,6 +129,120 @@ document.addEventListener('DOMContentLoaded', function() {
         yearTabs[0].click();
     }
 });
+
+// Preloader: load images progressively and update progress bar
+document.addEventListener('DOMContentLoaded', function () {
+    const preloader = document.getElementById('preloader');
+    if (!preloader) return;
+    const bar = preloader.querySelector('.preloader-bar > span');
+    const text = preloader.querySelector('.preloader-text');
+
+    function collectCssBackgroundUrls() {
+        const urls = [];
+        try {
+            for (const sheet of Array.from(document.styleSheets)) {
+                let rules;
+                try { rules = sheet.cssRules; } catch (e) { continue; }
+                if (!rules) continue;
+                for (const rule of Array.from(rules)) {
+                    if (rule.style && rule.style.backgroundImage && rule.style.backgroundImage.includes('url(')) {
+                        const match = rule.style.backgroundImage.match(/url\(("|\')?(.*?)("|\')?\)/);
+                        if (match && match[2]) urls.push(match[2]);
+                    }
+                }
+            }
+        } catch (e) {}
+        return urls;
+    }
+
+    function unique(list) {
+        return Array.from(new Set(list));
+    }
+
+    const imgElements = Array.from(document.querySelectorAll('img'));
+    const imgSrcs = imgElements.map(img => img.currentSrc || img.src).filter(Boolean);
+    const cssBgSrcs = collectCssBackgroundUrls();
+    const allSrcs = unique(imgSrcs.concat(cssBgSrcs));
+
+    let loaded = 0;
+    const total = allSrcs.length || 1;
+
+    function updateProgress() {
+        loaded = Math.min(loaded, total);
+        const pct = Math.round((loaded / total) * 100);
+        if (bar) bar.style.width = pct + '%';
+        if (text) text.textContent = 'Đang tải ' + pct + '%';
+    }
+
+    function done() {
+        preloader.classList.add('hidden');
+        setTimeout(() => { preloader.remove(); }, 400);
+    }
+
+    if (total === 1) {
+        updateProgress();
+        done();
+        return;
+    }
+
+    const timeout = setTimeout(done, 2500); // fail-safe to avoid blocking
+
+    allSrcs.forEach(src => {
+        const img = new Image();
+        img.onload = img.onerror = function () {
+            loaded += 1;
+            updateProgress();
+            if (loaded >= total) {
+                clearTimeout(timeout);
+                done();
+            }
+        };
+        // Respect current origin path
+        img.decoding = 'async';
+        try { img.loading = 'eager'; } catch (e) {}
+        img.src = src;
+        if (img.srcset) img.srcset = img.srcset; // no-op, placeholder for future
+    });
+});
+
+// Tối ưu tải ảnh: đặt lazy-loading, decoding và fetchpriority phù hợp
+document.addEventListener('DOMContentLoaded', function () {
+    var viewport = window.innerHeight || document.documentElement.clientHeight;
+    var images = Array.prototype.slice.call(document.querySelectorAll('img'));
+    if (images.length === 0) return;
+
+    // Xác định ảnh gần đỉnh viewport nhất (ứng viên LCP)
+    var lcpCandidate = null;
+    var bestTop = Infinity;
+    images.forEach(function (img) {
+        try {
+            var rect = img.getBoundingClientRect();
+            if (rect.top >= 0 && rect.top < bestTop) {
+                bestTop = rect.top;
+                lcpCandidate = img;
+            }
+        } catch (e) {}
+    });
+
+    images.forEach(function (img) {
+        try {
+            var rect = img.getBoundingClientRect();
+            var isActiveSlide = !!img.closest('.project-slide.active');
+            var inView = rect.top < viewport * 0.9 && rect.bottom > 0;
+            var isCritical = inView || isActiveSlide || img === lcpCandidate;
+
+            if (isCritical) {
+                img.setAttribute('loading', 'eager');
+                img.setAttribute('decoding', 'sync');
+                img.setAttribute('fetchpriority', img === lcpCandidate ? 'high' : 'auto');
+            } else {
+                if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+                img.setAttribute('decoding', 'async');
+                if (!img.hasAttribute('fetchpriority')) img.setAttribute('fetchpriority', 'low');
+            }
+        } catch (e) {}
+    });
+});
 let currentSlide = 2;
 
 function goToSlide(index) {
@@ -147,33 +261,15 @@ function goToSlide(index) {
 }
 
 // Hiển thị caption cho slide đầu tiên khi load
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     goToSlide(0);
 });
 
 goToSlide(currentSlide);
 
-// Hiệu ứng đánh máy cho .send
-window.addEventListener('DOMContentLoaded', function() {
-    var send = document.querySelector('.send');
-    if (send) {
-        var text = send.textContent;
-        send.textContent = '';
-        let i = 0;
-
-        function typeWriter() {
-            if (i < text.length) {
-                send.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 18); // tốc độ đánh máy
-            }
-        }
-        typeWriter();
-    }
-});
 
 // Vuốt để chuyển company-card cho .swipe-years với hiệu ứng mượt và chiều động
-(function() {
+(function () {
     const swipe = document.querySelector('.swipe-years .company-info-container');
     const yearTabs = document.querySelectorAll('.year-tab');
     if (!swipe || yearTabs.length === 0) return;
@@ -242,7 +338,7 @@ window.addEventListener('DOMContentLoaded', function() {
     });
     // Click cũng chuyển company-card với hiệu ứng mặc định (fade ngang từ phải vào)
     yearTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
+        tab.addEventListener('click', function () {
             if (animating) return;
             // Xác định chiều hiệu ứng dựa vào vị trí tab
             const active = document.querySelector('.year-tab.active');
@@ -262,3 +358,141 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     }
 })();
+
+document.querySelectorAll(".timeline details").forEach((det) => {
+    det.addEventListener("toggle", function () {
+        if (this.open) {
+            document.querySelectorAll(".timeline details").forEach((other) => {
+                if (other !== this) other.open = false;
+            });
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.certificate-slide');
+    let current = 0;
+    function showSlide(idx) {
+        slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+    }
+    document.querySelector('.certificate-prev').onclick = function () {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+    };
+    document.querySelector('.certificate-next').onclick = function () {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    };
+    showSlide(current);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Modal xem ảnh lớn (dùng chung)
+    const modal = document.getElementById('project-img-modal');
+    const modalImg = modal?.querySelector('img');
+    const closeBtn = document.getElementById('project-img-modal-close');
+    closeBtn?.addEventListener('click', () => modal.style.display = 'none');
+    modal?.addEventListener('click', (e) => {
+        if (e.target === modal) modal.style.display = 'none';
+    });
+
+    // Khởi tạo *mỗi* slider độc lập
+    document.querySelectorAll('.project-slider').forEach((slider) => {
+        const slides = Array.from(slider.querySelectorAll('.project-slide'));
+        const prevBtn = slider.querySelector('.project-prev');
+        const nextBtn = slider.querySelector('.project-next');
+        let current = 0;
+
+        function showSlide(idx) {
+            current = (idx + slides.length) % slides.length;
+            slides.forEach((s, i) => s.classList.toggle('active', i === current));
+        }
+
+        prevBtn?.addEventListener('click', () => showSlide(current - 1));
+        nextBtn?.addEventListener('click', () => showSlide(current + 1));
+
+        // Click ảnh để mở modal lớn
+        slides.forEach(s => {
+            const img = s.querySelector('img');
+            if (!img) return;
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => {
+                if (!modal || !modalImg) return;
+                modalImg.src = img.src;
+                modal.style.display = 'flex';
+            });
+        });
+
+        showSlide(0); // hiển thị slide đầu của slider này
+    });
+});
+
+
+const DATA = {
+    ketnoi: { title: "Kết nối", desc: "Xây dựng và mở rộng mạng lưới hợp tác, tạo ra giá trị chung cho khách hàng, đối tác và cộng đồng." },
+    sangtao: { title: "Linh hoạt", desc: "Chủ động thích ứng với sự thay đổi của thị trường, tối ưu giải pháp cho từng nhu cầu cụ thể." },
+    chuanmuc: { title: "Đồng hành", desc: "Cùng khách hàng phát triển bền vững, hỗ trợ toàn diện từ đầu tư, vận hành đến mở rộng kinh doanh." },
+    hoptac: { title: "Hệ sinh thái", desc: "Cung cấp giải pháp bất động sản công nghiệp toàn diện, tích hợp dịch vụ hỗ trợ để gia tăng lợi ích cho khách hàng." },
+    benvung: { title: "Bền vững", desc: "Cam kết phát triển dài hạn, chú trọng yếu tố xanh, thân thiện với môi trường và cộng đồng." }
+};
+
+// Extra load helpers: ensure active slider images are eagerly decoded when shown
+document.addEventListener('DOMContentLoaded', function () {
+    function eagerDecodeVisibleSlideImages() {
+        document.querySelectorAll('.project-slide.active img, .certificate-slide.active img').forEach(img => {
+            try {
+                img.loading = 'eager';
+                img.decoding = 'sync';
+                if ('decode' in img) { img.decode().catch(() => {}); }
+            } catch (e) {}
+        });
+    }
+    eagerDecodeVisibleSlideImages();
+    // Hook to next/prev buttons to decode next image early
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.project-prev, .project-next, .certificate-prev, .certificate-next');
+        if (!btn) return;
+        setTimeout(eagerDecodeVisibleSlideImages, 50);
+    });
+
+    // Prefetch images in upcoming slides on idle
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            document.querySelectorAll('.project-slide img, .certificate-slide img').forEach(img => {
+                if (img.loading !== 'eager') {
+                    const link = document.createElement('link');
+                    link.rel = 'prefetch';
+                    link.as = 'image';
+                    link.href = img.currentSrc || img.src;
+                    document.head.appendChild(link);
+                }
+            });
+        }, { timeout: 2000 });
+    }
+});
+
+const root = document.getElementById("core-values");
+const tabs = root.querySelectorAll(".core-values-tab");
+const content = document.getElementById("core-values-content");
+
+function setActive(key) {
+    tabs.forEach(btn => {
+        const active = btn.dataset.key === key;
+        btn.classList.toggle("active", active);
+        btn.setAttribute("aria-selected", active ? "true" : "false");
+        const label = btn.querySelector(".label");
+        if (label) label.textContent = active ? DATA[key].title : label.textContent;
+    });
+    content.textContent = DATA[key].desc;
+}
+
+tabs.forEach(btn => {
+    btn.addEventListener("click", () => setActive(btn.dataset.key));
+    btn.addEventListener("keydown", (e) => {
+        const list = Array.from(tabs);
+        const i = list.indexOf(btn);
+        if (e.key === "ArrowRight") { list[(i + 1) % list.length].focus(); }
+        if (e.key === "ArrowLeft") { list[(i - 1 + list.length) % list.length].focus(); }
+        if (e.key === "Enter" || e.key === " ") { setActive(btn.dataset.key); }
+    });
+});

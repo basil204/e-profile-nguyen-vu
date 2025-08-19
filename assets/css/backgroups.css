@@ -1,0 +1,586 @@
+.grid-title {
+  color: var(--Dark-blue, #1A49BB);
+  font-family: "SF Pro Bold", sans-serif !important;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  width: 176.5px;
+  max-width: 176.5px;
+  height: 176.5px;
+  max-height: 176.5px;
+  margin-left: 22px;
+  margin-top: -300px;
+
+
+}
+.backgroups {
+  position: absolute;
+  /* left: -139%; */
+  top: 0;
+  width: 393px;
+  height: 790px;
+  z-index: 0;
+  background-image: url('../img/136be42892725f7effded81eca4ed0848240ed1f.png');
+  background-size: cover;
+  background-position: center;
+  clip-path: inset(0 0 240px 0 );
+}
+.khoihinhxanh {
+  position: absolute;
+  /* left: -139%; */
+  margin: 200px auto 0 117px;
+  width: 70%;
+  height: 70%;
+  z-index: 0;
+  background-image: url('../img/khoihinhxanh.png');
+  background-size: cover;}
+.khoihinhtrong {
+  position: absolute;
+
+  top: 122px;
+  transform: translate(-25%, -45%);
+  width: 433px;
+  height: 433px;
+  flex-shrink: 0;
+  border-radius: 433px;
+  background: var(--Neutral-100, #F4F4F4);
+  z-index: 1;
+  clip-path: inset(0 0 0 50%);
+  margin-right: 177px;
+}
+
+
+ 
+  :root {
+    --blue: #1A49BB;
+    --green: #4CAF50;
+    --card: #fff;
+  }
+
+  .timeline {
+   display: flex;
+    width: 198px;
+    min-height: 300px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-shrink: 0;
+    /* background: #fff; */
+    border-radius: 24px;
+    /* padding: 12px; */
+    /* box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08); */
+    /* border: 1px solid #e8edf6; */
+    /* gap: 6px; */
+    margin-left: 170px;
+    margin-top: -320px;
+  }
+
+    details{
+    width:100%;
+    border-radius:24px;
+    /* QUAN TRỌNG: để pill không bị cắt hai đầu */
+    overflow:visible;
+    background:#fff;
+    border:none;
+  }
+summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    /* Kích thước cố định của pill */
+    width:198px;
+    height:39px;
+    padding:0 14px;              /* vừa khít trong 39px */
+    box-sizing:border-box;
+
+    background:var(--blue);
+    color:#fff;
+    font-weight:800;
+    font-size:18px;
+    border-radius:999px;
+
+    /* căn giữa trong khung details (tránh đè biên) */
+    margin:6px auto;
+
+    user-select:none;
+    white-space:nowrap;          /* tránh xuống dòng gây méo */
+    transition:background .25s ease;
+  }
+
+  /* Khi mở → màu xanh lá */
+  details[open] > summary{
+    background:var(--green);
+  }
+
+  .chev{
+    width:24px;
+    height:24px;
+    display:grid;
+    place-items:center;
+    border-radius:999px;
+    background:rgba(255,255,255,.2);
+    transition:transform .25s ease;
+    flex:0 0 24px;              
+  }
+
+  summary svg {
+    width: 14px;
+    height: 14px;
+    fill: #fff;
+  }
+
+  details[open] summary .chev {
+    transform: rotate(180deg);
+  }
+
+  .panel {
+  padding: 4px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  max-width: none;
+  max-height: 120px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  }
+
+  .job {
+    max-height: auto;
+    background: var(--card);
+    border: 1px solid rgba(26, 73, 187, 0.25);
+    border-radius: 12px;
+    padding: 8px;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .job .title {
+   color: #1A49BB;
+font-family: "SF Pro Regular", sans-serif !important;
+font-size: 11px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
+  }
+
+  .job .meta {
+color: #1A49BB;
+font-family: "SF Pro Regular", sans-serif !important;
+font-size: 11px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 5px;
+  }
+
+  .job .role-label {
+    font-family: "SF Pro Regular", sans-serif !important;
+    color: #000;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+
+  .job .role-name {
+    font-family: "SF Pro Semibold", sans-serif !important;
+    color: #000;
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  .certificate-slider {
+  position: relative;
+  width: 353px;
+  min-height: 253px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+.certificate-border {
+  position: absolute;
+  margin-top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);
+  width: 434px;
+  height: 119px;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.certficate-text{
+  color: var(--Dark-blue, #1A49BB);
+font-family: "SF Pro Bold", sans-serif !important;
+font-size: 21px;
+font-style: normal;
+font-weight: 700;
+line-height: 31.5px; /* 150% */
+  margin-left: 23px;
+  margin-top: 36px;
+  position: relative;
+  z-index: 2;
+text-transform: uppercase;
+
+}
+.certificate-slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 253px;
+  position: absolute;
+  left: 0; top: 0;
+}
+
+.certificate-slide.active {
+  display: flex;
+}
+.certificate-slide img {
+  width: 353px;
+  height: 253px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.certificate-caption {
+  color: #FFF;
+  text-align: center;
+  font-family: "SF Pro Bold", sans-serif !important;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: -90px;
+  z-index: 11;
+  word-break: break-word;
+  overflow: hidden;
+  max-height: 60px;
+  padding: 0 8px;
+  display: block;
+}
+.certificate-prev,
+.certificate-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-top: 20%;
+  
+}
+
+.certificate-prev::before,
+.certificate-next::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.certificate-prev::before {
+  border-width: 8px 12px 8px 0;
+  border-color: transparent #fff transparent transparent;
+}
+
+.certificate-next::before {
+  border-width: 8px 0 8px 12px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.certificate-prev { left: 8px; }
+.certificate-next { right: 8px; }
+
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 50px;
+}
+
+.grid-card {
+  display: flex;
+  height: 176.5px;
+  width: 176.5px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 0;
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(26,73,187,0.08);
+  font-size: 15px;
+  background: #f8f8f8;
+  /* margin-top: 400px; loại bỏ để không bị đẩy xuống */
+}
+
+.grid-card .icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  justify-content: center;
+  align-items: stretch;
+  width: 353px;
+  max-width: 353px;
+  margin: 0 auto;
+}
+.grid-card.blue-light {
+border-radius: 20px 20px 20px 0;
+background: var(--Light-Blue-0, #CEF);
+  position: absolute;
+  left: 50%;
+  transform: translateX(0%);
+  /* bottom: calc(550px);  */
+  margin-top: 21px;
+  margin-bottom: 0;
+  z-index: 2;
+}
+.grid-card.green,.grid-card.blue{
+  margin-top: 197px;
+}
+.grid-card.green {
+ border-radius: 20px 0 20px 20px;
+background: var(--Green-0, #C1E0C9);
+}
+.grid-card.blue {
+ border-radius: 0 20px 20px 20px;
+background: var(--Dark-blue-200, #426ED3);
+  
+}
+.grid-sub{
+  color: var(--Dark-blue-400, #153B94);
+  text-align: justify;
+  font-family: "SF Pro Regular", sans-serif !important;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  width: 136.5px;
+  max-width: 136.5px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  overflow: hidden;
+}.grid-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.grid-sub-3{
+  color: var(--Neutral-0, #FFF);
+  text-align: justify;
+  font-family: "SF Pro Regular", sans-serif !important;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  width: 136.5px;
+  max-width: 136.5px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  overflow: hidden;
+}
+ .press{
+    width:100%;
+    max-width:393px;                 /* yêu cầu w=393 */
+    margin-inline:auto;
+    margin-top: 140px;
+  }
+
+  .press__title{
+    color: #1A49BB;
+
+/* SF Pro/21px: Bold */
+font-family: "SF Pro Bold", sans-serif !important;
+font-size: 21px;
+font-style: normal;
+font-weight: 700;
+line-height: 31.5px; /* 150% */
+text-transform: uppercase;
+  }
+
+  .press__list{
+    display:grid;
+    gap:12px;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+
+  .press-card{
+    display:grid;
+    grid-template-columns:112px 1fr;
+    gap:12px;
+    padding:10px;
+    background:var(--card);
+    border-radius:var(--radius);
+    border:1px solid var(--ring);
+    box-shadow:var(--shadow);
+    align-items:center;
+    transition:transform .18s ease, box-shadow .18s ease;
+border-radius: 10px;
+background: var(--Neutral-100, #F4F4F4);
+
+  }
+  .press-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px rgba(16,24,40,.12);
+  }
+
+  .press-card__thumb{
+    position:relative;
+    width:112px;
+    height:72px;
+    overflow:hidden;
+    border-radius:12px;
+    background:#e9eef8;
+  }
+  .press-card__thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .press-card__content{
+    min-width:0;
+  }
+  .press-card__headline{
+   color: #000;
+
+/* SF Pro/12px: Regular */
+font-family: "SF Pro Regular", sans-serif !important;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 150% */
+    margin:0 0 4px;
+    font-weight:600;
+    line-height:1.2;
+    color:var(--blue-700);
+    text-decoration:none;
+  }
+  .press-card__meta{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    flex-wrap:wrap;
+    font-size:12px;
+    color: var(--Dark-blue, #1A49BB);
+
+/* SF Pro/12px: Regular */
+font-family: "SF Pro Regular", sans-serif !important;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 150% */
+  }
+  .press-card__source{
+    color:var(--blue-600);
+    text-decoration:none;
+    font-weight:700;
+  }
+  .press-card__source:hover{ text-decoration:underline; }
+  .press-card__date{ color:var(--muted); }
+
+  /* Tối ưu hiển thị khi rộng hơn 480px: */
+  @media (min-width:480px){
+    .press-card{ grid-template-columns:132px 1fr; }
+    .press-card__thumb{ width:132px; height:82px; }
+  }
+  .end {
+    width: 393px;
+    height: 69px;
+    flex-shrink: 0;
+    border-radius: 90px 90px 0px 0px;
+    background: #1A49BB;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "SF Pro Bold", sans-serif !important;
+    font-size: 18px;
+    text-align: center;
+}
+.backgroups3 {
+  position: absolute;
+  /* left: -139%; */
+  top: 0;
+  width: 393px;
+  height: 790px;
+  z-index: 0;
+  background-image: url('../img/38b2d8cea81c7efabf7bfaf685737aac590602be.png');
+  background-size: cover;
+  background-position: center;
+  clip-path: inset(0 0 240px 0 );
+}
+ .custom-btn-2 {
+     position: relative;
+     transform: none;
+     border-radius: 0 10px 10px 0;
+     background: var(--Green-300, #1AB042);
+     display: inline-flex;
+     /* padding: 15px 20px; */
+     align-items: center;
+     gap: 10px;
+     width: 139px;
+     height: 49px;
+     /* margin-left: -100px; */
+     border: none;
+     color: #fff;
+     font-size: 14px;
+     cursor: pointer;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+     margin-top: 320px;
+     font-family: "SF Pro Semibold", sans-serif !important;
+     z-index: 30;
+     padding-left: 22px;
+}
+.custom-btn-3{
+  border-radius: 0 10px 10px 0;
+  background: var(--Green-300, #1AB042);
+  gap: 10px;
+  width: 139px;
+  height: 49px;
+
+}

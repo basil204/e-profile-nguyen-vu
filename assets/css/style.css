@@ -1,475 +1,1496 @@
-@font-face {
-    font-family: 'SF Pro Ultralight';
-    src: url('../font/SF-Pro-Display-Ultralight.otf') format('opentype');
-    font-weight: 200;
-    font-style: normal;
+ @font-face {
+     font-family: 'SF Pro Ultralight';
+     src: url('../font/SF-Pro-Display-Ultralight.otf') format('opentype');
+     font-weight: 200;
+     font-style: normal;
 }
-
-@font-face {
-    font-family: 'SF Pro Ultralight Italic';
-    src: url('../font/SF-Pro-Display-UltralightItalic.otf') format('opentype');
-    font-weight: 200;
-    font-style: italic;
+ @font-face {
+     font-family: 'SF Pro Ultralight Italic';
+     src: url('../font/SF-Pro-Display-UltralightItalic.otf') format('opentype');
+     font-weight: 200;
+     font-style: italic;
 }
-
-@font-face {
-    font-family: 'SF Pro Thin';
-    src: url('../font/SF-Pro-Display-Thin.otf') format('opentype');
-    font-weight: 300;
-    font-style: normal;
+ @font-face {
+     font-family: 'SF Pro Thin';
+     src: url('../font/SF-Pro-Display-Thin.otf') format('opentype');
+     font-weight: 300;
+     font-style: normal;
 }
-
-@font-face {
-    font-family: 'SF Pro Thin Italic';
-    src: url('../font/SF-Pro-Display-ThinItalic.otf') format('opentype');
-    font-weight: 300;
-    font-style: italic;
+ @font-face {
+     font-family: 'SF Pro Thin Italic';
+     src: url('../font/SF-Pro-Display-ThinItalic.otf') format('opentype');
+     font-weight: 300;
+     font-style: italic;
 }
-
-@font-face {
-    font-family: 'SF Pro Light';
-    src: url('../font/SF-Pro-Display-Light.otf') format('opentype');
-    font-weight: 300;
-    font-style: normal;
+ @font-face {
+     font-family: 'SF Pro Light';
+     src: url('../font/SF-Pro-Display-Light.otf') format('opentype');
+     font-weight: 300;
+     font-style: normal;
 }
-
-@font-face {
-    font-family: 'SF Pro Light Italic';
-    src: url('../font/SF-Pro-Display-LightItalic.otf') format('opentype');
-    font-weight: 300;
-    font-style: italic;
+ @font-face {
+     font-family: 'SF Pro Light Italic';
+     src: url('../font/SF-Pro-Display-LightItalic.otf') format('opentype');
+     font-weight: 300;
+     font-style: italic;
 }
-
-@font-face {
-    font-family: 'SF Pro Regular';
-    src: url('../font/SF-Pro-Display-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
+ @font-face {
+     font-family: 'SF Pro Regular';
+     src: url('../font/SF-Pro-Display-Regular.otf') format('opentype');
+     font-weight: 400;
+     font-style: normal;
 }
-
-@font-face {
-    font-family: 'SF Pro Regular Italic';
-    src: url('../font/SF-Pro-Display-RegularItalic.otf') format('opentype');
-    font-weight: 400;
-    font-style: italic;
+ @font-face {
+     font-family: 'SF Pro Regular Italic';
+     src: url('../font/SF-Pro-Display-RegularItalic.otf') format('opentype');
+     font-weight: 400;
+     font-style: italic;
 }
-
-@font-face {
-    font-family: 'SF Pro Medium';
-    src: url('../font/SF-Pro-Display-Medium.otf') format('opentype');
-    font-weight: 500;
-    font-style: normal;
+ @font-face {
+     font-family: 'SF Pro Medium';
+     src: url('../font/SF-Pro-Display-Medium.otf') format('opentype');
+     font-weight: 500;
+     font-style: normal;
 }
-
-@font-face {
-    font-family: 'SF Pro Medium Italic';
-    src: url('../font/SF-Pro-Display-MediumItalic.otf') format('opentype');
-    font-weight: 500;
-    font-style: italic;
+ @font-face {
+     font-family: 'SF Pro Medium Italic';
+     src: url('../font/SF-Pro-Display-MediumItalic.otf') format('opentype');
+     font-weight: 500;
+     font-style: italic;
 }
-
-@font-face {
-    font-family: 'SF Pro Semibold';
-    src: url('../font/SF-Pro-Display-Semibold.otf') format('opentype');
-    font-weight: 600;
-    font-style: normal;
+ @font-face {
+     font-family: 'SF Pro Semibold';
+     src: url('../font/SF-Pro-Display-Semibold.otf') format('opentype');
+     font-weight: 600;
+     font-style: normal;
 }
-
-@font-face {
-    font-family: 'SF Pro Semibold Italic';
-    src: url('../font/SF-Pro-Display-SemiboldItalic.otf') format('opentype');
-    font-weight: 600;
-    font-style: italic;
+ @font-face {
+     font-family: 'SF Pro Semibold Italic';
+     src: url('../font/SF-Pro-Display-SemiboldItalic.otf') format('opentype');
+     font-weight: 600;
+     font-style: italic;
 }
-
-@font-face {
-    font-family: 'SF Pro Bold';
-    src: url('../font/SF-Pro-Display-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
+ @font-face {
+     font-family: 'SF Pro Bold';
+     src: url('../font/SF-Pro-Display-Bold.otf') format('opentype');
+     font-weight: 700;
+     font-style: normal;
 }
-
-@font-face {
-    font-family: 'SF Pro Bold Italic';
-    src: url('../font/SF-Pro-Display-BoldItalic.otf') format('opentype');
-    font-weight: 700;
-    font-style: italic;
+ @font-face {
+     font-family: 'SF Pro Bold Italic';
+     src: url('../font/SF-Pro-Display-BoldItalic.otf') format('opentype');
+     font-weight: 700;
+     font-style: italic;
 }
-
-@font-face {
-    font-family: 'SF Pro Heavy';
-    src: url('../font/SF-Pro-Display-Heavy.otf') format('opentype');
-    font-weight: 800;
-    font-style: normal;
+ @font-face {
+     font-family: 'SF Pro Heavy';
+     src: url('../font/SF-Pro-Display-Heavy.otf') format('opentype');
+     font-weight: 800;
+     font-style: normal;
 }
-
-@font-face {
-    font-family: 'SF Pro Heavy Italic';
-    src: url('../font/SF-Pro-Display-HeavyItalic.otf') format('opentype');
-    font-weight: 800;
-    font-style: italic;
+ @font-face {
+     font-family: 'SF Pro Heavy Italic';
+     src: url('../font/SF-Pro-Display-HeavyItalic.otf') format('opentype');
+     font-weight: 800;
+     font-style: italic;
 }
-
-@font-face {
-    font-family: 'SF Pro Black';
-    src: url('../font/SF-Pro-Display-Black.otf') format('opentype');
-    font-weight: 900;
-    font-style: normal;
+ @font-face {
+     font-family: 'SF Pro Black';
+     src: url('../font/SF-Pro-Display-Black.otf') format('opentype');
+     font-weight: 900;
+     font-style: normal;
 }
-
-@font-face {
-    font-family: 'SF Pro Black Italic';
-    src: url('../font/SF-Pro-Display-BlackItalic.otf') format('opentype');
-    font-weight: 900;
-    font-style: italic;
+ @font-face {
+     font-family: 'SF Pro Black Italic';
+     src: url('../font/SF-Pro-Display-BlackItalic.otf') format('opentype');
+     font-weight: 900;
+     font-style: italic;
 }
-
-html,
-body {
-    min-height: 100%;
+ html, body {
+     min-height: 100%;
+    /* overflow-x: hidden;
+     */
 }
-
-body {
-    width: 393px;
-    max-width: 100vw;
-    height: 2546px;
-    margin: 0 auto;
-    background: #ffffff;
-    box-sizing: border-box;
-    border: 2px solid #1a49bb;
-    border-radius: 20px;
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
+ body {
+     width: 393px;
+     max-width: 100vw;
+     height: auto;
+     margin: 0 auto;
+     background: #ffffff;
+     box-sizing: border-box;
+    /* border: 2px solid #1a49bb;
+     */
+     border-radius: 20px;
+     position: relative;
+     overflow-x: hidden;
+     overflow-y: auto;
 }
-
-.profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding: 0 20px;
-    box-sizing: border-box;
+ .profile-section {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     position: relative;
+     padding: 0 20px;
+     box-sizing: border-box;
 }
-
-.profile-section .gradient-text,
-.profile-section .subtitle,
-.profile-section .company {
-    align-self: flex-start;
-    margin-left: 20px;
+ .profile-section .gradient-text, .profile-section .subtitle, .profile-section .company {
+     align-self: flex-start;
+     margin-left: 24px;
+     z-index: 1;
 }
-
-.gradient-text {
-    background: linear-gradient(73deg, #000 28.21%, #1a49bb 88.37%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 40px;
-    line-height: 44px;
-    margin-top: -450px;
-    text-align: left;
-    margin-left: 0;
-    font-family: "SF Pro Bold", sans-serif !important;
+ .gradient-text {
+     background: linear-gradient(73deg, #000 28.21%, #1a49bb 88.37%);
+     background-clip: text;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     font-size: 40px;
+     line-height: 44px;
+     margin-top: -480px;
+     text-align: left;
+     margin-left: 0;
+     font-family: "SF Pro Bold", sans-serif !important;
 }
-
-.subtitle {
-    color: #000;
-    font-size: 15px;
-    line-height: normal;
-    margin-left: 0;
-    margin-top: 8px;
-    text-align: left;
-    font-family: "SF Pro Semibold", sans-serif !important;
+ .rect-green {
+     border-radius: 90px;
+     background: var(--Light-Blue-0, #CEF);
+     height: 318px;
+     max-width: 144px;
+     background-image: url('../img/9ead3f5e48f6f33cdda01144a31ac1eb4118267d.png');
+     background-size: 165px 398px;
+     background-repeat: no-repeat;
+     background-position: center 0;
+     margin-top: 22px;
+     margin-left: 22px;
+     transform: rotateY(180deg);
+     
 }
-
-.company {
-    color: #000;
-    font-size: 10px;
-    line-height: normal;
-    margin-left: 0;
-    margin-top: 4px;
-    text-align: left;
-    font-family: "SF Pro Regular", sans-serif !important;
+ .subtitle {
+     color: #000;
+     font-size: 15px;
+     line-height: normal;
+     margin-left: 0;
+     margin-top: 8px;
+     text-align: left;
+     font-family: "SF Pro Semibold", sans-serif !important;
 }
-
-.custom-bg {
-    width: 240px;
-    height: 486px;
-    flex-shrink: 0;
-    background: url("../img/KHM-1\ \(160\)\ 1.png") no-repeat;
-    margin: 50px auto 0 130px;
-    border-radius: 16px;
-    background-size: cover;
-    position: relative;
-    z-index: 5;
-    /* Đã bỏ hiệu ứng động */
+ .company {
+     color: #000;
+     font-size: 10px;
+     line-height: normal;
+     margin-left: 0;
+     margin-top: 4px;
+     text-align: left;
+     font-family: "SF Pro Regular", sans-serif !important;
+ }
+ /* Preloader */
+ #preloader{
+     position: fixed;
+     inset: 0;
+     background: #ffffff;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 9999;
+     transition: opacity .3s ease, visibility .3s ease;
+ }
+ #preloader.hidden{ opacity:0; visibility:hidden; }
+ .preloader-inner{ width: 76%; max-width: 420px; text-align: center; }
+ .preloader-bar{ width:100%; height:6px; background:#e9eef8; border-radius:6px; overflow:hidden; margin-bottom:10px; }
+ .preloader-bar > span{ display:block; height:100%; width:0%; background:#1A49BB; transition: width .2s ease; }
+ .preloader-text{ font-family: "SF Pro Semibold", sans-serif; color:#1A49BB; font-size:14px; }
+ .custom-bg {
+     width: 240px;
+     height: 486px;
+     background: url("../img/f3e0d0a7eeb916eb0fc23c8d0394e69c588be425.png") no-repeat;
+     margin: 50px auto 0 133px;
+     background-size: cover;
+     z-index: 5;
 }
-
-@keyframes slideLeft {
-    0% {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+ .custom-bgv2 {
+     width: 240px;
+     height: 486px;
+    /* background: url("../img/f3e0d0a7eeb916eb0fc23c8d0394e69c588be425.png") no-repeat;
+     */
+     margin: 50px auto 0 133px;
+     background-size: cover;
+     z-index: 5;
 }
-
-.custom-img {
-    width: 200px;
-    height: 386px;
-    flex-shrink: 0;
-    background: url("../img/anh2.png") no-repeat;
-    margin-top: -406px;
-    right: 2px;
-    background-size: cover;
-    position: relative;
-    z-index: 10;
+ .custom-img {
+     width: 200px;
+     height: 386px;
+     flex-shrink: 0;
+     background: url("../img/anh2.png") no-repeat;
+     margin-top: -406px;
+     right: 2px;
+     background-size: cover;
+     position: relative;
+     z-index: 10;
 }
-
-.xinchao {
-    font-size: 15px;
-    color: #0f981f;
-    font-family: "SF Pro Bold", sans-serif !important;
-    position: relative;
-    top: -5px;
+ .xinchao {
+     color: var(--Dark-blue, #1A49BB);
+     font-family: "SF Pro Bold", sans-serif !important;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: normal;
+     position: relative;
+     top: -5px;
 }
-
-.send {
-    font-size: 9px;
-    font-family: "SF Pro Regular", sans-serif !important;
+ .send {
+     color: var(--Dark-blue, #1A49BB);
+     text-align: justify;
+     font-family: "SF Pro Regular",sans-serif !important;
+     font-size: 12px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: 18px;
 }
-
-.custom-btn {
-    position: relative;
-    transform: none;
-    border-radius: 0 10px 10px 0;
-    background: linear-gradient(90deg, #0F981F 23.97%, #0AC23B 99.96%);
-    width: 141px;
-    height: 40px;
-    border: none;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    margin: 15px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    z-index: 30;
-    align-self: flex-start;
-    margin-left: 0px;
-    left: -20px;
-    font-family: "SF Pro Semibold", sans-serif !important;
+ .custom-btn {
+     position: relative;
+     transform: none;
+     border-radius: 0 10px 10px 0;
+     background: var(--Green-300, #1AB042);
+     display: inline-flex;
+     padding: 15px 20px;
+     align-items: center;
+     gap: 10px;
+     width: 139px;
+     height: 49px;
+     border: none;
+     color: #fff;
+     font-size: 14px;
+     cursor: pointer;
+     margin: 25px 0;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+     z-index: 30;
+     align-self: flex-start;
+     margin-left: 2px;
+     left: -22px;
+     font-family: "SF Pro Semibold", sans-serif !important;
 }
-
-.mong-muon-box {
-    position: relative;
-    width: 330px;
-    height: auto;
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
-    flex-shrink: 0;
-    z-index: 10;
-    padding: 16px 20px;
-    font-size: 11px;
-    color: #222;
-    margin: 20px auto;
-    left: 50%;
-    transform: translateX(-50%);
+ .mong-muon-box {
+     position: relative;
+     width: 330px;
+     height: auto;
+     border-radius: 10px;
+     background: #fff;
+     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+     flex-shrink: 0;
+     z-index: 10;
+     padding: 16px 20px;
+     font-size: 11px;
+     color: #222;
+     margin: 0px auto;
+     left: 50%;
+     transform: translateX(-50%);
+     opacity: 0.9;
 }
-
-.profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding: 0 20px;
-    box-sizing: border-box;
+ .profile-section {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     position: relative;
+     padding: 0 20px;
+     box-sizing: border-box;
 }
-
-.profile-section .gradient-text,
-.profile-section .subtitle,
-.profile-section .company {
-    align-self: flex-start;
-    margin-left: 20px;
+ .profile-section .gradient-text, .profile-section .subtitle, .profile-section .company {
+     align-self: flex-start;
+     margin-left: 20px;
 }
-
-.menu-bar {
-    width: 390px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background: linear-gradient(90deg, #0c2155 0%, #1a49bb 77.4%);
-    border-radius: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    padding: 0 18px;
-    margin: 20px auto 24px auto;
-    flex-shrink: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    overflow-x: auto;
-    white-space: nowrap;
-    box-sizing: border-box;
-    max-width: 390px;
-    gap: 10px;
-    /* Thêm khoảng cách giữa các tab */
+ .menu-bar {
+     width: 5000px;
+     height: 170px;
+     display: flex;
+     align-items: center;
+     justify-content: flex-start;
+     background: linear-gradient(90deg, #0c2155 0%, #1a49bb 77.4%);
+     border-radius: 0;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+     padding: 0 18px;
+     margin: 20px auto 24px auto;
+     flex-shrink: 0;
+     position: sticky;
+     top: 0;
+     z-index: 100;
+     overflow-x: auto;
+     white-space: nowrap;
+     box-sizing: border-box;
+     max-width: 390px;
+     gap: 10px;
 }
-
-.menu-bar::-webkit-scrollbar {
-    display: none;
+ .menu-bar::-webkit-scrollbar {
+     display: none;
 }
-
-.menu-btn {
-    background: #fff;
-    border: none;
-    font-size: 11px;
-    color: #1a49bb;
-    cursor: pointer;
-    padding: 8px 24px;
-    border-radius: 20px;
-    transition: background 0.2s, color 0.2s;
-    font-family: "SF Pro Thin", sans-serif !important;
-    font-weight: 300;
-    flex: 0 0 auto;
-    letter-spacing: 1.2px;
-    min-width: unset;
-    width: auto;
-    /* Độ rộng tự động theo chữ */
+ .menu-btn {
+     background: #fff;
+     border: none;
+     font-size: 11px;
+     color: #1a49bb;
+     cursor: pointer;
+     padding: 8px 24px;
+     border-radius: 20px;
+     transition: background 0.2s, color 0.2s;
+     font-family: "SF Pro Thin", sans-serif !important;
+     font-weight: 300;
+     flex: 0 0 auto;
+     letter-spacing: 1.2px;
+     min-width: unset;
+     width: auto;
 }
-
-.menu-btn.active {
-    background: #0AC23B;
-    color: #fff;
+ .menu-btn.active {
+     background: #0AC23B;
+     color: #fff;
 }
-
-.menu-bar {
-    width: 390px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background: linear-gradient(90deg, #0c2155 0%, #1a49bb 77.4%);
-    border-radius: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    padding: 0 18px;
-    margin: 20px auto 24px auto;
-    flex-shrink: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    overflow-x: auto;
-    white-space: nowrap;
-    box-sizing: border-box;
-    max-width: 390px;
-    gap: 10px;
-    /* Thêm khoảng cách giữa các tab */
+ .menu-bar {
+     height: 50px;
+     display: flex;
+     align-items: center;
+     justify-content: flex-start;
+     background: linear-gradient(90deg, #0c2155 0%, #1a49bb 77.4%);
+     border-radius: 0;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+     padding: 0 18px;
+     margin: 20px auto 24px auto;
+     flex-shrink: 0;
+     position: sticky;
+     top: 0;
+     z-index: 100;
+     overflow-x: auto;
+     white-space: nowrap;
+     box-sizing: border-box;
+     max-width: 393px;
+     gap: 10px;
 }
-
-.menu-bar::-webkit-scrollbar {
-    display: none;
+ .menu-bar::-webkit-scrollbar {
+     display: none;
 }
-
-.menu-btn {
-    background: #fff;
-    border: none;
-    font-size: 11px;
-    color: #1a49bb;
-    cursor: pointer;
-    padding: 8px 24px;
-    border-radius: 20px;
-    transition: background 0.2s, color 0.2s;
-    font-family: "SF Pro Thin", sans-serif !important;
-    font-weight: 300;
-    flex: 0 0 auto;
-    letter-spacing: 1.2px;
-    min-width: unset;
-    width: auto;
-    /* Độ rộng tự động theo chữ */
+ .menu-btn {
+     background: #fff;
+     border: none;
+     font-size: 11px;
+     color: #1a49bb;
+     cursor: pointer;
+     padding: 8px 24px;
+     border-radius: 20px;
+     transition: background 0.2s, color 0.2s;
+     font-family: "SF Pro Thin", sans-serif !important;
+     font-weight: 300;
+     flex: 0 0 auto;
+     letter-spacing: 1.2px;
+     min-width: unset;
+     width: auto;
 }
-
-.menu-btn.active {
-    background: #0AC23B;
-    color: #fff;
+ .menu-btn.active {
+     background: #0AC23B;
+     color: #fff;
 }
-
 .tab-education {
-    margin-top: -10px;
-    width: calc(100%);
-    max-width: 85%;
-    height: 263px;
+  margin-top: 15px;
+  max-width: 349px;
+  height: 263px;
+  margin-left: auto;
+  margin-right: auto;
+  background: url("../img/23ebb6fff370efef7c8f45e0cce6caf8bad97717-min.jpg") no-repeat center center;
+  background-size: cover;
+  border-radius: 9px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  position: relative; /* cần để overlay bám theo */
+  overflow: hidden;   /* để border-radius áp dụng cả overlay */
+}
+
+.tab-education::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0, 0, 0, 0.17);
+  z-index: 0;
+}
+.education-title,
+.education-school,
+.education-major,
+.education-stats,
+.education-achievement {
+  position: relative;
+  z-index: 1; /* chữ ở trên overlay */
+  color: #fff; /* cho chữ trắng dễ đọc */
+}
+ .skills-diagram {
+     border-radius: 10px;
+     background: var(--Light-Blue-0, #CEF);
+     height: 187px;
+     max-width: 353px;
+     margin-top: -275px;
+     margin-left: 22px;
+     display: flex;
+     flex-wrap: nowrap;
+     overflow-x: auto;
+     gap: 10px;
+     scrollbar-width: thin;
+     -webkit-overflow-scrolling: touch;
+}
+ .skill-box {
+     margin-top: 50px;
+     display: flex;
+     height: 99px;
+     width: 106px;
+     padding: 10px;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     gap: 7px;
+     flex: 0 0 auto;
+     border-radius: 10px;
+     border: 1px solid #1A49BB;
+     background: #FFF;
+}
+ .skills-diagram .skill-box:first-child {
+     margin-left: 20px;
+}
+.tab-skills {
+  margin-top: 322px;
+  position: relative; /* để con absolute định vị dựa theo cha */
+}
+
+/* Tiêu đề kỹ năng */
+.skill-text {
+  color: #1A49BB;
+  font-family: "SF Pro Bold", sans-serif !important;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 31.5px;
+  text-transform: uppercase;
+
+  position: absolute;  
+  top: -10px;     
+  left: 44px;
+  z-index: 10;        
+}
+
+/* Chữ nhỏ bên phải */
+.skill-next-text {
+  color: var(--Dark-blue, #1A49BB);
+  font-family: "SF Pro Regular", sans-serif !important;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+
+  position: absolute;
+  top: 5px;
+    right: 30px;
+  z-index: 10;
+}
+
+ .name-skill{
+     color: #1A49BB;
+     text-align: center;
+     font-family: "SF Pro Regular", sans-serif !important;
+     font-size: 11px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: normal;
+}
+ .education-title{
+     margin-top: -240px;
+     margin-left: 37px;
+}
+ .education-title, .skills-title {
+     font-size: 17px;
+     color: #ffffff;
+     margin-bottom: 15px;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     font-family: "SF Pro Semibold", sans-serif !important;
+}
+ .education-school, .education-major {
+     color: #ffffff;
+     margin-left: 37px;
+     margin-top: -10px;
+}
+ .education-school {
+     font-weight: 600;
+     font-size: 11px;
+     margin-bottom: 10px;
+     font-family: "SF Pro Semibold" !important;
+}
+ .education-major {
+     font-family: "SF Pro Regular" !important;
+     font-size: 11px;
+     margin-bottom: 8px;
+     margin-top: -10px;
+}
+ .education-gpa{
+     font-size: 11px;
+     color: #1a49bb;
+     font-weight: 600;
+     margin: 110px 0px 5px 0;
+     display: inline-block;
+     border: 1px solid #1a49bb;
+     padding: 4px 10px;
+     border-radius: 30px;
+     text-align: center;
+     background-color: rgba(255, 255, 255, 1);
+     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+     width: auto;
+     min-width: 110px;
+     font-family: "SF Pro Bold", sans-serif !important;
+     margin-left: 37px;
+     
+}
+ .education-gpa,
+ .education-rank{
+    margin-top: 100px;
+ }
+ .education-rank {
+     font-size: 11px;
+     color: #1a49bb;
+     display: inline-block;
+     border: 1px solid #1a49bb;
+     padding: 4px 10px;
+     border-radius: 30px;
+     text-align: center;
+     background-color: rgba(255, 255, 255, 1);
+     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+     width: auto;
+     min-width: 120px;
+     font-family: "SF Pro Bold", sans-serif !important;
+}
+ .education-achievement {
+     font-size: 10px;
+     color: #1a49bb;
+     font-weight: 600;
+     border: 1px solid #1a49bb;
+     padding: 6px 12px;
+     border-radius: 30px;
+     display: inline-block;
+     text-align: center;
+     background-color: rgba(255, 255, 255, 1);
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     width: 26px;
+     min-width: 259px;
+     font-family: "SF Pro Bold", sans-serif !important;
+     margin-left: 37px;
+     margin-top: -10px;
+
+}
+ .year{
+     color: #FFF;
+     text-align: center;
+     font-family: "SF Pro Bold", sans-serif !important;
+     font-size: 21px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: 31.5px;
+     text-transform: uppercase;
+     margin-left: 35px;
+}
+ .backgroupv2 {
+     position: absolute;
+    /* left: -139%;
+     */
+     top: 0;
+     width: 393px;
+     height: 790px;
+     z-index: 0;
+     background-image: url('../img/b2d1c41b2901270f54b3e9aa774c7f820a1cc085.png');
+     background-size: cover;
+     background-position: center;
+     clip-path: inset(0 0 240px 0 );
+}
+.mong-muon-boxv2 {
+  position: relative;
+  width: 330px;
+  height: auto;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+  z-index: 10;
+  padding: 16px 20px;
+  font-size: 11px;
+  color: #222;
+  margin: 0px auto;
+  margin-top: 380px;
+  left: -42px;
+  transform: translateX(-50%);
+  opacity: 0.9;
+}
+.bds {
+  width: 223px;
+  height: 44px;
+  border-radius: 90px;
+  background: var(--Green-300, #1AB042);
+  flex-shrink: 0;
+  z-index: 10;
+  font-size: 11px;
+  margin: 0px auto;
+  margin-top: 190px;
+  transform: translateX(-100%);
+  z-index: 10;
+  margin-left: -238px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.log {
+  width: 121px;
+  height: 44px;
+  border-radius: 90px;
+  background: var(--Dark-blue, #1A49BB);
+  flex-shrink: 0;
+  z-index: 10;
+  font-size: 11px;
+  margin: 0px auto;
+  margin-top: 242px;
+  margin-left: -223px;
+  transform: translateX(-100%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.mtk {
+  width: 185px;
+  height: 44px;
+  border-radius: 90px;
+  background: var(--Light-Blue-200, #2BACED);
+  flex-shrink: 0;
+  z-index: 10;
+  font-size: 11px;
+  margin: 0px auto;
+  margin-top: 294px;
+  margin-left: -120px;
+  transform: translateX(-100%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+} 
+
+ .bdsv1{
+     color: var(--Neutral-0, #FFF);
+     text-align: center;
+     font-family: "SF Pro Regular", sans-serif !important;
+     font-size: 12px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: 18px;
+}
+.nut{
+  width: 119px;
+  height: 100%;
+  padding: 15px 0;
+  border-radius: 0 10px 10px 0;
+background: var(--Green-300, #1AB042);
+  flex-shrink: 0;
+  z-index: 10;
+  font-size: 11px;
+  margin-top: 282px;
+  margin-left:120px;
+  transform: translateX(-100%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-family: "SF Pro Semibold", sans-serif !important;
+}
+ .group-photo {
+     background-image: url('../img/group-photo.png');
+     background-size: cover;
+     background-position: center;
+     width: 393px;
+     height: 269px;
+     margin-top: -25px;
+}
+ .logoggi{
+     margin-top: -85px;
+     margin-left: 22px;
+}
+ .namecty{
+     width: 226px;
+     color: var(--Green-400, #0E872E);
+     font-family: "SF Pro Bold", sans-serif !important;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: normal;
+     margin-left: 140px;
+     margin-top: -45px;
+}
+/* CARD */
+ .core-values-card {
+     max-width: 353px;
+     width: 100%;
+     margin: 0 auto;
+     margin-top: 20px;
+}
+ h2 {
+     color: var(--Dark-blue, #1A49BB);
+    /* SF Pro/21px: Bold */
+     font-family: "SF Pro Bold", sans-serif !important;
+     font-size: 21px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: 31.5px;
+    /* 150% */
+     text-transform: uppercase;
+     margin-top: 35px;
+}
+/* TABS */
+ .core-values-tabs {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     padding: 2px;
+     border-radius: 999px;
+    /* background: #f7f9fb;
+     */
+     position: relative;
+     overflow-x: auto;
+     scrollbar-width: none;
+     -webkit-overflow-scrolling: touch;
+     margin-top: -10px;
+}
+ .core-values-tabs::-webkit-scrollbar {
+     display: none;
+}
+ .core-values-tab {
+     --h: 40px;
+     height: var(--h);
+     min-width: var(--h);
+    /* luôn bằng chiều cao khi chưa active */
+     border-radius: 50%;
+    /* mặc định hình tròn */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+     border: 0;
+     cursor: pointer;
+     transition: all .18s ease;
+     flex: 0 0 auto;
+     white-space: nowrap;
+}
+/* Khi active thì giãn thành pill */
+ .core-values-tab.active {
+     width: 153px;
+     border-radius: 999px;
+    /* viên thuốc */
+     justify-content: center;
+}
+ .core-values-tab:not(.active) .icon {
+     color: var(--Green-400, #0E872E);
+}
+ .core-values-tab:focus-visible {
+     outline: 2px solid var(--green-200);
+     outline-offset: 2px;
+}
+ .core-values-tab:active {
+     transform: translateY(1px);
+}
+ .core-values-tab .icon {
+     width: 22px;
+     height: 22px;
+     display: grid;
+     place-items: center;
+     color: #fff;
+}
+ .core-values-tab svg {
+     width: 20px;
+     height: 20px;
+     stroke: currentColor;
+}
+ .core-values-tab .label {
+     font-weight: 700;
+     font-size: 14px;
+     display: none;
+}
+ .core-values-tab:not(.active) {
+     color: var(--muted);
+}
+ .core-values-tab:hover:not(.active) {
+     color: #7391a6;
+}
+/* ACTIVE */
+ .core-values-tab.active {
+     border-radius: 90px;
+     background: var(--Green-400, #0E872E);
+     box-shadow: 0 8px 18px rgba(15, 141, 78, .25);
+     width: 153px;
+     justify-content: center;
+}
+ .core-values-tab.active .label {
+     display: inline;
+     font-family: "SF Pro Bold", sans-serif !important;
+     color: #FFF;
+}
+/* PANEL */
+ .core-values-panel {
+     margin-top: 12px;
+}
+ .core-values-panel .bubble {
+     background: var(--green);
+     border-radius: 10px;
+     background: var(--Green-400, #0E872E);
+     padding: 14px 16px;
+     text-align: justify;
+     font-family: "SF Pro Regular", sans-serif !important;
+     font-size: 12px;
+     font-weight: 400;
+     line-height: 18px;
+     animation: fadeIn .18s ease;
+     margin-top: -14px;
+     color: #FFF;
+}
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(2px) 
+    }
+     to {
+         opacity: 1;
+         transform: none 
+    }
+}
+ @media (max-width:360px) {
+     .core-values-tab {
+         padding: 0 10px;
+    }
+     .core-values-tab .label {
+         font-size: 13px;
+    }
+}
+ @media (prefers-reduced-motion: reduce) {
+     .core-values-tab {
+         transition: none;
+    }
+     .core-values-panel .bubble {
+         animation: none;
+    }
+}
+ .activity-title {
+     padding: 16px 20px 8px;
+     margin: 0;
+     font-weight: 800;
+     font-size: 18px;
+     color: #1A49BB;
+     margin-top: 20px;
+}
+.activity-header {
+  position: relative; /* để chứa được phần tử con absolute */
+  width: 229px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  /* padding: 10px; */
+  border-radius: 90px;
+  background: var(--Neutral-100, #F4F4F4);
+  margin-left: 22px;
+}
+.activity-header-v2 {
+  position: relative; /* để chứa được phần tử con absolute */
+  width: 93px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  /* padding: 10px; */
+  border-radius: 90px;
+  background: var(--Neutral-100, #F4F4F4);
+  margin-left: 22px;
+  margin-top: 20px;
+}
+.activity-header-v3 {
+  position: relative; /* để chứa được phần tử con absolute */
+  width: 171px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  /* padding: 10px; */
+  border-radius: 90px;
+  background: var(--Neutral-100, #F4F4F4);
+  margin-left: 22px;
+  margin-top: 20px;
+}
+.activity-next,
+.activity-next-v2,
+.activity-next-v3 {
+  position: absolute;   /* hoặc fixed nếu muốn dính màn hình khi cuộn */
+  display: flex;
+  align-items: center;
+  gap: 0;               /* sát chữ ↔ icon, có thể đổi 1px nếu muốn hở nhẹ */
+  color: var(--Green-400, #0E872E);
+  font-family: "SF Pro", sans-serif !important;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0;
+}
+
+.activity-next   { top: 10px; right: -127px; }
+.activity-next-v2{ top: 10px; right: -263px;} /* đổi top nếu muốn tách hàng */
+.activity-next-v3{ top: 10px; right: -185px; }
+
+
+.activity-cap{
+    color: var(--Green-400, #0E872E);
+font-family: "SF Pro Bold", sans-serif !important;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin-left: 10px;
+}
+/* Thanh cuộn ngang */
+ .activity-scroller {
+     display: flex;
+     gap: 10px;
+     overflow-x: auto;
+     padding-bottom: 12px;
+     scroll-snap-type: x mandatory;
+     margin-top: 16px;
+    margin-left: 22px;
+
+}
+
+ .activity-scroller::-webkit-scrollbar {
+     height: 6px;
+}
+ .activity-scroller::-webkit-scrollbar-thumb {
+     background: #E0E6EF;
+     border-radius: 999px;
+}
+/* Card */
+ .activity-card {
+     flex: 0 0 auto;
+     width: 130px;
+     height: 176px;
+     border-radius: 12px;
+     overflow: hidden;
+     box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+     background: #fff;
+     scroll-snap-align: start;
+     display: flex;
+     flex-direction: column;
+}
+ .activity-card:first-child {
+     margin-left: 22px;
+    /* chỉ card đầu tiên cách lề trái 20px */
+}
+ .activity-thumb {
+     width: 100%;
+     height: 120px;
+     object-fit: cover;
+     display: block;
+}
+ .activity-caption {
+     color: #000;
+    /* SF Pro/12px: Regular */
+     font-family: "SF Pro Regular", sans-serif !important;
+     font-size: 12px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: 18px;
+       padding-left: 5px;
+}
+.tab-works{
+    margin-top: 22px;
+}
+.skills-lines{
+    margin-top: 10px;
+}
+.activity-end{
+    position: relative;
+  width: 229px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  border-radius: 90px;
+  background: var(--Neutral-100, #F4F4F4);
+
+}
+.activity-end {
+  position: relative;
+  width: 162px;
+  height: 38px;
+  display: inline-flex;           
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 10px;
+  margin-top: 25px;
+  margin-left: 25%;
+  border-radius: 900px;
+  border: 1px solid var(--Dark-blue, #1A49BB);
+  background: var(--Neutral-0, #FFF);
+}
+
+.activity-end-link {
+  text-decoration: none;      /* bỏ gạch chân */
+  text-align: center;
+  color: var(--Dark-blue, #1A49BB);
+
+/* SF Pro/12px: Regular */
+font-family: "SF Pro Regular", sans-serif !important;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 150% */
+}
+
+
+.companion-section{
+    margin-top: 35px;
+   width: 393px;
+height: 485px;
+flex-shrink: 0;
+background: var(--Light-Blue-0, #CEF);
+  display: flex;
+    flex-direction: column;
+    justify-content: center; /* căn giữa dọc */
+}
+
+.companion-title{
+    color: var(--Dark-blue, #1A49BB);
+font-family: "SF Pro Bold", sans-serif !important;
+font-size: 21px;
+font-style: normal;
+font-weight: 700;
+line-height: 31.5px;
+text-transform: uppercase;
+margin-left: 22px;
+margin-top: 26px;
+}
+.companion-title-2{
+    margin-left: 22px;
+    color: #000;
+font-family: "SF Pro Bold", sans-serif !important;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.companion-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    /* padding: 0 20px; */
+    margin-top: 24px;
+    margin-left: 20px;
+}
+.companion-item {
+    width: 353px;
+  min-height: 74px;
+  display: flex;
+
+align-items: center;
+gap: 15px;
+align-self: stretch;
+border-radius: 10px;
+border: 1px solid var(--Dark-blue-200, #426ED3);
+background: var(--Neutral-0, #FFF);
+}
+.companion-comment {
+  color: #000;
+  text-align: justify;
+
+  font-family: "SF Pro", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  width: 268px;
+  height: auto;           /* bỏ height cứng để text tự giãn */
+}
+.companion-item svg {
+  margin-left: 15px;
+}
+.companion-item:last-child {
+  min-height: 91px;       /* riêng item cuối cao hơn */
+}
+.connect-now {
+    margin-top: 35px;
+  display: flex;
+  align-items: center;         /* căn giữa dọc */
+  justify-content: center;     /* căn giữa ngang */
+  width: 353px;
+  height: 76px;
+  gap: 10px;                   /* khoảng cách icon ↔ text */
+  border-radius: 900px;
+  background: var(--Dark-blue, #1A49BB);
+  color: #fff;
+  margin-left: 20px;
+}
+
+.connect-now svg {
+  flex-shrink: 0;              /* giữ kích thước icon */
+}
+
+.connect-text {
+  display: flex;
+  flex-direction: column;      /* text xếp 2 dòng */
+  line-height: 1.2;
+  text-align: left;
+}
+
+.connect-text .title {
+color: var(--Neutral-0, #FFF);
+font-family: "SF Pro Bold", sans-serif !important;
+font-size: 21px;
+font-style: normal;
+font-weight: 700;
+line-height: 31.5px; 
+text-transform: uppercase;
+}
+
+.connect-text .desc {
+ color: var(--Neutral-0, #FFF);
+font-family: "SF Pro Bold", sans-serif !important;
+font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+ .mong-muon-boxv3 {
+     position: relative;
+     width: 330px;
+     height: auto;
+     border-radius: 10px;
+     background: #fff;
+     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+     flex-shrink: 0;
+     z-index: 10;
+     padding: 16px 20px;
+     font-size: 11px;
+     color: #222;
+     margin: 0px auto;
+     margin-top: 390px;
+     left: 185px;
+     transform: translateX(-50%);
+     opacity: 0.9;
+}
+ .custom-btn {
+     position: relative;
+     transform: none;
+     border-radius: 0 10px 10px 0;
+     background: var(--Green-300, #1AB042);
+     display: inline-flex;
+     padding: 15px 20px;
+     align-items: center;
+     gap: 10px;
+     width: 139px;
+     height: 49px;
+     border: none;
+     color: #fff;
+     font-size: 14px;
+     cursor: pointer;
+     margin: 25px 0;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+     z-index: 30;
+     align-self: flex-start;
+     margin-left: 2px;
+     left: -22px;
+     font-family: "SF Pro Semibold", sans-serif !important;
+}
+.project-section{
+    border-radius: 10px;
+    background: var(--Neutral-100, #F4F4F4);
+    width: 349px;
+    height: 726px;
     margin-left: auto;
     margin-right: auto;
-    background: url("../img/Mask\ group.png") no-repeat center center;
-    background-size: cover;
-    position: relative;
-    padding: 15px;
-    border-radius: 9px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    display: block;
-}
+    margin-top: 35px;
+    padding-top: 20px; /* Thêm dòng này để đẩy nội dung xuống */
+    
 
-.education-title,
-.skills-title {
-    font-size: 17px;
-    color: #ffffff;
-    margin-bottom: 15px;
+}
+.project-info h3 {
+    color: var(--Dark-blue, #1A49BB);
+    font-family: "SF Pro Bold", sans-serif !important;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 31.5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: "SF Pro Semibold", sans-serif !important;
+    width: 244px;
+    margin-left: 20px;
+        margin-top: 10px
+}
+.project-name-cty{
+    width: 287px;
+    height: auto;
+    border-radius: 10px;
+background: var(--Neutral-0, #FFF);
+ margin-left: auto;
+    margin-right: auto;
+    padding: 11px;
+    
+}
+.project-info{
+    display: flex;
+  flex-direction: column;
+  gap: 8px; /* cách các item 8px */
+}
+.project-name {
+  display: flex;
+  align-items: center;   /* căn giữa dọc nếu nội dung nhiều dòng */
+  gap: 10px;
+  width: 259px;
+  margin-left: auto;
+  margin-right: auto;
+  word-break: break-word;
 }
 
-.education-school,
-.education-major {
-    color: #ffffff;
+.project-name-text {
+  display: inline-block;
+  font-family: "SF Pro Regular", sans-serif !important;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #000;
+  text-align: left;
+  vertical-align: top;
+  /* Nếu muốn xuống dòng đẹp hơn, có thể thêm: */
+  white-space: normal;
+    margin-top: -25px;
+  margin-left: 10px;
+
+}
+.project-name-text-1{
+      display: inline-block;
+  font-family: "SF Pro Regular", sans-serif !important;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #000;
+  text-align: left;
+  vertical-align: top;
+  /* Nếu muốn xuống dòng đẹp hơn, có thể thêm: */
+  white-space: normal;
+  margin-top: -30px;
+  margin-left: 10px;
 }
 
-.education-school {
-    font-weight: 600;
-    font-size: 11px;
-    margin-bottom: 10px;
-    font-family: "SF Pro Semibold" !important;
+.project-slider {
+  position: relative;
+  width: 309px;
+  height: 261px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+.project-border {
+  position: absolute;
+  margin-top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);
+  width: 434px;
+  height: 119px;
+  flex-shrink: 0;
+  z-index: 1;
 }
 
-.education-major {
-    font-family: "SF Pro Regular" !important;
-    font-size: 11px;
-    margin-bottom: 8px;
-    margin-top: -10px;
+.project-text{
+  color: var(--Dark-blue, #1A49BB);
+  font-family: "SF Pro Bold", sans-serif !important;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 31.5px;
+  margin-left: 23px;
+  margin-top: 36px;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
 }
 
-.education-gpa,
-.education-rank {
-    font-size: 11px;
-    color: #1a49bb;
-    font-weight: 600;
-    margin: 110px 0px 5px 0;
-    display: inline-block;
-    border: 1px solid #1a49bb;
-    padding: 4px 10px;
-    border-radius: 30px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    width: auto;
-    min-width: 60px;
-    font-family: "SF Pro Bold", sans-serif !important;
+.project-slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 253px;
+  position: absolute;
+  left: 0; top: 0;
+}
+.project-slide.active {
+  display: flex;
+}
+.project-slide img {
+  width: 353px;
+  height: 253px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.project-caption {
+  color: #FFF;
+  text-align: center;
+  font-family: "SF Pro Bold", sans-serif !important;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: -90px;
+  z-index: 11;
+  word-break: break-word;
+  overflow: hidden;
+  max-height: 60px;
+  padding: 0 8px;
+  display: block;
+}
+.project-prev,
+.project-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s, transform 0.2s;
+  color: #333; /* màu mũi tên */
 }
 
-.education-achievement {
-    font-size: 10px;
-    color: #1a49bb;
-    font-weight: 600;
-    margin: 5px 0 0 0;
-    border: 1px solid #1a49bb;
-    padding: 6px 12px;
-    border-radius: 30px;
-    display: inline-block;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    width: auto;
-    min-width: 60px;
-    font-family: "SF Pro Bold", sans-serif !important;
+.project-prev { left: 8px; }
+.project-next { right: 8px; }
+
+.project-prev:hover,
+.project-next:hover {
+  background: #f0f0f0;
+  transform: translateY(-50%) scale(1.1);
+}
+#project-img-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+}
+#project-img-modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+  display: block;
+  margin: auto;
+}
+#project-img-modal-close {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  font-size: 48px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10001;
+  font-weight: bold;
+}
+.contact-section h2{
+    color: #000;
+text-align: center;
+
+/* SF Pro/21px: Bold */
+font-family: "SF Pro Bold", sans-serif !important;
+font-size: 21px;
+font-style: normal;
+font-weight: 700;
+line-height: 31.5px; /* 150% */
+text-transform: uppercase;
+margin-left: auto;
+margin-right: auto;
+}
+.contact-section p{
+    color: #000;
+/* SF Pro/16px: Regular */
+font-family: "SF Pro", sans-serif !important;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+text-transform: none;
+margin-left: auto;
+margin-right: auto;
+width: 268px;
+}
+
+.circle-icon-list {
+  display: flex;
+  justify-content: center; /* căn giữa toàn bộ */
+  gap: 14px;              /* khoảng cách giữa các hình tròn */
+}
+
+.circle-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;                /* làm tròn */
+  background: var(--Green-300, #1AB042);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-phone {
+  width: 134px;
+padding: 10px;  
+border-radius: 90px;
+  border: 1px solid var(--Dark-blue, #1A49BB);
+  background: var(--Neutral-0, #FFF);
+  margin: 24px auto;           /* căn giữa khối cha */
+  
+  display: flex;               /* bật flexbox */
+  justify-content: center;     /* căn ngang */
+  align-items: center;         /* căn dọc */
+  gap: 6px;                    /* khoảng cách giữa icon và số */
+  font-family: "SF Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A49BB;
+}
+.contact-email{
+    width: 213px;
+padding: 10px;  
+border-radius: 90px;
+  border: 1px solid var(--Dark-blue, #1A49BB);
+  background: var(--Neutral-0, #FFF);
+  margin: 24px auto;           /* căn giữa khối cha */
+  
+  display: flex;               /* bật flexbox */
+  justify-content: center;     /* căn ngang */
+  align-items: center;         /* căn dọc */
+  gap: 6px;                    /* khoảng cách giữa icon và số */
+  font-family: "SF Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A49BB;}
+
+.skill-vu{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 44px;
+  width: 353px;
+height: 187px;
+border-radius: 10px;
+background: var(--Light-Blue-0, #CEF);
 }

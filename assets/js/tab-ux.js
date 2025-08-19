@@ -6,7 +6,7 @@ function showTab(tab) {
 }
 
 // Hiệu ứng vuốt ngang cho .swipe-years
-(function() {
+(function () {
     const swipe = document.querySelector('.swipe-years');
     if (!swipe) return;
     let isDown = false,
@@ -46,41 +46,9 @@ function showTab(tab) {
     });
 })();
 
-window.addEventListener('DOMContentLoaded', function() {
-    var goToContactBtn = document.getElementById('go-to-contact');
-    if (!goToContactBtn) return;
-    goToContactBtn.addEventListener('click', function() {
-        // Kích hoạt tab Liên hệ
-        document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
-        const contactBtn = document.querySelector('.menu-btn[data-tab="tab4"]');
-        contactBtn.classList.add('active');
-        document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
-        var tab = document.getElementById('tab4');
-        if (tab) tab.style.display = 'block';
-        // Cuộn menu-btn vào giữa nếu bị trôi
-        setTimeout(function() {
-            contactBtn.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-                inline: 'center'
-            });
-        }, 100);
-        // Cuộn đến menu-bar nếu cần
-        const menuBar = document.querySelector('.menu-bar');
-        if (menuBar) {
-            const rect = menuBar.getBoundingClientRect();
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const offset = rect.top + scrollTop - 20;
-            window.scrollTo({
-                top: offset,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
 
 // ======= ESG NEXT/PREV BUTTONS =======
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     const tabOrder = ['e', 's', 'g'];
 
     function getCurrentTabIndex() {
@@ -92,7 +60,7 @@ window.addEventListener('DOMContentLoaded', function() {
         return 0;
     }
     document.querySelectorAll('.esg-next').forEach((btn, idx, arr) => {
-        btn.onclick = function() {
+        btn.onclick = function () {
             let cur = getCurrentTabIndex();
             if (idx === 0) {
                 // Nút trái: prev
