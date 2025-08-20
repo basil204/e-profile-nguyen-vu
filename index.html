@@ -72,9 +72,6 @@
   <link rel="preload" as="image" href="assets/img/U&ME/Img4-4.jpg">
   <link rel="preload" as="image" href="assets/img/U&ME/Img5-5.jpg">
   <link rel="preload" as="image" href="assets/img/U&ME/Img7-7.jpg">
-
-
-
 </head>
 
 <body>
@@ -94,13 +91,10 @@
     <div class="gradient-text" style="margin-left: 0;">
       Nguyễn<br /> Mạnh Vũ
     </div>
-    <div class="subtitle" style="margin-left: 0; font-weight:100;  letter-spacing:0.1px;"><strong>Trợ lý Tổng Giám
-        đốc</strong></div>
-    <div class="company" style="font-weight:100;margin-left: 0; font-size:9px; letter-spacing:0.05px;">Công ty Cổ phần
-      Shinec</div>
+    <div class="subtitle" style="margin-left: 0; font-weight:100;  letter-spacing:0.1px;"><strong>Trợ lý Chủ tịch HĐQT</strong></div>
+    <div class="company" style="font-weight:100;margin-left: 0; font-size:9px; letter-spacing:0.05px;">Hệ thống công ty GG+</div>
     <div style="height:15px;"></div>
-    <div class="subtitle" style="margin-left: 0;font-weight:100;  letter-spacing:0.1px;"><strong>Giám đốc
-        Marketing</strong></div>
+    <div class="subtitle" style="margin-left: 0;font-weight:100;  letter-spacing:0.1px;"><strong>Giám đốc Marketing</strong></div>
     <div class="company" style="margin-left: 0; font-size:9px;">Công ty Cổ phần<br /> GreenGrow Industries</div>
     <div style="height:15px;"></div>
     <div class="subtitle" style="margin-left: 0;font-weight:100;  letter-spacing:0.1px;"><strong>Giáo viên Kinh
@@ -108,9 +102,7 @@
     <button class="custom-btn" id="go-to-contact">Kết nối ngay</button>
     <div class="mong-muon-box">
       <div style="text-align: left;"><strong class="xinchao">Kính chào Quý đối tác,</strong></div>
-      <div style="text-align: left;" class="send">Tôi trực tiếp tham gia nhiều dự án chiến lược trong lĩnh vực bất động
-        sản công nghiệp, logistics và marketing tích hợp, với trọng tâm xây dựng giải pháp linh hoạt, thực tiễn và bền
-        vững cho doanh nghiệp.</div>
+      <div style="text-align: left;" class="send">Tôi trực tiếp tham gia nhiều dự án chiến lược trong lĩnh vực bất động sản công nghiệp, logistics và marketing tích hợp, với trọng tâm xây dựng giải pháp linh hoạt, thực tiễn và bền vững cho doanh nghiệp.</div>
     </div>
   </div>
 
@@ -813,7 +805,8 @@
     </div>
     <h2 class="activity-title">LĨNH VỰC HOẠT ĐỘNG</h2>
     <div class="activity-header">
-      <h2 class="activity-next">Lướt sang <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+      <h2 class="activity-next">  <span class="activity-label">lướt sang</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
           viewBox="0 0 19 19" fill="none">
           <g clip-path="url(#clip0_639_1143)">
             <path
@@ -851,7 +844,8 @@
       </div>
     </section>
     <div class="activity-header-v2">
-      <h2 class="activity-next-v2">Lướt sang <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+      <h2 class="activity-next-v2">  <span class="activity-label">lướt sang</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
           viewBox="0 0 19 19" fill="none">
           <g clip-path="url(#clip0_639_1143)">
             <path
@@ -890,7 +884,8 @@
     </section>
 
     <div class="activity-header-v3">
-      <h2 class="activity-next-v3">Lướt sang <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+      <h2 class="activity-next-v3">  <span class="activity-label">lướt sang</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
           viewBox="0 0 19 19" fill="none">
           <g clip-path="url(#clip0_639_1143)">
             <path
@@ -1565,6 +1560,9 @@
           </div>
         </div>
       </div>
+      <div class="trang-web">
+       
+      </div>
     </div>
     <!-- ...existing code... -->
     <div id="project-img-modal" style="display:none;">
@@ -1781,14 +1779,10 @@
             document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
             var tab = document.getElementById('tab4');
             if (tab) tab.style.display = 'block';
-
-            // Hiện profile-section (tab4 dùng lại profile-section)
             document.querySelector('.profile-section').style.display = 'flex';
             document.querySelector('.profile-section-2').style.display = 'none';
             document.querySelector('.profile-section-3').style.display = 'none';
             document.querySelector('.profile-section-4').style.display = 'none';
-
-            // Cuộn menu-btn vào giữa nếu bị trôi
             if (contactBtn) {
               setTimeout(function () {
                 contactBtn.scrollIntoView({
@@ -1813,7 +1807,8 @@
         });
       });
     </script>
-    
+  
+        
    </body>
 
 </html>

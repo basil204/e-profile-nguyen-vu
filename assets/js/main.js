@@ -534,3 +534,356 @@ tabs.forEach(btn => {
         if (e.key === "Enter" || e.key === " ") { setActive(btn.dataset.key); }
     });
 });
+
+  (function(){
+    const scroller = document.querySelector('.skills-diagram');
+    if(!scroller) return;
+
+    let isDown = false, startX = 0, startLeft = 0;
+
+    scroller.addEventListener('pointerdown', (e) => {
+      isDown = true;
+      scroller.setPointerCapture(e.pointerId);
+      scroller.style.cursor = 'grabbing';
+      startX = e.clientX;
+      startLeft = scroller.scrollLeft;
+    });
+
+    scroller.addEventListener('pointermove', (e) => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      scroller.scrollLeft = startLeft - dx;
+    });
+
+    ['pointerup','pointercancel','pointerleave'].forEach(ev=>{
+      scroller.addEventListener(ev, () => {
+        isDown = false;
+        scroller.style.cursor = 'grab';
+      });
+    });
+  })();
+
+  (function(){
+    const root = document.querySelector('.certificate-slider');
+    if (!root) return;
+  
+    // ======= TÙY CHỌN =======
+    const AUTOPLAY = true;
+    const INTERVAL = 3000;   // ms
+    const SWIPE_THRESHOLD = 30; // px (vuốt tối thiểu)
+    const DRAG_THRESHOLD = 10; // px (ngưỡng kéo)
+  
+    // ======= PHẦN TỬ =======
+    const slides = Array.from(root.querySelectorAll('.certificate-slide'));
+    const prevBtn = root.querySelector('.certificate-prev');
+    const nextBtn = root.querySelector('.certificate-next');
+  
+    if (slides.length === 0) return;
+  
+    // A11y cơ bản
+    root.setAttribute('tabindex', '0');
+    root.setAttribute('aria-roledescription', 'carousel');
+  
+    // ======= TRẠNG THÁI =======
+    let current = 0;
+    let timer = null;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let currentX = 0;
+    let dragDistance = 0;
+    let dragDirection = 0;
+  
+    // Khởi tạo slide đầu tiên
+    slides[current].classList.add('active');
+  
+    function show(idx) {
+      const n = slides.length;
+      if (!n) return;
+      
+      // Tính index hợp lệ
+      idx = (idx % n + n) % n;
+      if (idx === current) return;
+      
+      // Ẩn slide hiện tại
+      slides[current].classList.remove('active');
+      
+      // Hiện slide mới
+      slides[idx].classList.add('active');
+      current = idx;
+      
+      // Reset drag state
+      isDragging = false;
+      dragDistance = 0;
+      dragDirection = 0;
+    }
+  
+    function next() { show(current + 1); }
+    function prev() { show(current - 1); }
+  
+    // ======= AUTOPLAY =======
+    function startAutoplay() {
+      if (!AUTOPLAY || timer) return;
+      timer = setInterval(next, INTERVAL);
+    }
+    
+    function stopAutoplay() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+  
+    // ======= SỰ KIỆN NÚT =======
+    prevBtn?.addEventListener('click', () => {
+      stopAutoplay();
+      prev();
+      startAutoplay();
+    });
+    
+    nextBtn?.addEventListener('click', () => {
+      stopAutoplay();
+      next();
+      startAutoplay();
+    });
+  
+    // ======= PAUSE KHI HOVER/FOCUS =======
+    root.addEventListener('mouseenter', stopAutoplay);
+    root.addEventListener('mouseleave', startAutoplay);
+    root.addEventListener('focusin', stopAutoplay);
+    root.addEventListener('focusout', startAutoplay);
+  
+    // ======= PHÍM MŨI TÊN =======
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        stopAutoplay();
+        next();
+        startAutoplay();
+        e.preventDefault();
+      }
+      if (e.key === 'ArrowLeft') {
+        stopAutoplay();
+        prev();
+        startAutoplay();
+        e.preventDefault();
+      }
+    });
+  
+    // ======= VUỐT VÀ KÉO MOBILE =======
+    function handleTouchStart(e) {
+      const touch = e.changedTouches[0];
+      startX = touch.clientX;
+      startY = touch.clientY;
+      currentX = startX;
+      isDragging = true;
+      dragDistance = 0;
+      dragDirection = 0;
+      
+      stopAutoplay();
+      
+      // Thêm class để CSS có thể style
+      root.classList.add('dragging');
+    }
+  
+    function handleTouchMove(e) {
+      if (!isDragging) return;
+      
+      const touch = e.changedTouches[0];
+      const deltaX = touch.clientX - startX;
+      const deltaY = touch.clientY - startY;
+      
+      // Tính khoảng cách kéo
+      dragDistance = Math.abs(deltaX);
+      dragDirection = deltaX > 0 ? 1 : -1;
+      
+      // Chỉ cho phép kéo ngang, không cho kéo dọc
+      if (Math.abs(deltaY) > Math.abs(deltaX)) return;
+      
+      // Cập nhật vị trí hiện tại
+      currentX = touch.clientX;
+      
+      // Thêm hiệu ứng kéo (có thể thêm CSS transform)
+      const activeSlide = slides[current];
+      if (activeSlide) {
+        const translateX = deltaX * 0.3; // Giảm độ di chuyển để tạo hiệu ứng
+        activeSlide.style.transform = `translateX(${translateX}px)`;
+        activeSlide.style.transition = 'none';
+      }
+      
+      e.preventDefault();
+    }
+  
+    function handleTouchEnd(e) {
+      if (!isDragging) return;
+      
+      const touch = e.changedTouches[0];
+      const deltaX = touch.clientX - startX;
+      const deltaY = touch.clientY - startY;
+      
+      // Reset transform
+      const activeSlide = slides[current];
+      if (activeSlide) {
+        activeSlide.style.transform = '';
+        activeSlide.style.transition = 'transform 0.3s ease';
+      }
+      
+      // Xử lý vuốt
+      if (Math.abs(deltaX) > SWIPE_THRESHOLD && Math.abs(deltaY) < 60) {
+        if (deltaX < 0) {
+          // Vuốt trái -> next
+          next();
+        } else {
+          // Vuốt phải -> prev
+          prev();
+        }
+      }
+      
+      // Reset state
+      isDragging = false;
+      dragDistance = 0;
+      dragDirection = 0;
+      root.classList.remove('dragging');
+      
+      // Khởi động lại autoplay
+      startAutoplay();
+    }
+  
+    // ======= MOUSE DRAG (cho desktop) =======
+    function handleMouseDown(e) {
+      if (e.button !== 0) return; // Chỉ chuột trái
+      
+      startX = e.clientX;
+      startY = e.clientY;
+      currentX = startX;
+      isDragging = true;
+      dragDistance = 0;
+      dragDirection = 0;
+      
+      stopAutoplay();
+      root.classList.add('dragging');
+      
+      // Bắt sự kiện mouse
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+    }
+  
+    function handleMouseMove(e) {
+      if (!isDragging) return;
+      
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+      
+      // Tính khoảng cách kéo
+      dragDistance = Math.abs(deltaX);
+      dragDirection = deltaX > 0 ? 1 : -1;
+      
+      // Chỉ cho phép kéo ngang
+      if (Math.abs(deltaY) > Math.abs(deltaX)) return;
+      
+      // Cập nhật vị trí hiện tại
+      currentX = e.clientX;
+      
+      // Thêm hiệu ứng kéo
+      const activeSlide = slides[current];
+      if (activeSlide) {
+        const translateX = deltaX * 0.3;
+        activeSlide.style.transform = `translateX(${translateX}px)`;
+        activeSlide.style.transition = 'none';
+      }
+    }
+  
+    function handleMouseUp(e) {
+      if (!isDragging) return;
+      
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+      
+      // Reset transform
+      const activeSlide = slides[current];
+      if (activeSlide) {
+        activeSlide.style.transform = '';
+        activeSlide.style.transition = 'transform 0.3s ease';
+      }
+      
+      // Xử lý kéo
+      if (Math.abs(deltaX) > SWIPE_THRESHOLD && Math.abs(deltaY) < 60) {
+        if (deltaX < 0) {
+          next();
+        } else {
+          prev();
+        }
+      }
+      
+      // Reset state
+      isDragging = false;
+      dragDistance = 0;
+      dragDirection = 0;
+      root.classList.remove('dragging');
+      
+      // Bỏ event listeners
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+      
+      // Khởi động lại autoplay
+      startAutoplay();
+    }
+  
+    // ======= GẮN SỰ KIỆN =======
+    // Touch events
+    root.addEventListener('touchstart', handleTouchStart, { passive: false });
+    root.addEventListener('touchmove', handleTouchMove, { passive: false });
+    root.addEventListener('touchend', handleTouchEnd, { passive: false });
+    
+    // Mouse events
+    root.addEventListener('mousedown', handleMouseDown);
+    
+    // Ngăn chọn text khi kéo
+    root.addEventListener('selectstart', (e) => {
+      if (isDragging) e.preventDefault();
+    });
+  
+    // Khởi động
+    startAutoplay();
+  })();
+  (function(){
+    const scrollers = document.querySelectorAll('.activity-scroller');
+    scrollers.forEach(s=>{
+      let isDown=false, startX=0, scrollStart=0, moved=false;
+      const THRESH = 5; // px
+  
+      s.addEventListener('pointerdown', (e)=>{
+        if (e.button !== 0) return;      // chỉ chuột trái
+        isDown = true; moved = false;
+        s.setPointerCapture(e.pointerId);
+        s.classList.add('dragging');
+        startX = e.clientX;
+        scrollStart = s.scrollLeft;
+      });
+  
+      s.addEventListener('pointermove', (e)=>{
+        if (!isDown) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > THRESH) moved = true;
+        s.scrollLeft = scrollStart - dx;
+      });
+  
+      const end = ()=>{ isDown=false; s.classList.remove('dragging'); };
+      s.addEventListener('pointerup', end);
+      s.addEventListener('pointercancel', end);
+      s.addEventListener('pointerleave', end);
+  
+      // Ngăn click vào card sau khi kéo
+      s.addEventListener('click', (e)=>{
+        if (moved){ e.preventDefault(); e.stopPropagation(); }
+      }, true);
+  
+      // Wheel ngang: giữ nguyên hành vi trackpad; với chuột “tilt wheel” thì thêm này
+      s.addEventListener('wheel', (e)=>{
+        // nếu người dùng cuộn dọc là chính thì bỏ qua
+        if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
+        e.preventDefault();
+        s.scrollLeft += e.deltaX;
+      }, {passive:false});
+    });
+  })();
+  
