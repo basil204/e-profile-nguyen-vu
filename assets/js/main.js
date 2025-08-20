@@ -374,7 +374,7 @@ function scrollMenuBtnToCenter(btn) {
       if (!root) return;
   
       const AUTOPLAY = true;
-      const INTERVAL = 2000;
+      const INTERVAL = 3500;
       const SWIPE_THRESHOLD = 40;
   
       const slides = Array.from(root.querySelectorAll('.certificate-slide'));
