@@ -153,7 +153,7 @@
  .rect-green {
      border-radius: 90px;
      background: var(--Light-Blue-0, #CEF);
-     height: 318px;
+     height: 278px;
      max-width: 144px;
      background-image: url('../img/9ead3f5e48f6f33cdda01144a31ac1eb4118267d.png');
      background-size: 165px 398px;
@@ -171,7 +171,7 @@
      margin-left: 0;
      margin-top: 8px;
      text-align: left;
-     font-family: "SF Pro Semibold", sans-serif !important;
+     font-family: "SF Pro Bold", sans-serif !important;
 }
  .company {
      color: #000;
@@ -204,6 +204,7 @@
      background: url("../img/f3e0d0a7eeb916eb0fc23c8d0394e69c588be425.png") no-repeat;
      margin: 50px auto 0 133px;
      background-size: cover;
+    
      z-index: 5;
 }
  .custom-bgv2 {
@@ -412,7 +413,7 @@
 .education-achievement {
   position: relative;
   z-index: 1; /* chữ ở trên overlay */
-  color: #fff; /* cho chữ trắng dễ đọc */
+  color: #fff; 
 }
  .skills-diagram {
      border-radius: 10px;
@@ -427,6 +428,9 @@
      gap: 10px;
      scrollbar-width: thin;
      -webkit-overflow-scrolling: touch;
+     overflow-y: hidden;          /* tránh hiện thanh dọc */
+  -ms-overflow-style: none;    /* IE/Edge cũ */
+  scrollbar-width: none;       /* Firefox */
 }
  .skill-box {
      margin-top: 50px;
@@ -448,10 +452,10 @@
 }
 .tab-skills {
   margin-top: 322px;
-  position: relative; /* để con absolute định vị dựa theo cha */
+  position: relative; 
+  
+  
 }
-
-/* Tiêu đề kỹ năng */
 .skill-text {
   color: #1A49BB;
   font-family: "SF Pro Bold", sans-serif !important;
@@ -492,6 +496,7 @@
  .education-title{
      margin-top: -240px;
      margin-left: 37px;
+     font-family: "SF Pro Bold", sans-serif !important;
 }
  .education-title, .skills-title {
      font-size: 17px;
@@ -499,24 +504,20 @@
      margin-bottom: 15px;
      text-transform: uppercase;
      letter-spacing: 1px;
-     font-family: "SF Pro Semibold", sans-serif !important;
+     /* font-family: "SF Pro Semibold", sans-serif !important; */
 }
  .education-school, .education-major {
      color: #ffffff;
      margin-left: 37px;
-     margin-top: -10px;
-}
- .education-school {
-     font-weight: 600;
-     font-size: 11px;
-     margin-bottom: 10px;
-     font-family: "SF Pro Semibold" !important;
+     margin-top: -5px;
+     font-family: "SF Pro Regular", sans-serif !important;
+     font-size: 12px;
 }
  .education-major {
      font-family: "SF Pro Regular" !important;
      font-size: 11px;
      margin-bottom: 8px;
-     margin-top: -10px;
+     margin-top: -5px;
 }
  .education-gpa{
      font-size: 11px;
@@ -532,7 +533,7 @@
      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
      width: auto;
      min-width: 110px;
-     font-family: "SF Pro Bold", sans-serif !important;
+     font-family: "SF Pro Regular", sans-serif !important;
      margin-left: 37px;
      
 }
@@ -545,21 +546,21 @@
      color: #1a49bb;
      display: inline-block;
      border: 1px solid #1a49bb;
-     padding: 4px 10px;
+     padding: 4px ;
      border-radius: 30px;
      text-align: center;
      background-color: rgba(255, 255, 255, 1);
      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
      width: auto;
      min-width: 120px;
-     font-family: "SF Pro Bold", sans-serif !important;
+     font-family: "SF Pro Regular", sans-serif !important;
 }
  .education-achievement {
      font-size: 10px;
      color: #1a49bb;
      font-weight: 600;
      border: 1px solid #1a49bb;
-     padding: 6px 12px;
+     padding: 6px 0;
      border-radius: 30px;
      display: inline-block;
      text-align: center;
@@ -567,7 +568,7 @@
      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
      width: 26px;
      min-width: 259px;
-     font-family: "SF Pro Bold", sans-serif !important;
+     font-family: "SF Pro Regular", sans-serif !important;
      margin-left: 37px;
      margin-top: -10px;
 
@@ -924,11 +925,21 @@ background: var(--Green-300, #1AB042);
   align-items: center;
   gap: 0;               /* sát chữ ↔ icon, có thể đổi 1px nếu muốn hở nhẹ */
   color: var(--Green-400, #0E872E);
-  font-family: "SF Pro", sans-serif !important;
+  font-family: "SF Pro Regular", sans-serif !important;
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
   margin: 0;
+  
+}
+/* hạ thường toàn bộ cụm chữ */
+.activity-label{
+  text-transform: lowercase !important;
+}
+
+/* chỉ CHỮ CÁI ĐẦU viết hoa */
+.activity-label::first-letter{
+  text-transform: uppercase;
 }
 
 .activity-next   { top: 10px; right: -127px; }
@@ -954,9 +965,22 @@ margin-left: 10px;
      scroll-snap-type: x mandatory;
      margin-top: 16px;
     margin-left: 22px;
+    touch-action: pan-x;                   /* vuốt ngang */
+    /* ẨN THANH CUỘN NGANG (đa trình duyệt) */
+    scrollbar-width: none;                 /* Firefox */
+    -ms-overflow-style: none;              /* IE/Edge cũ */
 
 }
 
+/* Khi đang kéo bằng chuột */
+.activity-scroller.dragging{ cursor:grabbing; user-select:none; }
+.activity-scroller.dragging .activity-card{ pointer-events:none; }
+
+/* (tuỳ chọn) Snap từng thẻ */
+.activity-card{ scroll-snap-align:start; scroll-snap-stop:always; }
+
+/* Đảm bảo vùng slider không “bắt” vuốt dọc trên mobile */
+.certificate-slider{ touch-action: pan-y; } /* slider chỉ cần vuốt dọc, mũi tên để điều hướng */
  .activity-scroller::-webkit-scrollbar {
      height: 6px;
 }
@@ -976,6 +1000,7 @@ margin-left: 10px;
      scroll-snap-align: start;
      display: flex;
      flex-direction: column;
+     
 }
  .activity-card:first-child {
      margin-left: 22px;
@@ -1207,8 +1232,12 @@ line-height: normal;
     margin-right: auto;
     margin-top: 35px;
     padding-top: 20px; /* Thêm dòng này để đẩy nội dung xuống */
-    
-
+}
+.trang-web{
+    margin-top: 35px;
+    width: 349px;
+    height: 50px;
+   background-color: #fff;
 }
 .project-info h3 {
     color: var(--Dark-blue, #1A49BB);
@@ -1260,7 +1289,7 @@ background: var(--Neutral-0, #FFF);
   /* Nếu muốn xuống dòng đẹp hơn, có thể thêm: */
   white-space: normal;
     margin-top: -25px;
-  margin-left: 10px;
+  margin-left: 15px;
 
 }
 .project-name-text-1{
@@ -1276,7 +1305,7 @@ background: var(--Neutral-0, #FFF);
   /* Nếu muốn xuống dòng đẹp hơn, có thể thêm: */
   white-space: normal;
   margin-top: -30px;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .project-slider {
@@ -1452,6 +1481,7 @@ line-height: 24px; /* 150% */
 text-transform: none;
 margin-left: auto;
 margin-right: auto;
+text-align: center;
 width: 268px;
 }
 
