@@ -15,23 +15,37 @@ window.addEventListener('DOMContentLoaded', function() {
     const popupTitle = document.getElementById('skill-popup-title');
     const popupContent = document.getElementById('skill-popup-content');
     const closeBtn = document.getElementById('close-skill-popup');
+    
+    // Kiểm tra xem các element cần thiết có tồn tại không
+    if (!popup || !popupTitle || !popupContent) {
+        console.warn('Skills popup elements not found. Popup functionality disabled.');
+        return;
+    }
+    
     let popupBg = null;
 
     function showPopup(skill, content) {
+        if (!popup || !popupTitle || !popupContent) return;
+        
         popupTitle.textContent = skill;
         popupContent.textContent = content;
         popup.style.display = 'block';
+        
         // Thêm lớp nền mờ
         popupBg = document.createElement('div');
         popupBg.className = 'skill-popup-bg';
         document.body.appendChild(popupBg);
+        
         // Đóng popup khi click nền
         popupBg.onclick = hidePopup;
+        
         // Đóng popup khi nhấn ESC
         document.addEventListener('keydown', escHandler);
     }
 
     function hidePopup() {
+        if (!popup) return;
+        
         popup.style.display = 'none';
         if (popupBg) {
             document.body.removeChild(popupBg);
@@ -43,18 +57,31 @@ window.addEventListener('DOMContentLoaded', function() {
     function escHandler(e) {
         if (e.key === 'Escape') hidePopup();
     }
+
+    // Xử lý click vào skill items
     skillItems.forEach(item => {
         item.addEventListener('click', function(e) {
             const skill = this.getAttribute('data-skill');
-            showPopup(skill, skillDescriptions[skill] || 'Đang cập nhật mô tả...');
-        });
-        item.setAttribute('tabindex', '0');
-        item.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                const skill = this.getAttribute('data-skill');
+            if (skill) {
                 showPopup(skill, skillDescriptions[skill] || 'Đang cập nhật mô tả...');
             }
         });
+        
+        // Thêm keyboard support
+        item.setAttribute('tabindex', '0');
+        item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const skill = this.getAttribute('data-skill');
+                if (skill) {
+                    showPopup(skill, skillDescriptions[skill] || 'Đang cập nhật mô tả...');
+                }
+            }
+        });
     });
-    closeBtn.onclick = hidePopup;
+    
+    // Xử lý nút đóng popup
+    if (closeBtn) {
+        closeBtn.onclick = hidePopup;
+    }
 });
