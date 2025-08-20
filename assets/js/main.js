@@ -580,4 +580,30 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
-      
+  document.addEventListener("DOMContentLoaded", () => {
+    const details = document.querySelectorAll(".timeline details");
+  
+    details.forEach((el) => {
+      el.addEventListener("toggle", function () {
+        if (this.open) {
+          // Nếu mở cái này thì đóng các cái khác
+          details.forEach((other) => {
+            if (other !== this) {
+              other.removeAttribute("open");
+            }
+          });
+        } else {
+          // Nếu người dùng cố đóng cái cuối cùng -> mở lại nó
+          const stillOpen = Array.from(details).some(d => d.open);
+          if (!stillOpen) {
+            this.setAttribute("open", "");
+          }
+        }
+      });
+    });
+  
+    // Đảm bảo mặc định có ít nhất 1 cái mở
+    if (![...details].some(d => d.open) && details.length > 0) {
+      details[0].setAttribute("open", "");
+    }
+  });

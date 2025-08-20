@@ -258,8 +258,13 @@
     <p class="education-school">Trường Đại học Hàng hải Việt Nam</p>
     <p class="education-major">Chuyên ngành: Quảng trị Tài chính - Kế toán</p>
     <div class="education-stats">
-      <span class="education-gpa">GPA: 4.0/4.0</span>
-      <span class="education-rank">Loại: Xuất sắc</span>
+      <span class="education-gpa">GPA:
+        <strong class="rank-value"> 4.0/4.0</strong>
+      </span>
+      <span class="education-rank">
+        Loại: <strong class="rank-value">Xuất sắc</strong>
+      </span>
+      
     </div>
     <p class="education-achievement">Thủ khoa đầu ra TP. Hải Phòng năm 2022</p>
 
@@ -453,10 +458,13 @@
       </div>
       <h3 class="skill-text">KỸ NĂNG</h3>
       <h3 class="skill-next-text">Lướt sang ➜</h3>
+   
     </div>
     <div class="tab-works">
-      <div class="rect-green"></div>
-      <section class="timeline">
+      <div class="rect-green">
+        <div class="works-a">Kinh nghiệm làm việc</div>
+      </div>
+            <section class="timeline">
 
         <details open class="current">
           <summary>
@@ -537,7 +545,6 @@
             </div>
           </div>
         </details>
-
       </section>
     </div>
     <div class="certificate">
@@ -1134,7 +1141,6 @@
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </button>
-              <div class="project-border"></div>
             </div>
           </div>
         </div>
@@ -1242,7 +1248,6 @@
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </button>
-              <div class="project-border"></div>
             </div>
           </div>
         </div>
@@ -1347,7 +1352,6 @@
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </button>
-              <div class="project-border"></div>
             </div>
           </div>
         </div>
@@ -1451,7 +1455,7 @@
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </button>
-              <div class="project-border"></div>
+       
             </div>
           </div>
         </div>
@@ -1555,7 +1559,7 @@
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </button>
-              <div class="project-border"></div>
+           
             </div>
           </div>
         </div>
@@ -1693,17 +1697,7 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/tab-ux.js"></script>
     <script src="assets/js/skills-popup.js"></script>
-    <script>
   
-      window.addEventListener('DOMContentLoaded', function () {
-        var goToContactBtn = document.getElementById('go-to-contact');
-        if (!goToContactBtn) return;
-        goToContactBtn.addEventListener('click', function () {
-          console.log('Nút Kết nối ngay đã được click');
-          // ...code xử lý chuyển tab...
-        });
-      });
-    </script>
     <script>
     
     </script>
