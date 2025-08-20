@@ -1423,7 +1423,11 @@ background: var(--Neutral-0, #FFF);
   height: 100%;
   object-fit: cover;   /* Tự phóng to/thu nhỏ ảnh để lấp đầy khung */
   border-radius: 8px;
-  background: #000;    /* Nếu muốn nền đen cho đẹp */
+  background: var(--Neutral-100, #F4F4F4);
+}
+.project-slide img.loading {
+  filter: blur(10px);
+  background: #eee url("assets/img/Loadding_icon.gif") center center no-repeat;
 }
 
 .project-caption {

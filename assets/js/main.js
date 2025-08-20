@@ -607,3 +607,10 @@ window.addEventListener('DOMContentLoaded', () => {
       details[0].setAttribute("open", "");
     }
   });
+  document.querySelectorAll(".project-slide img").forEach(img => {
+    img.classList.add("loading");
+    img.addEventListener("load", () => {
+      img.classList.remove("loading");
+    });
+  });
+  
