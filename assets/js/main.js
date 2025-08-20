@@ -480,4 +480,104 @@ function scrollMenuBtnToCenter(btn) {
       });
     })();
   });
+// ---- CẤU HÌNH ÁNH XẠ TAB -> SECTION HIỆN ----
+// Nếu tab4 cần hiện .profile-section-4 thì đổi giá trị tương ứng.
+const TAB_TO_SECTION = {
+    tab1: '.profile-section',
+    tab2: '.profile-section-2',
+    tab3: '.profile-section-3',
+    tab4: '.profile-section', // đổi thành '.profile-section-4' nếu bạn có section riêng
+  };
   
+  // Ẩn tất cả tab & tất cả profile-section*
+  function hideAll() {
+    document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('[class^="profile-section"]').forEach(el => el.style.display = 'none');
+  }
+  
+  // Kích hoạt tab theo id và hiện section khớp
+  function activateTab(tabId) {
+    if (!tabId) return;
+  
+    // Active trạng thái nút
+    const buttons = document.querySelectorAll('.menu-btn');
+    buttons.forEach(b => b.classList.toggle('active', b.getAttribute('data-tab') === tabId));
+  
+    // Ẩn & hiện nội dung
+    hideAll();
+    const tabEl = document.getElementById(tabId);
+    if (tabEl) tabEl.style.display = 'block';
+  
+    const sectionSel = TAB_TO_SECTION[tabId];
+    if (sectionSel) {
+      const sectionEl = document.querySelector(sectionSel);
+      if (sectionEl) sectionEl.style.display = 'flex';
+    }
+  }
+  
+  // Cuộn nút đang active về giữa thanh menu (nếu có)
+  function scrollActiveMenuBtnIntoCenter() {
+    const activeBtn = document.querySelector('.menu-btn.active');
+    const menuBar = activeBtn?.closest('.menu-bar');
+    if (!activeBtn || !menuBar) return;
+    const barRect = menuBar.getBoundingClientRect();
+    const btnCenter = activeBtn.offsetLeft + activeBtn.offsetWidth / 2;
+    const scrollTo = btnCenter - barRect.width / 2;
+    menuBar.scrollTo({ left: scrollTo, behavior: 'smooth' });
+  }
+  
+  // Lắng nghe click cho tất cả nút menu
+  document.querySelectorAll('.menu-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activateTab(btn.getAttribute('data-tab'));
+      // Cuộn nút về giữa sau khi chuyển tab
+      setTimeout(scrollActiveMenuBtnIntoCenter, 80);
+    });
+  });
+  
+  // Nút “đi đến liên hệ”
+  window.addEventListener('DOMContentLoaded', () => {
+    const goToContactBtn = document.getElementById('go-to-contact');
+    if (!goToContactBtn) return;
+  
+    goToContactBtn.addEventListener('click', () => {
+      // Chuyển sang tab4 bằng cùng 1 logic
+      activateTab('tab4');
+  
+      // Đảm bảo nút tab4 hiện trong viewport thanh menu
+      setTimeout(scrollActiveMenuBtnIntoCenter, 100);
+  
+      // Nếu cần cuộn thanh menu vào vùng nhìn
+      const menuBar = document.querySelector('.menu-bar');
+      if (menuBar) {
+        const rect = menuBar.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const offset = rect.top + scrollTop - 20;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    });
+  });
+// Gắn click cho các nút dẫn tới tab Liên hệ
+window.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.custom-btn, .custom-btn-2, .end, .connect-text, .nut');
+    if (!triggers.length) return;
+  
+    triggers.forEach(el => {
+      el.addEventListener('click', () => {
+        // Dùng lại logic chung, không lặp
+        activateTab('tab4');
+  
+        // Cuộn nút tab đang active (tab4) vào giữa thanh menu
+        setTimeout(scrollActiveMenuBtnIntoCenter, 80);
+  
+        // (Tuỳ chọn) đảm bảo menu-bar hiện trong viewport
+        const menuBar = document.querySelector('.menu-bar');
+        if (menuBar) {
+          const rect = menuBar.getBoundingClientRect();
+          const y = (window.pageYOffset || document.documentElement.scrollTop) + rect.top - 20;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+  });
+      

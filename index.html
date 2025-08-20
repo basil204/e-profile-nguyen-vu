@@ -1694,71 +1694,7 @@
     <script src="assets/js/tab-ux.js"></script>
     <script src="assets/js/skills-popup.js"></script>
     <script>
-      document.querySelectorAll('.menu-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          // Ẩn tất cả tab-content
-          document.querySelectorAll('.tab-content').forEach(function (tab) {
-            tab.style.display = 'none';
-          });
-          // Ẩn tất cả profile-section
-          document.querySelector('.profile-section').style.display = 'none';
-          document.querySelector('.profile-section-2').style.display = 'none';
-          document.querySelector('.profile-section-3').style.display = 'none';
-          document.querySelector('.profile-section-4').style.display = 'none';
-
-          // Xử lý active tab
-          document.querySelectorAll('.menu-btn').forEach(function (b) {
-            b.classList.remove('active');
-          });
-          btn.classList.add('active');
-
-          // Hiện tab-content và profile-section tương ứng
-          var tabId = btn.getAttribute('data-tab');
-          document.getElementById(tabId).style.display = 'block';
-          if (tabId === 'tab1') {
-            document.querySelector('.profile-section').style.display = 'flex';
-          } else if (tabId === 'tab2') {
-            document.querySelector('.profile-section-2').style.display = 'flex';
-          } else if (tabId === 'tab3') {
-            document.querySelector('.profile-section-3').style.display = 'flex';
-          } else if (tabId === 'tab4') {
-            document.querySelector('.profile-section').style.display = 'flex';
-          }
-        });
-      });
-
-      window.addEventListener('DOMContentLoaded', function () {
-        var goToContactBtn = document.getElementById('go-to-contact');
-        if (!goToContactBtn) return;
-        goToContactBtn.addEventListener('click', function () {
-          // Kích hoạt tab Liên hệ
-          document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
-          const contactBtn = document.querySelector('.menu-btn[data-tab="tab4"]');
-          contactBtn.classList.add('active');
-          document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
-          var tab = document.getElementById('tab4');
-          if (tab) tab.style.display = 'block';
-          // Cuộn menu-btn vào giữa nếu bị trôi
-          setTimeout(function () {
-            contactBtn.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center',
-              inline: 'center'
-            });
-          }, 100);
-          // Cuộn đến menu-bar nếu cần
-          const menuBar = document.querySelector('.menu-bar');
-          if (menuBar) {
-            const rect = menuBar.getBoundingClientRect();
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const offset = rect.top + scrollTop - 20;
-            window.scrollTo({
-              top: offset,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
+  
       window.addEventListener('DOMContentLoaded', function () {
         var goToContactBtn = document.getElementById('go-to-contact');
         if (!goToContactBtn) return;
@@ -1769,43 +1705,7 @@
       });
     </script>
     <script>
-      window.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.custom-btn, .custom-btn-2, .end,.connect-text,.nut').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            // Kích hoạt tab Liên hệ
-            document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
-            const contactBtn = document.querySelector('.menu-btn[data-tab="tab4"]');
-            if (contactBtn) contactBtn.classList.add('active');
-            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
-            var tab = document.getElementById('tab4');
-            if (tab) tab.style.display = 'block';
-            document.querySelector('.profile-section').style.display = 'flex';
-            document.querySelector('.profile-section-2').style.display = 'none';
-            document.querySelector('.profile-section-3').style.display = 'none';
-            document.querySelector('.profile-section-4').style.display = 'none';
-            if (contactBtn) {
-              setTimeout(function () {
-                contactBtn.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'center',
-                  inline: 'center'
-                });
-              }, 100);
-            }
-            // Cuộn đến menu-bar nếu cần
-            const menuBar = document.querySelector('.menu-bar');
-            if (menuBar) {
-              const rect = menuBar.getBoundingClientRect();
-              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              const offset = rect.top + scrollTop - 20;
-              window.scrollTo({
-                top: offset,
-                behavior: 'smooth'
-              });
-            }
-          });
-        });
-      });
+    
     </script>
   
         
