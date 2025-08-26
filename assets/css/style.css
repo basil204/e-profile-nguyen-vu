@@ -1229,7 +1229,7 @@ background: var(--Neutral-0, #FFF);
   min-height: 91px;       /* riêng item cuối cao hơn */
 }
 .connect-now {
-    margin-top: 35px;
+  margin-top: 35px;
   display: flex;
   align-items: center;         /* căn giữa dọc */
   justify-content: center;     /* căn giữa ngang */
@@ -1240,7 +1240,9 @@ background: var(--Neutral-0, #FFF);
   background: var(--Dark-blue, #1A49BB);
   color: #fff;
   margin-left: 20px;
+  margin-bottom: 40px;         /* thêm khoảng trống dưới cùng */
 }
+
 
 .connect-now svg {
   flex-shrink: 0;              /* giữ kích thước icon */
@@ -1625,7 +1627,10 @@ border-radius: 90px;
   font-family: "SF Pro", sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #1A49BB;}
+  color: #1A49BB;
+  margin-bottom: 300px;         /* thêm khoảng trống dưới cùng */
+
+}
 
 .skill-vu{
   margin-left: auto;
