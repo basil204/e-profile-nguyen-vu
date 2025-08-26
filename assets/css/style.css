@@ -208,7 +208,8 @@
   font-weight: 700;
   line-height: 31.5px;
   text-transform: uppercase;
-  z-index: 2; /* cao hơn overlay */
+  z-index: 2; 
+  top: 195px;
 }
 
 
@@ -223,7 +224,7 @@
 }
  .company {
      color: #000;
-     font-size: 10px;
+     font-size: 12px;
      line-height: normal;
      margin-left: 0;
      margin-top: 4px;
@@ -791,17 +792,14 @@ background: var(--Green-300, #1AB042);
 }
  h2 {
      color: var(--Dark-blue, #1A49BB);
-    /* SF Pro/21px: Bold */
      font-family: "SF Pro Bold", sans-serif !important;
      font-size: 21px;
      font-style: normal;
      font-weight: 700;
      line-height: 31.5px;
-    /* 150% */
      text-transform: uppercase;
      margin-top: 35px;
 }
-/* TABS */
  .core-values-tabs {
      display: flex;
      align-items: center;
@@ -943,7 +941,7 @@ background: var(--Green-300, #1AB042);
 }
 .activity-header {
   position: relative; /* để chứa được phần tử con absolute */
-  width: 229px;
+  width: 210px;
   height: 39px;
   display: flex;
   align-items: center;
@@ -954,7 +952,7 @@ background: var(--Green-300, #1AB042);
 }
 .activity-header-v2 {
   position: relative; /* để chứa được phần tử con absolute */
-  width: 93px;
+  width: 88px;
   height: 39px;
   display: flex;
   align-items: center;
@@ -966,7 +964,7 @@ background: var(--Green-300, #1AB042);
 }
 .activity-header-v3 {
   position: relative; /* để chứa được phần tử con absolute */
-  width: 171px;
+  width: 155px;
   height: 39px;
   display: flex;
   align-items: center;
@@ -1015,38 +1013,71 @@ font-weight: 700;
 line-height: normal;
 margin-left: 10px;
 }
-/* Thanh cuộn ngang */
- .activity-scroller {
-     display: flex;
-     gap: 10px;
-     overflow-x: auto;
-     padding-bottom: 12px;
-     scroll-snap-type: x mandatory;
-     margin-top: 16px;
-    margin-left: 22px;
-    touch-action: pan-x;                   /* vuốt ngang */
-    /* ẨN THANH CUỘN NGANG (đa trình duyệt) */
-    scrollbar-width: none;                 /* Firefox */
-    -ms-overflow-style: none;              /* IE/Edge cũ */
+/* ===== Horizontal scroller ===== */
+/* ====== ACTIVITY SCROLLER ====== */
+.activity-scroller{
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  margin-top: 16px;
+  margin-left: 22px;
+  touch-action: pan-x;                  /* Vuốt ngang */
+  -webkit-overflow-scrolling: touch;    /* iOS mượt */
+  overscroll-behavior-x: contain;       /* Không “giật” trang khi kéo */
+  scrollbar-width: none;                /* Firefox: ẩn nếu muốn ẩn hẳn */
+  -ms-overflow-style: none;             /* IE/Edge cũ */
+}
+.activity-scroller.dragging{ cursor: grabbing; user-select: none; }
+.activity-scroller.dragging .activity-card{ pointer-events: none; }
 
+/* Snap từng thẻ (tuỳ chọn) */
+.activity-card{ scroll-snap-align: start; scroll-snap-stop: always; }
+
+/* ====== CERTIFICATE SLIDER — sửa lại để kéo NGANG ====== */
+.certificate-slider{
+  /* Nếu dùng cùng kỹ thuật kéo bằng chuột như đã thêm JS */
+  overflow-x: auto;                     /* Cho phép scroll ngang */
+  touch-action: pan-x;                  /* Vuốt NGANG (đang sai là pan-y) */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;        /* Nếu muốn snap như activity */
+}
+.certificate-slider.dragging{ cursor: grabbing; user-select: none; }
+.certificate-slider .certificate-slide{ 
+  scroll-snap-align: start; 
+  scroll-snap-stop: always; 
+  flex: 0 0 auto;
 }
 
-/* Khi đang kéo bằng chuột */
-.activity-scroller.dragging{ cursor:grabbing; user-select:none; }
-.activity-scroller.dragging .activity-card{ pointer-events:none; }
+/* ====== THANH CUỘN: chọn 1 trong 2 MODE bên dưới ====== */
 
-/* (tuỳ chọn) Snap từng thẻ */
-.activity-card{ scroll-snap-align:start; scroll-snap-stop:always; }
+/* MODE A — ẨN hẳn thanh cuộn (Chrome/Safari/Edge) */
+.activity-scroller::-webkit-scrollbar,
+.certificate-slider::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+}
+/* Firefox đã ẩn bằng scrollbar-width:none phía trên */
 
-/* Đảm bảo vùng slider không “bắt” vuốt dọc trên mobile */
-.certificate-slider{ touch-action: pan-y; } /* slider chỉ cần vuốt dọc, mũi tên để điều hướng */
- .activity-scroller::-webkit-scrollbar {
-     height: 6px;
+/* MODE B — Hiển thị mảnh (nếu muốn thấy 1 tí để gợi ý có thể kéo) */
+/*
+.activity-scroller{ scrollbar-width: thin; } 
+.certificate-slider{ scrollbar-width: thin; }
+
+.activity-scroller::-webkit-scrollbar,
+.certificate-slider::-webkit-scrollbar{ height: 6px; }
+.activity-scroller::-webkit-scrollbar-thumb,
+.certificate-slider::-webkit-scrollbar-thumb{
+  background: #E0E6EF;
+  border-radius: 999px;
 }
- .activity-scroller::-webkit-scrollbar-thumb {
-     background: #E0E6EF;
-     border-radius: 999px;
-}
+*/
+
+/* Lưu ý: KHÔNG bật đồng thời Mode A và B (chọn một).
+   Nếu đang dùng Mode A thì hãy xoá block Mode B và ngược lại. */
+
 /* Card */
  .activity-card {
      flex: 0 0 auto;
@@ -1054,7 +1085,6 @@ margin-left: 10px;
      height: 176px;
      border-radius: 12px;
      overflow: hidden;
-     box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
      background: #fff;
      scroll-snap-align: start;
      display: flex;
@@ -1524,8 +1554,6 @@ background: var(--Neutral-0, #FFF);
 .contact-section h2{
     color: #000;
 text-align: center;
-
-/* SF Pro/21px: Bold */
 font-family: "SF Pro Bold", sans-serif !important;
 font-size: 21px;
 font-style: normal;

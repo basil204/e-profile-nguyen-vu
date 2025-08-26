@@ -369,74 +369,118 @@ function scrollMenuBtnToCenter(btn) {
     })();
   
     /* ---------- CERTIFICATE CAROUSEL (Autoplay + Swipe) ---------- */
-    (function () {
-      const root = document.querySelector('.certificate-slider');
-      if (!root) return;
-  
-      const AUTOPLAY = true;
-      const INTERVAL = 3500;
-      const SWIPE_THRESHOLD = 40;
-  
-      const slides = Array.from(root.querySelectorAll('.certificate-slide'));
-      const prevBtn = root.querySelector('.certificate-prev');
-      const nextBtn = root.querySelector('.certificate-next');
-  
-      root.setAttribute('tabindex', '0');
-      root.setAttribute('aria-roledescription', 'carousel');
-  
-      let current = Math.max(0, slides.findIndex(s => s.classList.contains('active')));
-      if (current === -1) { current = 0; slides[0]?.classList.add('active'); }
-  
-      let timer = null;
-      const show = (i) => {
-        const n = slides.length; if (!n) return;
-        i = (i % n + n) % n;
-        if (i === current) return;
-        slides[current].classList.remove('active');
-        slides[i].classList.add('active');
-        current = i;
-        // Eager decode ảnh đang hiện
-        const img = slides[i].querySelector('img');
-        if (img) { try { img.loading = 'eager'; img.decoding = 'sync'; img.decode?.(); } catch {} }
-      };
-      const next = () => show(current + 1);
-      const prev = () => show(current - 1);
-  
-      const start = () => { if (AUTOPLAY && !timer) timer = setInterval(next, INTERVAL); };
-      const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
-  
-      prevBtn?.addEventListener('click', () => { stop(); prev(); start(); });
-      nextBtn?.addEventListener('click', () => { stop(); next(); start(); });
-  
-      root.addEventListener('mouseenter', stop);
-      root.addEventListener('mouseleave', start);
-      root.addEventListener('focusin', stop);
-      root.addEventListener('focusout', start);
-  
-      root.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') { stop(); next(); start(); e.preventDefault(); }
-        if (e.key === 'ArrowLeft') { stop(); prev(); start(); e.preventDefault(); }
-      });
-  
-      let sx = 0, sy = 0, t0 = 0, moved = false;
-      root.addEventListener('touchstart', (e) => {
-        const t = e.changedTouches[0];
-        sx = t.clientX; sy = t.clientY; t0 = Date.now(); moved = false; stop();
-      }, { passive: true });
-      root.addEventListener('touchmove', (e) => {
-        const t = e.changedTouches[0];
-        if (Math.abs(t.clientX - sx) > 6 || Math.abs(t.clientY - sy) > 6) moved = true;
-      }, { passive: true });
-      root.addEventListener('touchend', (e) => {
-        const t = e.changedTouches[0];
-        const dx = t.clientX - sx, dy = t.clientY - sy, dt = Date.now() - t0;
-        if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dy) < 60 && dt < 600) (dx < 0 ? next() : prev());
-        start();
-      }, { passive: true });
-      root.addEventListener('click', (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
-  
-      start();
-    })();
+    /* ---------- CERTIFICATE CAROUSEL (Autoplay + Swipe + Mouse Drag) ---------- */
+(function () {
+  const root = document.querySelector('.certificate-slider');
+  if (!root) return;
+
+  const AUTOPLAY = true;
+  const INTERVAL = 3500;
+  const SWIPE_THRESHOLD = 40;
+
+  const slides = Array.from(root.querySelectorAll('.certificate-slide'));
+  const prevBtn = root.querySelector('.certificate-prev');
+  const nextBtn = root.querySelector('.certificate-next');
+
+  // Trợ năng
+  root.setAttribute('tabindex', '0');
+  root.setAttribute('aria-roledescription', 'carousel');
+
+  // --- State slide ---
+  let current = Math.max(0, slides.findIndex(s => s.classList.contains('active')));
+  if (current === -1) { current = 0; slides[0]?.classList.add('active'); }
+
+  // --- Autoplay ---
+  let timer = null;
+  const show = (i) => {
+    const n = slides.length; if (!n) return;
+    i = (i % n + n) % n;
+    if (i === current) return;
+    slides[current].classList.remove('active');
+    slides[i].classList.add('active');
+    current = i;
+    const img = slides[i].querySelector('img');
+    if (img) { try { img.loading = 'eager'; img.decoding = 'sync'; img.decode?.(); } catch {} }
+  };
+  const next = () => show(current + 1);
+  const prev = () => show(current - 1);
+  const start = () => { if (AUTOPLAY && !timer) timer = setInterval(next, INTERVAL); };
+  const stop  = () => { if (timer) { clearInterval(timer); timer = null; } };
+
+  prevBtn?.addEventListener('click', () => { stop(); prev(); start(); });
+  nextBtn?.addEventListener('click', () => { stop(); next(); start(); });
+
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin',  stop);
+  root.addEventListener('focusout', start);
+
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { stop(); next(); start(); e.preventDefault(); }
+    if (e.key === 'ArrowLeft')  { stop(); prev(); start(); e.preventDefault(); }
+  });
+
+  // --- Swipe (mobile) giữ nguyên ---
+  let sx = 0, sy = 0, t0 = 0, movedTouch = false;
+  root.addEventListener('touchstart', (e) => {
+    const t = e.changedTouches[0];
+    sx = t.clientX; sy = t.clientY; t0 = Date.now(); movedTouch = false; stop();
+  }, { passive: true });
+  root.addEventListener('touchmove', (e) => {
+    const t = e.changedTouches[0];
+    if (Math.abs(t.clientX - sx) > 6 || Math.abs(t.clientY - sy) > 6) movedTouch = true;
+  }, { passive: true });
+  root.addEventListener('touchend', (e) => {
+    const t = e.changedTouches[0];
+    const dx = t.clientX - sx, dy = t.clientY - sy, dt = Date.now() - t0;
+    if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dy) < 60 && dt < 600) (dx < 0 ? next() : prev());
+    start();
+  }, { passive: true });
+  root.addEventListener('click', (e) => { if (movedTouch) { e.preventDefault(); e.stopPropagation(); } }, true);
+
+  // --- Mouse drag giống .skills-diagram ---
+  // YÊU CẦU CSS của container có overflow-x: auto; (xem gợi ý bên dưới)
+  let isDown = false, startX = 0, startLeft = 0, movedMouse = false;
+  const THRESH = 5;
+
+  root.style.cursor = 'grab';
+  root.addEventListener('pointerdown', (e) => {
+    // chỉ kéo với chuột trái / bút
+    if (e.button !== 0) return;
+    isDown = true; movedMouse = false;
+    root.setPointerCapture(e.pointerId);
+    root.style.cursor = 'grabbing';
+    startX = e.clientX;
+    startLeft = root.scrollLeft;
+    stop();
+  });
+
+  root.addEventListener('pointermove', (e) => {
+    if (!isDown) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > THRESH) movedMouse = true;
+    root.scrollLeft = startLeft - dx;
+    // tránh chọn text khi kéo
+    e.preventDefault();
+  });
+
+  const endDrag = () => {
+    if (!isDown) return;
+    isDown = false;
+    root.style.cursor = 'grab';
+    start();
+  };
+  root.addEventListener('pointerup', endDrag);
+  root.addEventListener('pointercancel', endDrag);
+  root.addEventListener('pointerleave', endDrag);
+
+  // Chặn click khi vừa kéo (tránh "lác" click)
+  root.addEventListener('click', (e) => {
+    if (movedMouse) { e.preventDefault(); e.stopPropagation(); movedMouse = false; }
+  }, true);
+
+  start();
+})();
   
     /* ---------- TIMELINE: chỉ mở 1 details ---------- */
     document.querySelectorAll('.timeline details').forEach(det => {
