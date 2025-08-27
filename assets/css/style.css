@@ -368,6 +368,7 @@
      box-sizing: border-box;
      max-width: 390px;
      gap: 10px;
+     margin-top: 10px;
 }
  .menu-bar::-webkit-scrollbar {
      display: none;
