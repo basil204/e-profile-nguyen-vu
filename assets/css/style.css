@@ -358,7 +358,7 @@
      border-radius: 0;
      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
      padding: 0 18px;
-     margin: 20px auto 24px auto;
+     margin: 10px auto 24px auto;
      flex-shrink: 0;
      position: sticky;
      top: 0;
@@ -404,7 +404,7 @@
      border-radius: 0;
      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
      padding: 0 18px;
-     margin: 20px auto 24px auto;
+     margin: 10px auto 24px auto;
      flex-shrink: 0;
      position: sticky;
      top: 0;
