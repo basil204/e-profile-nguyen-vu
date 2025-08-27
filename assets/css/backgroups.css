@@ -160,6 +160,7 @@ summary{
     word-break: break-word;
     hyphens: auto;
     height: auto;
+    max-height: 100px;
     overflow: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;

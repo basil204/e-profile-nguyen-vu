@@ -1,15 +1,4 @@
- @font-face {
-     font-family: 'SF Pro Ultralight';
-     src: url('../font/SF-Pro-Display-Ultralight.otf') format('opentype');
-     font-weight: 200;
-     font-style: normal;
-}
- @font-face {
-     font-family: 'SF Pro Ultralight Italic';
-     src: url('../font/SF-Pro-Display-UltralightItalic.otf') format('opentype');
-     font-weight: 200;
-     font-style: italic;
-}
+
  @font-face {
      font-family: 'SF Pro Regular';
      src: url('../font/SF-Pro-Display-Regular.otf') format('opentype');
@@ -17,58 +6,10 @@
      font-style: normal;
 }
  @font-face {
-     font-family: 'SF Pro Regular Italic';
-     src: url('../font/SF-Pro-Display-RegularItalic.otf') format('opentype');
-     font-weight: 300;
-     font-style: italic;
-}
- @font-face {
-     font-family: 'SF Pro Light';
-     src: url('../font/SF-Pro-Display-Light.otf') format('opentype');
-     font-weight: 300;
-     font-style: normal;
-}
- @font-face {
-     font-family: 'SF Pro Light Italic';
-     src: url('../font/SF-Pro-Display-LightItalic.otf') format('opentype');
-     font-weight: 300;
-     font-style: italic;
-}
- @font-face {
      font-family: 'SF Pro Regular';
      src: url('../font/SF-Pro-Display-Regular.otf') format('opentype');
      font-weight: 400;
      font-style: normal;
-}
- @font-face {
-     font-family: 'SF Pro Regular Italic';
-     src: url('../font/SF-Pro-Display-RegularItalic.otf') format('opentype');
-     font-weight: 400;
-     font-style: italic;
-}
- @font-face {
-     font-family: 'SF Pro Medium';
-     src: url('../font/SF-Pro-Display-Medium.otf') format('opentype');
-     font-weight: 500;
-     font-style: normal;
-}
- @font-face {
-     font-family: 'SF Pro Medium Italic';
-     src: url('../font/SF-Pro-Display-MediumItalic.otf') format('opentype');
-     font-weight: 500;
-     font-style: italic;
-}
- @font-face {
-     font-family: 'SF Pro Semibold';
-     src: url('../font/SF-Pro-Display-Semibold.otf') format('opentype');
-     font-weight: 600;
-     font-style: normal;
-}
- @font-face {
-     font-family: 'SF Pro Semibold Italic';
-     src: url('../font/SF-Pro-Display-SemiboldItalic.otf') format('opentype');
-     font-weight: 600;
-     font-style: italic;
 }
  @font-face {
      font-family: 'SF Pro Bold';
@@ -76,36 +17,11 @@
      font-weight: 700;
      font-style: normal;
 }
- @font-face {
-     font-family: 'SF Pro Bold Italic';
-     src: url('../font/SF-Pro-Display-BoldItalic.otf') format('opentype');
-     font-weight: 700;
-     font-style: italic;
-}
- @font-face {
-     font-family: 'SF Pro Heavy';
-     src: url('../font/SF-Pro-Display-Heavy.otf') format('opentype');
-     font-weight: 800;
-     font-style: normal;
-}
- @font-face {
-     font-family: 'SF Pro Heavy Italic';
-     src: url('../font/SF-Pro-Display-HeavyItalic.otf') format('opentype');
-     font-weight: 800;
-     font-style: italic;
-}
- @font-face {
-     font-family: 'SF Pro Black';
-     src: url('../font/SF-Pro-Display-Black.otf') format('opentype');
-     font-weight: 900;
-     font-style: normal;
-}
- @font-face {
-     font-family: 'SF Pro Black Italic';
-     src: url('../font/SF-Pro-Display-BlackItalic.otf') format('opentype');
-     font-weight: 900;
-     font-style: italic;
-}
+
+
+
+
+
  html, body {
      min-height: 100%;
     /* overflow-x: hidden;
@@ -316,7 +232,7 @@
      align-self: flex-start;
      margin-left: 2px;
      left: -22px;
-     font-family: "SF Pro Semibold", sans-serif !important;
+     font-family: "SF Pro Bold", sans-serif !important;
 }
  .mong-muon-box {
      position: relative;
@@ -775,7 +691,7 @@ background: var(--Green-300, #1AB042);
   gap: 10px;
   color: #fff;
   font-size: 14px;
-  font-family: "SF Pro Semibold", sans-serif !important;
+  font-family: "SF Pro Bold", sans-serif !important;
 }
  .group-photo {
      background-image: url('../img/group-photo.png');
@@ -1297,11 +1213,13 @@ line-height: normal;
      font-size: 11px;
      color: #222;
      margin: 0px auto;
-     margin-top: 410px;
+     margin-top: 385px;
      left: 185px;
      transform: translateX(-50%);
      opacity: 0.9;
+     margin-bottom: 30px;
 }
+
  .custom-btn {
      position: relative;
      transform: none;
@@ -1323,7 +1241,7 @@ line-height: normal;
      align-self: flex-start;
      margin-left: 2px;
      left: -22px;
-     font-family: "SF Pro Semibold", sans-serif !important;
+     font-family: "SF Pro Bold", sans-serif !important;
 }
 .project-section{
     border-radius: 10px;
