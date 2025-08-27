@@ -61,7 +61,7 @@
      -webkit-text-fill-color: transparent;
      font-size: 40px;
      line-height: 44px;
-     margin-top: -480px;
+     margin-top: -490px;
      text-align: left;
      margin-left: 0;
      font-family: "SF Pro Bold", sans-serif !important;
@@ -141,7 +141,7 @@
  .company {
      color: #000;
      font-size: 14px;
-     line-height: normal;
+    
      margin-left: 0;
      margin-top: 4px;
      text-align: left;
@@ -250,6 +250,7 @@
      left: 50%;
      transform: translateX(-50%);
      opacity: 0.9;
+     margin-bottom: 6px;
      
 }
  .profile-section {
@@ -274,7 +275,7 @@
      border-radius: 0;
      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
      padding: 0 18px;
-     margin: 10px auto 24px auto;
+     margin: 0px auto 24px auto;
      flex-shrink: 0;
      position: sticky;
      top: 0;
@@ -320,7 +321,7 @@
      border-radius: 0;
      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
      padding: 0 18px;
-     margin: 10px auto 24px auto;
+     margin: 0px auto 24px auto;
      flex-shrink: 0;
      position: sticky;
      top: 0;
@@ -607,6 +608,7 @@
   left: -42px;
   transform: translateX(-50%);
   opacity: 0.9;
+  margin-bottom: 10px;
 }
 .bds {
   width: 223px;
@@ -1219,7 +1221,6 @@ line-height: normal;
      opacity: 0.9;
      margin-bottom: 30px;
 }
-
  .custom-btn {
      position: relative;
      transform: none;
@@ -1233,7 +1234,7 @@ line-height: normal;
      height: 49px;
      border: none;
      color: #fff;
-     font-size: 14px;
+     font-size: 16px;
      cursor: pointer;
      margin: 25px 0;
      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -1595,4 +1596,153 @@ border-radius: 90px;
 height: 187px;
 border-radius: 10px;
 background: var(--Light-Blue-0, #CEF);
+}
+
+.khoihinhxanhv2 {
+  position: relative; /* cho phép con dùng absolute */
+  margin: 250px auto 0 118px;
+  width: 70%;
+  height: 300px;
+  z-index: 0;
+  background-image: url('../img/khoihinhxanh.png');
+  background-size: cover;
+}
+
+.custom-bgss1 {
+  position: absolute;       /* nằm đè lên trong khoi */
+  bottom: 0;                /* sát cạnh dưới */
+  right: 0;                 /* sát cạnh phải */
+  width: 240px;
+  height: 486px;
+  background: url("../img/f3e0d0a7eeb916eb0fc23c8d0394e69c588be425.png") no-repeat;
+  background-size: cover;
+  z-index: 10;
+  margin: 0;                /* bỏ margin để không bị đẩy */
+}
+.khoihinhtrongv2 {
+  position: absolute;
+  top: 122px;
+  transform: translate(-25%, -45%);
+  width: 433px;
+  height: 433px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--Neutral-100, #F4F4F4);
+  z-index: 1;
+  clip-path: inset(0 0 0 50%);
+  margin-left: -109px;
+
+  display: flex;               /* bật flexbox */
+  justify-content: center;     /* căn ngang chữ */
+  align-items: flex-start;     /* đưa chữ lên trên */
+  padding-top: 20px;           /* cách viền trên một chút */
+}
+
+.gradient-text1 {
+  background: linear-gradient(73deg, #000 28.21%, #1a49bb 88.37%);
+  background-clip: text;
+  -webkit-background-clip: text;  
+  -webkit-text-fill-color: transparent;
+font-size: 40px;
+text-align: left;
+margin-left: 0;
+font-family: "SF Pro Bold", sans-serif !important;          /* chữ màu đen */
+  font-weight: bold;
+  margin-top: 100px;
+  margin-left: 200px;
+}
+.subtitle1 {
+  position: absolute;   /* đặt độc lập */
+  top: 145px;           /* canh dưới vòng tròn */
+  left: 22px;          /* chỉnh ngang */
+  color: #000;
+  font-size: 16px;
+  line-height: normal;
+  font-family: "SF Pro Bold", sans-serif !important;
+  z-index: 10;
+}
+
+.company1{
+  position: absolute;   /* đặt độc lập */
+  top: 165px;           /* canh dưới vòng tròn */
+  left: 22px;          /* chỉnh ngang */
+  color: #000;
+  font-size: 14px;
+font-style: normal;
+font-weight: 400;
+  font-family: "SF Pro Regular", sans-serif !important;
+  z-index: 10;
+}
+.subtitle2 {
+  position: absolute;   /* đặt độc lập */
+  top: 190px;           /* canh dưới vòng tròn */
+  left: 22px;          /* chỉnh ngang */
+  color: #000;
+  font-size: 16px;
+  line-height: normal;
+  font-family: "SF Pro Bold", sans-serif !important;
+  z-index: 10;
+}
+
+.company2{
+  position: absolute;   /* đặt độc lập */
+  top: 215px;           /* canh dưới vòng tròn */
+  left: 22px;          /* chỉnh ngang */
+  color: #000;
+  font-size: 14px;
+font-style: normal;
+font-weight: 400;
+  font-family: "SF Pro Regular", sans-serif !important;
+  z-index: 10;
+}
+.subtitle3{
+  position: absolute;   /* đặt độc lập */
+  top: 260px;           /* canh dưới vòng tròn */
+  left: 22px;          /* chỉnh ngang */
+  color: #000;
+  font-size: 16px;
+  line-height: normal;
+  font-family: "SF Pro Bold", sans-serif !important;
+  z-index: 10;
+}
+.mong-muon-boxxx1{
+  position: absolute;   /* đặt độc lập */
+  z-index: 20;
+  width: 330px;
+  height: auto;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+  z-index: 10;
+  padding: 16px 20px;
+  font-size: 11px;
+  color: #222;
+  margin: 0px auto;
+  margin-top: 435px;
+  left: 200px;
+  transform: translateX(-50%);
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+.nutv4{
+  position: absolute;   /* đặt độc lập */
+  width: 119px;
+  height: 49px;
+  border-radius: 0 10px 10px 0;
+background: var(--Green-300, #1AB042);
+  flex-shrink: 0;
+  z-index: 10;
+  font-size: 11px;
+  margin-top: 332px;
+  margin-left:120px;
+  transform: translateX(-100%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-family: "SF Pro Bold", sans-serif !important;
 }

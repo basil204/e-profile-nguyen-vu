@@ -486,7 +486,7 @@ const TAB_TO_SECTION = {
     tab1: '.profile-section',
     tab2: '.profile-section-2',
     tab3: '.profile-section-3',
-    tab4: '.profile-section', // đổi thành '.profile-section-4' nếu bạn có section riêng
+    tab4: '.profile-section-4', // đổi thành '.profile-section-4' nếu bạn có section riêng
   };
   
   // Ẩn tất cả tab & tất cả profile-section*
