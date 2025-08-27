@@ -18,7 +18,7 @@
   /* left: -139%; */
   top: 0;
   width: 393px;
-  height: 790px;
+  height: 888px;
   z-index: 0;
   background-image: url('../img/big-city 1.png');
   background-size: cover;
@@ -590,19 +590,21 @@ line-height: 18px; /* 150% */
      border-radius: 0 10px 10px 0;
      background: var(--Green-300, #1AB042);
      display: inline-flex;
-     /* padding: 15px 20px; */
+     padding: 15px 0;
      align-items: center;
      gap: 10px;
      width: 139px;
-     height: 49px;
+     height: auto;
      /* margin-left: -100px; */
      border: none;
      color: #fff;
-     font-size: 14px;
+     font-size: 16px;
+     font-style: normal;
+font-weight: 700;
      cursor: pointer;
      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
      margin-top: 320px;
-     font-family: "SF Pro Semibold", sans-serif !important;
+     font-family: "SF Pro Bold", sans-serif !important;
      z-index: 30;
      padding-left: 22px;
 }

@@ -61,7 +61,7 @@
      -webkit-text-fill-color: transparent;
      font-size: 40px;
      line-height: 44px;
-     margin-top: -490px;
+     margin-top: -590px;
      text-align: left;
      margin-left: 0;
      font-family: "SF Pro Bold", sans-serif !important;
@@ -165,11 +165,11 @@
  .preloader-text{ font-family: "SF Pro Semibold", sans-serif; color:#1A49BB; font-size:14px; }
  .custom-bg {
      width: 240px;
-     height: 486px;
-     background: url("../img/f3e0d0a7eeb916eb0fc23c8d0394e69c588be425.png") no-repeat;
-     margin: 50px auto 0 133px;
+     height: 535px;
+     background: url("../img/KHM-1 (160) 3.png") no-repeat;margin: 50px auto 0 133px;
      background-size: cover;
      z-index: 5;
+     margin-top: 100px;
 }
  .custom-bgv2 {
      width: 240px;
@@ -211,29 +211,7 @@
      font-weight: 400;
      line-height: 18px;
 }
- .custom-btn {
-     position: relative;
-     transform: none;
-     border-radius: 0 10px 10px 0;
-     background: var(--Green-300, #1AB042);
-     display: inline-flex;
-     padding: 15px 20px;
-     align-items: center;
-     gap: 10px;
-     width: 139px;
-     height: 49px;
-     border: none;
-     color: #fff;
-     font-size: 16px;
-     cursor: pointer;
-     margin: 25px 0;
-     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-     z-index: 30;
-     align-self: flex-start;
-     margin-left: 2px;
-     left: -22px;
-     font-family: "SF Pro Bold", sans-serif !important;
-}
+
  .mong-muon-box {
      position: relative;
      width: 330px;
@@ -246,11 +224,11 @@
      padding: 16px 20px;
      font-size: 11px;
      color: #222;
-     margin: 0px auto;
+     margin: 20px auto;
      left: 50%;
      transform: translateX(-50%);
      opacity: 0.9;
-     margin-bottom: 6px;
+     margin-bottom: 20px;
      
 }
  .profile-section {
@@ -605,7 +583,7 @@
   color: #222;
   margin: 0px auto;
   margin-top: 400px;
-  left: -42px;
+  left: -82px;
   transform: translateX(-50%);
   opacity: 0.9;
   margin-bottom: 10px;
@@ -622,7 +600,7 @@
   margin-top: 190px;
   transform: translateX(-100%);
   z-index: 10;
-  margin-left: -238px;
+  margin-left: -268px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -675,7 +653,7 @@
      line-height: 18px;
 }
 .nut{
-  width: 119px;
+  width: 139px;
   height: 100%;
   padding: 15px 0;
   border-radius: 0 10px 10px 0;
@@ -684,7 +662,7 @@ background: var(--Green-300, #1AB042);
   z-index: 10;
   font-size: 11px;
   margin-top: 282px;
-  margin-left:120px;
+  margin-left:140px;
   transform: translateX(-100%);
   z-index: 10;
   display: flex;
@@ -692,7 +670,9 @@ background: var(--Green-300, #1AB042);
   justify-content: center;
   gap: 10px;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
+  font-style: normal;
+font-weight: 700;
   font-family: "SF Pro Bold", sans-serif !important;
 }
  .group-photo {
@@ -1227,7 +1207,7 @@ line-height: normal;
      border-radius: 0 10px 10px 0;
      background: var(--Green-300, #1AB042);
      display: inline-flex;
-     padding: 15px 20px;
+     padding: 15px 22px;
      align-items: center;
      gap: 10px;
      width: 139px;
@@ -1236,7 +1216,7 @@ line-height: normal;
      color: #fff;
      font-size: 16px;
      cursor: pointer;
-     margin: 25px 0;
+     margin: 45px 0;
      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
      z-index: 30;
      align-self: flex-start;
@@ -1600,7 +1580,7 @@ background: var(--Light-Blue-0, #CEF);
 
 .khoihinhxanhv2 {
   position: relative; /* cho phép con dùng absolute */
-  margin: 250px auto 0 118px;
+  margin: 300px auto 0 118px;
   width: 70%;
   height: 300px;
   z-index: 0;
@@ -1613,8 +1593,8 @@ background: var(--Light-Blue-0, #CEF);
   bottom: 0;                /* sát cạnh dưới */
   right: 0;                 /* sát cạnh phải */
   width: 240px;
-  height: 486px;
-  background: url("../img/f3e0d0a7eeb916eb0fc23c8d0394e69c588be425.png") no-repeat;
+  height: 535px;
+  background: url("../img/KHM-1 (160) 3.png") no-repeat;
   background-size: cover;
   z-index: 10;
   margin: 0;                /* bỏ margin để không bị đẩy */
@@ -1719,7 +1699,7 @@ font-weight: 400;
   font-size: 11px;
   color: #222;
   margin: 0px auto;
-  margin-top: 435px;
+  margin-top: 495px;
   left: 200px;
   transform: translateX(-50%);
   opacity: 0.9;
@@ -1727,15 +1707,16 @@ font-weight: 400;
 }
 .nutv4{
   position: absolute;   /* đặt độc lập */
-  width: 119px;
-  height: 49px;
+  width: 139px;
+  height: auto;
+  padding: 15px 0;
   border-radius: 0 10px 10px 0;
 background: var(--Green-300, #1AB042);
   flex-shrink: 0;
   z-index: 10;
   font-size: 11px;
-  margin-top: 332px;
-  margin-left:120px;
+  margin-top: 402px;
+  margin-left:140px;
   transform: translateX(-100%);
   z-index: 10;
   display: flex;
@@ -1743,6 +1724,9 @@ background: var(--Green-300, #1AB042);
   justify-content: center;
   gap: 10px;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
+  font-style: normal;
+font-weight: 700;
   font-family: "SF Pro Bold", sans-serif !important;
+  
 }
