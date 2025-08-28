@@ -512,15 +512,12 @@ background: var(--Neutral-100, #F4F4F4);
   }
   .press-card__headline{
    color: #000;
-
-/* SF Pro/14px: Regular */
 font-family: "SF Pro Regular", sans-serif !important;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
 line-height: 18px; /* 150% */
     margin:0 0 4px;
-    font-weight:600;
     line-height:1.2;
     color:var(--blue-700);
     text-decoration:none;
@@ -541,9 +538,9 @@ font-weight: 400;
 line-height: 18px; /* 150% */
   }
   .press-card__source{
-    color:var(--blue-600);
+    color:var(--blue-600);  
     text-decoration:none;
-    font-weight:700;
+    font-weight:400;
   }
   .press-card__source:hover{ text-decoration:underline; }
   .press-card__date{ color:var(--muted); }

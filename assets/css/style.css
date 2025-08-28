@@ -918,9 +918,9 @@ font-weight: 700;
   text-transform: uppercase;
 }
 
-.activity-next   { top: 10px; right: -157px; }
-.activity-next-v2{ top: 10px; right: -278px;} /* đổi top nếu muốn tách hàng */
-.activity-next-v3{ top: 10px; right: -215px; }
+.activity-next   { top: 10px; right: -137px; }
+.activity-next-v2{ top: 10px; right: -258px;} /* đổi top nếu muốn tách hàng */
+.activity-next-v3{ top: 10px; right: -192px; }
 
 
 .activity-cap{
