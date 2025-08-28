@@ -278,19 +278,68 @@ function scrollMenuBtnToCenter(btn) {
         if (e.key === 'ArrowLeft') move(-1);
       });
   
-      // Khởi tạo từng .project-slider độc lập + click ảnh mở modal
+      // Khởi tạo từng .project-slider độc lập + click ảnh mở modal (kèm hiệu ứng trượt)
       document.querySelectorAll('.project-slider').forEach(slider => {
         const slides = Array.from(slider.querySelectorAll('.project-slide'));
         const prev = slider.querySelector('.project-prev');
         const next = slider.querySelector('.project-next');
-        let cur = 0;
-  
-        function show(i) {
-          cur = (i + slides.length) % slides.length;
-          slides.forEach((s, k) => s.classList.toggle('active', k === cur));
+        let cur = Math.max(0, slides.findIndex(s => s.classList.contains('active')));
+        if (cur === -1) cur = 0;
+
+        let animating = false;
+        const DURATION = 380;
+        const EASING = 'transform .38s ease, opacity .38s ease';
+
+        function show(i, direction = 'left') {
+          if (!slides.length || animating) return;
+          const n = slides.length;
+          i = (i % n + n) % n;
+          if (i === cur) return;
+
+          const from = slides[cur];
+          const to = slides[i];
+          if (!from || !to) return;
+
+          animating = true;
+
+          // Chuẩn bị slide mới
+          to.classList.add('active');
+          to.style.transition = 'none';
+          to.style.transform = direction === 'left' ? 'translateX(100%)' : 'translateX(-100%)';
+          to.style.opacity = '0.9';
+
+          requestAnimationFrame(() => {
+            from.style.transition = EASING;
+            to.style.transition = EASING;
+
+            from.style.transform = direction === 'left' ? 'translateX(-100%)' : 'translateX(100%)';
+            from.style.opacity = '0.9';
+            to.style.transform = 'translateX(0)';
+            to.style.opacity = '1';
+
+            setTimeout(() => {
+              from.classList.remove('active');
+              from.style.transition = '';
+              from.style.transform = '';
+              from.style.opacity = '';
+
+              to.style.transition = '';
+              to.style.transform = '';
+              to.style.opacity = '';
+
+              cur = i;
+              animating = false;
+
+              // Eager decode ảnh đang hiện
+              const img = to.querySelector('img');
+              if (img) { try { img.loading = 'eager'; img.decoding = 'sync'; img.decode?.(); } catch {} }
+            }, DURATION);
+          });
         }
-        prev?.addEventListener('click', () => show(cur - 1));
-        next?.addEventListener('click', () => show(cur + 1));
+
+        prev?.addEventListener('click', () => show(cur - 1, 'right'));
+        next?.addEventListener('click', () => show(cur + 1, 'left'));
+
         slides.forEach((s, i) => {
           const img = s.querySelector('img');
           if (!img) return;
@@ -300,7 +349,9 @@ function scrollMenuBtnToCenter(btn) {
             open(urls, i);
           });
         });
-        show(0);
+
+        // Khởi tạo trạng thái ban đầu
+        slides.forEach((s, k) => s.classList.toggle('active', k === cur));
       });
     })();
   
