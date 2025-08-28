@@ -8,7 +8,7 @@
   max-width: 176.5px;
   height: 176.5px;
   max-height: 176.5px;
-  margin-left: 22px;
+  margin-left: 20px;
   margin-top: -350px;
 
 
@@ -197,6 +197,7 @@ summary{
     font-family: "SF Pro Regular", sans-serif !important;
     font-size: 14px;
     font-weight: 400;
+    text-decoration: none;   /* bỏ gạch chân */
   }
   
   .job .role-label {
@@ -417,7 +418,7 @@ margin-bottom: 40px;
 /* ===== Text styles ===== */
 .grid-sub {
   color: var(--Dark-blue-400, #153B94);
-  text-align: justify;
+  text-align: center;
   font-family: "SF Pro Regular", sans-serif !important;
   font-size: 14px;
   font-style: normal;
