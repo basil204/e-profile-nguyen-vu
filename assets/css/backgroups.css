@@ -9,7 +9,7 @@
   height: 176.5px;
   max-height: 176.5px;
   margin-left: 22px;
-  margin-top: -300px;
+  margin-top: -350px;
 
 
 }
@@ -155,15 +155,14 @@ summary{
     width: 177px;
     background: #EBEDF0;
     border-radius: 14px;
-    padding: 10px;
+    padding: 10px 10px 15px 10px;
     word-break: break-word;
     hyphens: auto;
     height: auto;
-    max-height: 100px;
+    max-height: 130px;
     overflow: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
-  
     display: flex;               /* dùng flexbox */
     flex-direction: column;      /* xếp dọc nội dung */
     gap: 10px;                   /* cách nhau 10px */
@@ -205,7 +204,6 @@ summary{
     color: #000;
     font-size: 14px;
     font-weight: 400;
-    margin-right: 4px;
   }
   
   .job .role-name {
@@ -464,6 +462,7 @@ font-style: normal;
 font-weight: 700;
 line-height: 31.5px; /* 150% */
 text-transform: uppercase;
+margin-top: 200px;
   }
 
   .press__list{
