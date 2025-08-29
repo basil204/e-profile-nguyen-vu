@@ -624,9 +624,9 @@ function scrollMenuBtnToCenter(btn) {
             height: 50px;
           }
           
-                     .scroll-progress-arrow {
-             font-size: 18px;
-           }
+          .scroll-progress-text {
+            font-size: 11px;
+          }
         }
       `;
       
@@ -643,7 +643,9 @@ function scrollMenuBtnToCenter(btn) {
         const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercent = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0;
         
-                 // Không cần cập nhật text nữa vì đã thay bằng mũi tên
+        // Cập nhật text
+        const textElement = progressBar.querySelector('.scroll-progress-text');
+        textElement.textContent = scrollPercent + '%';
         
         // Cập nhật fill
         const fillElement = progressBar.querySelector('.scroll-progress-fill');

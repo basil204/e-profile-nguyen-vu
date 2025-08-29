@@ -531,6 +531,7 @@ background: var(--Neutral-100, #F4F4F4);
     flex-wrap:wrap;
     font-size:14px;
     color: var(--Dark-blue, #1A49BB);
+    width: 400px;
 
 /* SF Pro/14px: Regular */
 font-family: "SF Pro Regular", sans-serif !important;
