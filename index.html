@@ -1797,7 +1797,15 @@ cao nhất trong lịch sử <br>trường Đại học Hàng hải<br> Việt N
     <script src="assets/js/tab-ux.js"></script>
     <script src="assets/js/skills-popup.js"></script>
   
-  
+    <script>
+      const projectItems = document.querySelectorAll('.skill-next-text');
+    
+      projectItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          console.log(`Bạn đã bấm vào item số ${index + 1}`, item);
+        });
+      });
+    </script>
   
         
    </body>

@@ -540,6 +540,176 @@ function scrollMenuBtnToCenter(btn) {
       start();
     })();
   
+    /* ---------- SCROLL PROGRESS BAR ---------- */
+    (function () {
+      // Tạo thanh progress
+      const progressBar = document.createElement('div');
+      progressBar.className = 'scroll-progress-bar';
+             progressBar.innerHTML = `
+         <div class="scroll-progress-fill"></div>
+         <div class="scroll-progress-arrow">↑</div>
+       `;
+      
+      // Thêm styles
+      const style = document.createElement('style');
+      style.textContent = `
+        .scroll-progress-bar {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 60px;
+          height: 60px;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 50%;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+          cursor: pointer;
+          z-index: 9999;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          backdrop-filter: blur(10px);
+          border: 2px solid rgba(26, 73, 187, 0.2);
+        }
+        
+        .scroll-progress-bar:hover {
+          transform: scale(1.1);
+          box-shadow: 0 6px 25px rgba(26, 73, 187, 0.3);
+          border-color: rgba(26, 73, 187, 0.5);
+        }
+        
+        .scroll-progress-fill {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: conic-gradient(from 0deg, #1a49bb 0deg, #1a49bb 0deg, #e5e7eb 0deg);
+          mask: radial-gradient(transparent 55%, black 55%);
+          -webkit-mask: radial-gradient(transparent 55%, black 55%);
+          transition: all 0.3s ease;
+        }
+        
+                 .scroll-progress-arrow {
+           font-size: 20px;
+           font-weight: 600;
+           color: #1a49bb;
+           z-index: 1;
+           font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+           line-height: 1;
+         }
+        
+        .scroll-progress-bar.hidden {
+          opacity: 0;
+          transform: scale(0.8);
+          pointer-events: none;
+        }
+        
+        .scroll-progress-bar.scrolling-up {
+          animation: scrollUpPulse 0.6s ease-out;
+        }
+        
+        @keyframes scrollUpPulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.2); }
+          100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+          .scroll-progress-bar {
+            bottom: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
+          }
+          
+                     .scroll-progress-arrow {
+             font-size: 18px;
+           }
+        }
+      `;
+      
+      document.head.appendChild(style);
+      document.body.appendChild(progressBar);
+      
+      // Biến để theo dõi trạng thái
+      let isScrolling = false;
+      let scrollTimeout;
+      
+      // Hàm cập nhật progress
+      const updateProgress = () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0;
+        
+                 // Không cần cập nhật text nữa vì đã thay bằng mũi tên
+        
+        // Cập nhật fill
+        const fillElement = progressBar.querySelector('.scroll-progress-fill');
+        fillElement.style.background = `conic-gradient(from 0deg, #1a49bb 0deg, #1a49bb ${scrollPercent * 3.6}deg, #e5e7eb ${scrollPercent * 3.6}deg)`;
+        
+        // Ẩn/hiện thanh progress
+        if (scrollPercent === 0) {
+          progressBar.classList.add('hidden');
+        } else {
+          progressBar.classList.remove('hidden');
+        }
+      };
+      
+      // Hàm scroll lên đầu
+      const scrollToTop = () => {
+        if (isScrolling) return;
+        
+        isScrolling = true;
+        progressBar.classList.add('scrolling-up');
+        
+        // Scroll mượt lên đầu
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        
+        // Xóa animation class sau khi hoàn thành
+        setTimeout(() => {
+          progressBar.classList.remove('scrolling-up');
+          isScrolling = false;
+        }, 600);
+      };
+      
+      // Event listeners
+      progressBar.addEventListener('click', scrollToTop);
+      
+      // Touch events cho mobile
+      progressBar.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        progressBar.style.transform = 'scale(0.95)';
+      });
+      
+      progressBar.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        progressBar.style.transform = '';
+        scrollToTop();
+      });
+      
+      // Cập nhật progress khi scroll
+      window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+          updateProgress();
+        }
+        
+        // Throttle scroll events
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateProgress, 10);
+      });
+      
+      // Cập nhật progress khi resize
+      window.addEventListener('resize', updateProgress);
+      
+      // Khởi tạo ban đầu
+      updateProgress();
+    })();
+
     /* ---------- TIMELINE: chỉ mở 1 details ---------- */
     document.querySelectorAll('.timeline details').forEach(det => {
       det.addEventListener('toggle', function () {
@@ -715,4 +885,212 @@ window.addEventListener('DOMContentLoaded', () => {
       img.classList.remove("loading");
     });
   });
+  
+    /* ---------- PROJECT SECTION ITEM CLICK -> SCROLL TO SKILL BOX ---------- */
+    (function () {
+      const projectItems = document.querySelectorAll('.skill-next-text');
+      const skillBoxes = Array.from(document.querySelectorAll('.skill-box'));
+      
+      if (!projectItems.length || !skillBoxes.length) return;
+      
+      let currentSkillIndex = 0;
+      
+      projectItems.forEach((item, itemIndex) => {
+        // Hàm xử lý scroll đến skill-box
+        const handleScrollToSkill = () => {
+          // Tính toán skill-box tiếp theo để scroll đến
+          const nextSkillIndex = (currentSkillIndex + 1) % skillBoxes.length;
+          const targetSkillBox = skillBoxes[nextSkillIndex];
+          
+          if (targetSkillBox) {
+            // Scroll mượt đến skill-box
+            targetSkillBox.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+              inline: 'center'
+            });
+            
+            // Cập nhật index hiện tại
+            currentSkillIndex = nextSkillIndex;
+            
+            // Thêm hiệu ứng highlight tạm thời
+            targetSkillBox.style.transition = 'all 0.3s ease';
+            targetSkillBox.style.transform = 'scale(1.05)';
+            targetSkillBox.style.boxShadow = '0 8px 25px rgba(26, 73, 187, 0.3)';
+            
+            setTimeout(() => {
+              targetSkillBox.style.transform = 'scale(1)';
+              targetSkillBox.style.boxShadow = '';
+            }, 600);
+          }
+        };
+
+        // Click event cho desktop
+        item.addEventListener('click', handleScrollToSkill);
+        
+        // Touch events cho mobile
+        let touchStartY = 0;
+        let touchStartX = 0;
+        
+        item.addEventListener('touchstart', (e) => {
+          touchStartY = e.touches[0].clientY;
+          touchStartX = e.touches[0].clientX;
+        });
+        
+        item.addEventListener('touchend', (e) => {
+          const touchEndY = e.changedTouches[0].clientY;
+          const touchEndX = e.changedTouches[0].clientX;
+          
+          // Tính khoảng cách di chuyển
+          const deltaY = Math.abs(touchEndY - touchStartY);
+          const deltaX = Math.abs(touchEndX - touchStartX);
+          
+          // Chỉ kích hoạt nếu touch ngắn và ít di chuyển (tap)
+          if (deltaY < 10 && deltaX < 10) {
+            handleScrollToSkill();
+          }
+        });
+        
+        // Thêm cursor pointer để người dùng biết có thể click
+        item.style.cursor = 'pointer';
+        item.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+        item.style.userSelect = 'none'; // Ngăn select text trên mobile
+        
+        // Hover effect (chỉ trên desktop)
+        item.addEventListener('mouseenter', () => {
+          if (!('ontouchstart' in window)) { // Chỉ trên desktop
+            item.style.transform = 'translateY(-2px)';
+            item.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+          }
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          if (!('ontouchstart' in window)) { // Chỉ trên desktop
+            item.style.transform = 'translateY(0)';
+            item.style.boxShadow = '';
+          }
+        });
+        
+        // Active state cho mobile
+        item.addEventListener('touchstart', () => {
+          if ('ontouchstart' in window) {
+            item.style.transform = 'scale(0.98)';
+            item.style.opacity = '0.8';
+          }
+        });
+        
+        item.addEventListener('touchend', () => {
+          if ('ontouchstart' in window) {
+            setTimeout(() => {
+              item.style.transform = 'scale(1)';
+              item.style.opacity = '1';
+            }, 150);
+          }
+        });
+      });
+    })();
+
+    /* ---------- ACTIVITY LABEL CLICK -> SCROLL TO ACTIVITY CARD ---------- */
+    (function () {
+      const activityLabels = document.querySelectorAll('.activity-label');
+      const activityCards = Array.from(document.querySelectorAll('.activity-card'));
+      
+      if (!activityLabels.length || !activityCards.length) return;
+      
+      let currentActivityIndex = 0;
+      
+      activityLabels.forEach((label, labelIndex) => {
+        // Hàm xử lý scroll đến activity-card
+        const handleScrollToActivity = () => {
+          // Tính toán activity-card tiếp theo để scroll đến
+          const nextActivityIndex = (currentActivityIndex + 1) % activityCards.length;
+          const targetActivityCard = activityCards[nextActivityIndex];
+          
+          if (targetActivityCard) {
+            // Scroll mượt đến activity-card
+            targetActivityCard.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+              inline: 'center'
+            });
+            
+            // Cập nhật index hiện tại
+            currentActivityIndex = nextActivityIndex;
+            
+            // Thêm hiệu ứng highlight tạm thời
+            targetActivityCard.style.transition = 'all 0.3s ease';
+            targetActivityCard.style.transform = 'scale(1.05)';
+            targetActivityCard.style.boxShadow = '0 8px 25px rgba(26, 73, 187, 0.3)';
+            
+            setTimeout(() => {
+              targetActivityCard.style.transform = 'scale(1)';
+              targetActivityCard.style.boxShadow = '';
+            }, 600);
+          }
+        };
+
+        // Click event cho desktop
+        label.addEventListener('click', handleScrollToActivity);
+        
+        // Touch events cho mobile
+        let touchStartY = 0;
+        let touchStartX = 0;
+        
+        label.addEventListener('touchstart', (e) => {
+          touchStartY = e.touches[0].clientY;
+          touchStartX = e.touches[0].clientX;
+        });
+        
+        label.addEventListener('touchend', (e) => {
+          const touchEndY = e.changedTouches[0].clientY;
+          const touchEndX = e.changedTouches[0].clientX;
+          
+          // Tính khoảng cách di chuyển
+          const deltaY = Math.abs(touchEndY - touchStartY);
+          const deltaX = Math.abs(touchEndX - touchStartX);
+          
+          // Chỉ kích hoạt nếu touch ngắn và ít di chuyển (tap)
+          if (deltaY < 10 && deltaX < 10) {
+            handleScrollToActivity();
+          }
+        });
+        
+        // Thêm cursor pointer để người dùng biết có thể click
+        label.style.cursor = 'pointer';
+        label.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+        label.style.userSelect = 'none'; // Ngăn select text trên mobile
+        
+        // Hover effect (chỉ trên desktop)
+        label.addEventListener('mouseenter', () => {
+          if (!('ontouchstart' in window)) { // Chỉ trên desktop
+            label.style.transform = 'translateY(-2px)';
+            label.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+          }
+        });
+        
+        label.addEventListener('mouseleave', () => {
+          if (!('ontouchstart' in window)) { // Chỉ trên desktop
+            label.style.transform = 'translateY(0)';
+            label.style.boxShadow = '';
+          }
+        });
+        
+        // Active state cho mobile
+        label.addEventListener('touchstart', () => {
+          if ('ontouchstart' in window) {
+            label.style.transform = 'scale(0.98)';
+            label.style.opacity = '0.8';
+          }
+        });
+        
+        label.addEventListener('touchend', () => {
+          if ('ontouchstart' in window) {
+            setTimeout(() => {
+              label.style.transform = 'scale(1)';
+              label.style.opacity = '1';
+            }, 150);
+          }
+        });
+      });
+    })();
   
