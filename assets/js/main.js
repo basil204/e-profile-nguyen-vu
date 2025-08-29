@@ -438,20 +438,71 @@ function scrollMenuBtnToCenter(btn) {
       let current = Math.max(0, slides.findIndex(s => s.classList.contains('active')));
       if (current === -1) { current = 0; slides[0]?.classList.add('active'); }
   
+      // Ensure layout suitable for sliding
+      try { root.style.position = root.style.position || 'relative'; } catch {}
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === current);
+        try {
+          s.style.position = 'absolute';
+          s.style.inset = '0';
+          s.style.display = idx === current ? 'block' : 'none';
+        } catch {}
+      });
+
       let timer = null;
-      const show = (i) => {
+      let animating = false;
+      const DURATION = 380;
+      const EASING = 'transform .38s ease, opacity .38s ease';
+
+      const show = (i, direction = 'left') => {
         const n = slides.length; if (!n) return;
         i = (i % n + n) % n;
-        if (i === current) return;
-        slides[current].classList.remove('active');
-        slides[i].classList.add('active');
-        current = i;
-        // Eager decode ảnh đang hiện
-        const img = slides[i].querySelector('img');
-        if (img) { try { img.loading = 'eager'; img.decoding = 'sync'; img.decode?.(); } catch {} }
+        if (i === current || animating) return;
+
+        const from = slides[current];
+        const to = slides[i];
+        if (!from || !to) return;
+
+        animating = true;
+
+        // Prepare target
+        to.classList.add('active');
+        try { to.style.display = 'block'; } catch {}
+        to.style.transition = 'none';
+        to.style.transform = direction === 'left' ? 'translateX(100%)' : 'translateX(-100%)';
+        to.style.opacity = '0.99';
+
+        requestAnimationFrame(() => {
+          from.style.transition = EASING;
+          to.style.transition = EASING;
+
+          from.style.transform = direction === 'left' ? 'translateX(-100%)' : 'translateX(100%)';
+          from.style.opacity = '0.9';
+          to.style.transform = 'translateX(0)';
+          to.style.opacity = '1';
+
+          setTimeout(() => {
+            from.classList.remove('active');
+            try { from.style.display = 'none'; } catch {}
+            from.style.transition = '';
+            from.style.transform = '';
+            from.style.opacity = '';
+
+            to.style.transition = '';
+            to.style.transform = '';
+            to.style.opacity = '';
+
+            current = i;
+            animating = false;
+
+            // Eager decode ảnh đang hiện
+            const img = to.querySelector('img');
+            if (img) { try { img.loading = 'eager'; img.decoding = 'sync'; img.decode?.(); } catch {} }
+          }, DURATION);
+        });
       };
-      const next = () => show(current + 1);
-      const prev = () => show(current - 1);
+      const next = () => show(current + 1, 'left');
+      const prev = () => show(current - 1, 'right');
   
       const start = () => { if (AUTOPLAY && !timer) timer = setInterval(next, INTERVAL); };
       const stop = () => { if (timer) { clearInterval(timer); timer = null; } };

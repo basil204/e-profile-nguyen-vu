@@ -224,7 +224,7 @@ summary{
     min-height: 253px;
     margin: 0 auto;
     overflow: hidden;
-    border-radius: 14px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -250,7 +250,7 @@ summary{
   font-weight: 700;
   line-height: 31.5px; /* 150% */
     margin-left: 23px;
-    
+    margin-top: 20px;
     position: relative;
     z-index: 2;
   text-transform: uppercase;
@@ -425,8 +425,8 @@ summary{
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
-  width: 136.5px;
-  max-width: 136.5px;
+  width: 150px;
+  max-width: 150px;
   overflow-wrap: break-word;
   word-break: break-word;
   white-space: normal;
@@ -436,7 +436,7 @@ summary{
 
 .grid-sub-3 {
   color: var(--Neutral-0, #FFF);
-  text-align: justify;
+  text-align: center;
   font-family: "SF Pro Regular", sans-serif !important;
   font-size: 14px;
   font-style: normal;
@@ -478,7 +478,7 @@ margin-top: 200px;
     display:grid;
     grid-template-columns:114px 1fr;
     gap:14px;
-    padding:10px;
+    padding:15px;
     background:var(--card);
     border-radius:var(--radius);
     border:1px solid var(--ring);
@@ -496,10 +496,10 @@ background: var(--Neutral-100, #F4F4F4);
 
   .press-card__thumb{
     position:relative;
-    width:114px;
-    height:72px;
+    width:120px;
+    height:120px;
     overflow:hidden;
-    border-radius:14px;
+    border-radius: 5px;
     background:#e9eef8;
   }
   .press-card__thumb img{
@@ -512,18 +512,18 @@ background: var(--Neutral-100, #F4F4F4);
   .press-card__content{
     min-width:0;
   }
-  .press-card__headline{
-   color: #000;
-font-family: "SF Pro Regular", sans-serif !important;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 18px; /* 150% */
-    margin:0 0 4px;
-    line-height:1.2;
-    color:var(--blue-700);
-    text-decoration:none;
+  .press-card__headline {
+    color: var(--blue-700);
+    font-family: "SF Pro Regular", sans-serif !important;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;        /* dãn dòng (tăng khoảng cách trên dưới giữa các dòng) */
+    letter-spacing: 0.5px;   /* dãn chữ (khoảng cách giữa các ký tự trong 1 dòng) */
+    margin: 0 0 4px;
+    text-decoration: none;
   }
+  
   .press-card__meta{
     display:flex;
     gap:8px;
@@ -550,7 +550,7 @@ line-height: 18px; /* 150% */
   /* Tối ưu hiển thị khi rộng hơn 480px: */
   @media (min-width:480px){
     .press-card{ grid-template-columns:132px 1fr; }
-    .press-card__thumb{ width:132px; height:82px; }
+    .press-card__thumb{ width:100%; height:100%; }
   }
   .end {
     width: 393px;

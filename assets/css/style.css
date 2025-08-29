@@ -719,7 +719,7 @@ font-weight: 700;
      font-weight: 700;
      line-height: 31.5px;
      text-transform: uppercase;
-     margin-top: 35px;
+     margin-top: 15px;
 }
  .core-values-tabs {
      display: flex;
@@ -810,7 +810,7 @@ font-weight: 700;
 }
 /* PANEL */
  .core-values-panel {
-     margin-top: 14px;
+     margin-top: 12px;
 }
  .core-values-panel .bubble {
      background: var(--green);
@@ -857,7 +857,6 @@ font-weight: 700;
      font-weight: 800;
      font-size: 18px;
      color: #1A49BB;
-     margin-top: 20px;
 }
 .activity-header {
   position: relative; /* để chứa được phần tử con absolute */
@@ -1328,8 +1327,9 @@ line-height: 19.6px; /* 140% */
   margin-top: -34px;
   margin-left: 18px;
 }
-.project-name-text-1-1{
-  display: inline-block;
+
+.project-name-text-1-1 {
+  display: block; /* thay inline-block bằng block */
   font-family: "SF Pro Regular", sans-serif !important;
   font-size: 14px;
   font-style: normal;
@@ -1337,12 +1337,11 @@ line-height: 19.6px; /* 140% */
   line-height: 18px;
   color: #000;
   text-align: justify;
-  vertical-align: top;
-  /* Nếu muốn xuống dòng đẹp hơn, có thể thêm: */
   white-space: normal;
   margin-top: -25px;
   margin-left: 18px;
 }
+
 .project-slider {
   position: relative;
   width: 309px;
