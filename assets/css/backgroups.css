@@ -159,7 +159,7 @@ summary{
     word-break: break-word;
     hyphens: auto;
     height: auto;
-    max-height: 130px;
+    max-height: 140px;
     overflow: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -531,6 +531,7 @@ background: var(--Neutral-100, #F4F4F4);
     flex-wrap:wrap;
     font-size:14px;
     color: var(--Dark-blue, #1A49BB);
+    width: 400px;
 
 /* SF Pro/14px: Regular */
 font-family: "SF Pro Regular", sans-serif !important;
